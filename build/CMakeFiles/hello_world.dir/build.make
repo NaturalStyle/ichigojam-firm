@@ -982,24 +982,10 @@ CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s"
 	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/class/video/video_device.c -o CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
 
-CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj: CMakeFiles/hello_world.dir/flags.make
-CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c
-CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj: CMakeFiles/hello_world.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj"
-	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj -MF CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj.d -o CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c
-
-CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.i"
-	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c > CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.i
-
-CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.s"
-	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c -o CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.s
-
 CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj: CMakeFiles/hello_world.dir/flags.make
 CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/tusb.c
 CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj: CMakeFiles/hello_world.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj"
 	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj -MF CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj.d -o CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/tusb.c
 
 CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.i: cmake_force
@@ -1013,7 +999,7 @@ CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.s: cmake_force
 CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: CMakeFiles/hello_world.dir/flags.make
 CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
 CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: CMakeFiles/hello_world.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj"
 	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj -MF CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj.d -o CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c
 
 CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i: cmake_force
@@ -1027,7 +1013,7 @@ CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s: cmake_
 CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: CMakeFiles/hello_world.dir/flags.make
 CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
 CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: CMakeFiles/hello_world.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj"
 	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj -MF CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj.d -o CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c
 
 CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i: cmake_force
@@ -1106,7 +1092,6 @@ hello_world_OBJECTS = \
 "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj" \
 "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj" \
 "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj" \
-"CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj" \
 "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj" \
 "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj" \
 "CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj"
@@ -1180,14 +1165,13 @@ hello_world.elf: CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/net/n
 hello_world.elf: CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
 hello_world.elf: CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
 hello_world.elf: CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
-hello_world.elf: CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj
 hello_world.elf: CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/tusb.c.obj
 hello_world.elf: CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
 hello_world.elf: CMakeFiles/hello_world.dir/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 hello_world.elf: CMakeFiles/hello_world.dir/build.make
 hello_world.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 hello_world.elf: CMakeFiles/hello_world.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Linking CXX executable hello_world.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/morita/dev/raspberry_pi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Linking CXX executable hello_world.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hello_world.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/bin/arm-none-eabi-objcopy -Oihex /Users/morita/dev/raspberry_pi/build/hello_world.elf hello_world.hex
 	/opt/homebrew/bin/arm-none-eabi-objcopy -Obinary /Users/morita/dev/raspberry_pi/build/hello_world.elf hello_world.bin

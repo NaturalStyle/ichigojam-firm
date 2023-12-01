@@ -31,8 +31,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/device/usbd.c.obj.d"
   "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj"
   "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj.d"
-  "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj"
-  "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/pio_usb/dcd_pio_usb.c.obj.d"
   "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj"
   "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj.d"
   "CMakeFiles/hello_world.dir/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj"
