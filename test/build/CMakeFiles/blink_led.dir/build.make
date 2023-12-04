@@ -69,107 +69,108 @@ include CMakeFiles/blink_led.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/blink_led.dir/flags.make
 
-CMakeFiles/blink_led.dir/blink_led.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/blink_led.c.o: /Users/morita/dev/raspberry_pi/test/blink_led.c
-CMakeFiles/blink_led.dir/blink_led.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/blink_led.dir/blink_led.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/blink_led.c.o -MF CMakeFiles/blink_led.dir/blink_led.c.o.d -o CMakeFiles/blink_led.dir/blink_led.c.o -c /Users/morita/dev/raspberry_pi/test/blink_led.c
+CMakeFiles/blink_led.dir/blink_led.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/blink_led.c.obj: /Users/morita/dev/raspberry_pi/test/blink_led.c
+CMakeFiles/blink_led.dir/blink_led.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/blink_led.dir/blink_led.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/blink_led.c.obj -MF CMakeFiles/blink_led.dir/blink_led.c.obj.d -o CMakeFiles/blink_led.dir/blink_led.c.obj -c /Users/morita/dev/raspberry_pi/test/blink_led.c
 
 CMakeFiles/blink_led.dir/blink_led.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/blink_led.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/test/blink_led.c > CMakeFiles/blink_led.dir/blink_led.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/test/blink_led.c > CMakeFiles/blink_led.dir/blink_led.c.i
 
 CMakeFiles/blink_led.dir/blink_led.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/blink_led.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/test/blink_led.c -o CMakeFiles/blink_led.dir/blink_led.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/test/blink_led.c -o CMakeFiles/blink_led.dir/blink_led.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i"
@@ -179,233 +180,234 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/h
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.i"
@@ -415,37 +417,38 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/h
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i"
@@ -455,23 +458,24 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.i"
@@ -481,9 +485,10 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i"
@@ -493,37 +498,38 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i"
@@ -533,9 +539,10 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i"
@@ -545,9 +552,10 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i"
@@ -557,37 +565,38 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i"
@@ -597,23 +606,24 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i"
@@ -623,9 +633,10 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.o"
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj   -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i"
@@ -635,173 +646,173 @@ CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/p
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_ASM_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
+	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o: CMakeFiles/blink_led.dir/flags.make
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
-CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o: CMakeFiles/blink_led.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: CMakeFiles/blink_led.dir/flags.make
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
+CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: CMakeFiles/blink_led.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj"
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -MF CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj.d -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -c /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c > CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 
 CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+	/opt/homebrew/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c -o CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 
 # Object files for target blink_led
 blink_led_OBJECTS = \
-"CMakeFiles/blink_led.dir/blink_led.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o" \
-"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o"
+"CMakeFiles/blink_led.dir/blink_led.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj" \
+"CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj"
 
 # External object files for target blink_led
 blink_led_EXTERNAL_OBJECTS =
 
-blink_led: CMakeFiles/blink_led.dir/blink_led.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o
-blink_led: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o
-blink_led: CMakeFiles/blink_led.dir/build.make
-blink_led: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
-blink_led: CMakeFiles/blink_led.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Linking CXX executable blink_led"
+blink_led.elf: CMakeFiles/blink_led.dir/blink_led.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/sem.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/lock_core.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/mutex.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_sync/critical_section.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/time.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/datetime.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/pheap.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/common/pico_util/queue.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+blink_led.elf: CMakeFiles/blink_led.dir/build.make
+blink_led.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
+blink_led.elf: CMakeFiles/blink_led.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Linking CXX executable blink_led.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/blink_led.dir/link.txt --verbose=$(VERBOSE)
-	CMAKE_OBJCOPY-NOTFOUND -Oihex /Users/morita/dev/raspberry_pi/test/build/blink_led blink_led.hex
-	CMAKE_OBJCOPY-NOTFOUND -Obinary /Users/morita/dev/raspberry_pi/test/build/blink_led blink_led.bin
-	/Library/Developer/CommandLineTools/usr/bin/objdump -h /Users/morita/dev/raspberry_pi/test/build/blink_led > blink_led.dis
-	/Library/Developer/CommandLineTools/usr/bin/objdump -d /Users/morita/dev/raspberry_pi/test/build/blink_led >> blink_led.dis
-	elf2uf2/elf2uf2 /Users/morita/dev/raspberry_pi/test/build/blink_led blink_led.uf2
+	/opt/homebrew/bin/arm-none-eabi-objcopy -Oihex /Users/morita/dev/raspberry_pi/test/build/blink_led.elf blink_led.hex
+	/opt/homebrew/bin/arm-none-eabi-objcopy -Obinary /Users/morita/dev/raspberry_pi/test/build/blink_led.elf blink_led.bin
+	/opt/homebrew/bin/arm-none-eabi-objdump -h /Users/morita/dev/raspberry_pi/test/build/blink_led.elf > blink_led.dis
+	/opt/homebrew/bin/arm-none-eabi-objdump -d /Users/morita/dev/raspberry_pi/test/build/blink_led.elf >> blink_led.dis
+	elf2uf2/elf2uf2 /Users/morita/dev/raspberry_pi/test/build/blink_led.elf blink_led.uf2
 
 # Rule to build all files generated by this target.
-CMakeFiles/blink_led.dir/build: blink_led
+CMakeFiles/blink_led.dir/build: blink_led.elf
 .PHONY : CMakeFiles/blink_led.dir/build
 
 CMakeFiles/blink_led.dir/clean:

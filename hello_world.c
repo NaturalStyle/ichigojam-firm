@@ -1,5 +1,6 @@
 // cmake -DPICO_SDK_PATH=/Users/morita/dev/raspberry_pi/pico-sdk
-// -DPICO_TOOLCHAIN_PATH=/opt/homebrew .. sudo screen /dev/tty.usbmodem11101
+// -DPICO_TOOLCHAIN_PATH=/opt/homebrew ..
+// sudo screen /dev/tty.usbmodem11101 115200
 #include <stdio.h>
 #include "pico/stdlib.h"
 

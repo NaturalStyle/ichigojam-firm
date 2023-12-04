@@ -70,11 +70,11 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_as
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default_padded_checksummed.S"
-	cd /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2 && /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9 /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/boot_stage2/pad_checksum -s 0xffffffff /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
+	cd /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2 && /usr/bin/python3 /Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/boot_stage2/pad_checksum -s 0xffffffff /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/morita/dev/raspberry_pi/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating bs2_default.bin"
-	cd /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2 && CMAKE_OBJCOPY-NOTFOUND -Obinary /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+	cd /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2 && /opt/homebrew/bin/arm-none-eabi-objcopy -Obinary /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf /Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 bs2_default_padded_checksummed_asm: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm
 bs2_default_padded_checksummed_asm: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin

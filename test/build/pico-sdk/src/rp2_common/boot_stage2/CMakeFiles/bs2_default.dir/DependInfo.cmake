@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/boot_stage2/compile_time_choice.S" "/Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.o"
+  "/Users/morita/dev/raspberry_pi/pico-sdk/src/rp2_common/boot_stage2/compile_time_choice.S" "/Users/morita/dev/raspberry_pi/test/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj"
   )
-set(CMAKE_ASM_COMPILER_ID "AppleClang")
+set(CMAKE_ASM_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_ASM
