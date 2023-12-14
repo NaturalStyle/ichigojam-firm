@@ -6,7 +6,7 @@
 
 int main() {
     stdio_init_all();
-    for(int i=0;i<60;i++){
+    for (int i = 0; i < 60; i++) {
         printf("Hello, world!\n");
         sleep_ms(1000);
     }
