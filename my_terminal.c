@@ -92,42 +92,17 @@ int main() {
 
 	printf("Start rendering\n");
 
-	// for (int y = 0; y < FRAME_HEIGHT; ++y) {
-	// 	for (int x = 0; x < FRAME_WIDTH; ++x) {
-	// 		const float scale = FRAME_HEIGHT / 2;
-	// 		float cr = ((float)x - FRAME_WIDTH / 2) / scale - 0.5f;
-	// 		float ci = ((float)y - FRAME_HEIGHT / 2) / scale;
-	// 		float zr = cr;
-	// 		float zi = ci;
-	// 		int iters;
-	// 		const int max_iters = 255;
-	// 		for (iters = 0; iters < max_iters; ++iters) {
-	// 			if (zr * zr + zi * zi > 4.f)
-	// 				break;
-	// 			float zrtemp = zr * zr - zi * zi + cr;
-	// 			zi = 2.f * zr * zi + ci;
-	// 			zr = zrtemp;
-	// 		}
-	// 		framebuf[y * FRAME_WIDTH + x] = ((max_iters - iters) >> 2) * 0x41 >> 1;
-	// 	}
-	// }
 	for (int y = 0;y < CHAR_ROWS;++y) {
 		for (int x = 0;x < CHAR_COLS;++x) {
 			charbuf[y][x] = (y * CHAR_COLS + x) % CHAR_NUM + 32;
 		}
 	}
-	// int c = 36;
 	for (int y = 0; y < CHAR_ROWS * 8; ++y) {
 		int row = y % 8;
 		for (int x = 0;x < CHAR_COLS * 8;++x) {
 			int c = charbuf[y / 8][x / 8];
 			int col = x % 8;
 			int pixel = (CHAR_PATTERN[c * 8 + row] & (1 << (7 - col))) ? 0xffff : 0x0000;
-			// printf("c+row*CHAR_NUM=%d c=%d pixel=%d /n", c + row * CHAR_NUM, c, pixel);
-			// printf("font_8x8[c + row * CHAR_NUM]=%d  ", font_8x8[c + row * CHAR_NUM]);
-			// printf("shift=%d  ", 1 << (7 - row));
-			// printf("and=%d  ", font_8x8[c + row * CHAR_NUM] & (1 << (7 - row)));
-			// int pixel = 0xffff;
 			framebuf[(y + MARGIN_HEIGHT) * FRAME_WIDTH + (x + MARGIN_WIDTH)] = pixel;
 		}
 	}
