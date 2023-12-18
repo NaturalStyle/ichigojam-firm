@@ -24,10 +24,11 @@
 
 #define CHAR_ROWS 24
 #define CHAR_COLS 32
-#define CHAR_NUM 95
 
-#define MARGIN_WIDTH 32
-#define MARGIN_HEIGHT 24
+#define FONT_SIZE 8
+
+#define MARGIN_WIDTH (FRAME_WIDTH - CHAR_COLS * FONT_SIZE) / 2
+#define MARGIN_HEIGHT (FRAME_HEIGHT - CHAR_ROWS * FONT_SIZE) / 2
 
 #define LED_PIN 25
 
@@ -35,7 +36,7 @@ struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_WIDTH * FRAME_HEIGHT];
 
 
-uint16_t charbuf[CHAR_ROWS][CHAR_COLS];
+uint16_t charbuf[CHAR_ROWS * CHAR_COLS];
 
 void core1_main() {
 	dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);
@@ -56,10 +57,20 @@ void core1_scanline_callback() {
 	scanline = (scanline + 1) % FRAME_HEIGHT;
 }
 
+void charbuf_to_framebuf(int charbuf_x, int charbuf_y) {
+	int c = charbuf[charbuf_y * CHAR_COLS + charbuf_x];
+	for (int y = 0; y < FONT_SIZE; ++y) {
+		for (int x = 0; x < FONT_SIZE; ++x) {
+			int pixel = (CHAR_PATTERN[c * FONT_SIZE + y] & (0x80 >> x)) ? 0xffff : 0x0000;
+			framebuf[(y + charbuf_y * FONT_SIZE + MARGIN_HEIGHT) * FRAME_WIDTH
+				+ (x + charbuf_x * FONT_SIZE + MARGIN_WIDTH)] = pixel;
+		}
+	}
+}
+
 int main() {
 	vreg_set_voltage(VREG_VSEL);
 	sleep_ms(10);
-	// sleep_ms(10000);
 #ifdef RUN_FROM_CRYSTAL
 	set_sys_clock_khz(12000, true);
 #else
@@ -92,18 +103,14 @@ int main() {
 
 	printf("Start rendering\n");
 
-	for (int y = 0;y < CHAR_ROWS;++y) {
-		for (int x = 0;x < CHAR_COLS;++x) {
-			charbuf[y][x] = (y * CHAR_COLS + x) % CHAR_NUM + 32;
+	for (int y = 0; y < CHAR_ROWS; ++y) {
+		for (int x = 0; x < CHAR_COLS; ++x) {
+			charbuf[y * CHAR_COLS + x] = (y * CHAR_COLS + x) % (256 - 32) + 32;
 		}
 	}
-	for (int y = 0; y < CHAR_ROWS * 8; ++y) {
-		int row = y % 8;
-		for (int x = 0;x < CHAR_COLS * 8;++x) {
-			int c = charbuf[y / 8][x / 8];
-			int col = x % 8;
-			int pixel = (CHAR_PATTERN[c * 8 + row] & (1 << (7 - col))) ? 0xffff : 0x0000;
-			framebuf[(y + MARGIN_HEIGHT) * FRAME_WIDTH + (x + MARGIN_WIDTH)] = pixel;
+	for (int y = 0; y < CHAR_ROWS; ++y) {
+		for (int x = 0; x < CHAR_COLS; ++x) {
+			charbuf_to_framebuf(x, y);
 		}
 	}
 	while (1)
