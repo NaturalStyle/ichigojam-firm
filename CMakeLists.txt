@@ -20,69 +20,71 @@ add_subdirectory(PicoDVI/software/libsprite)
 
 # rest of your project
 
-add_executable(hello_world
-    hello_world.c
-)
+# add_executable(hello_world
+#     hello_world.c
+# )
 
-# Add pico_stdlib library which aggregates commonly used features
-target_link_libraries(hello_world pico_stdlib)
+# # Add pico_stdlib library which aggregates commonly used features
+# target_link_libraries(hello_world pico_stdlib)
 
-pico_enable_stdio_usb(hello_world 1)
-pico_enable_stdio_uart(hello_world 1)
+# pico_enable_stdio_usb(hello_world 1)
+# pico_enable_stdio_uart(hello_world 1)
 
-# create map/bin/hex/uf2 file in addition to ELF.
-pico_add_extra_outputs(hello_world)
+# # create map/bin/hex/uf2 file in addition to ELF.
+# pico_add_extra_outputs(hello_world)
 
-add_executable(colour_terminal
-	colour_terminal.c
-	tmds_encode_font_2bpp.S
-	tmds_encode_font_2bpp.h
-)
+# add_executable(colour_terminal
+# 	colour_terminal.c
+# 	tmds_encode_font_2bpp.S
+# 	tmds_encode_font_2bpp.h
+# )
 
-target_compile_definitions(colour_terminal PRIVATE
-	DVI_VERTICAL_REPEAT=1
-	)
+# target_compile_definitions(colour_terminal PRIVATE
+# 	DVI_VERTICAL_REPEAT=1
+# 	)
 
-# We have a lot in SRAM4 (particularly TMDS LUT) but don't need much stack on
-# core 1. Probably even 256 bytes would be fine.
-target_compile_definitions(colour_terminal PRIVATE
-	DVI_DEFAULT_SERIAL_CONFIG=${DVI_DEFAULT_SERIAL_CONFIG}
-	PICO_CORE1_STACK_SIZE=0x200
-	)
+# # We have a lot in SRAM4 (particularly TMDS LUT) but don't need much stack on
+# # core 1. Probably even 256 bytes would be fine.
+# target_compile_definitions(colour_terminal PRIVATE
+# 	DVI_DEFAULT_SERIAL_CONFIG=${DVI_DEFAULT_SERIAL_CONFIG}
+# 	PICO_CORE1_STACK_SIZE=0x200
+# 	)
 
-target_link_libraries(colour_terminal
-	pico_stdlib
-	pico_multicore
-	libdvi
-)
+# target_link_libraries(colour_terminal
+# 	pico_stdlib
+# 	pico_multicore
+# 	libdvi
+# )
 
-# create map/bin/hex file etc.
-pico_add_extra_outputs(colour_terminal)
+# # create map/bin/hex file etc.
+# pico_add_extra_outputs(colour_terminal)
 
-# Replace TMDS with 10 bit UART (same baud rate):
-# add_definitions(-DDVI_SERIAL_DEBUG=1)
-# add_definitions(-DRUN_FROM_CRYSTAL)
+# # Replace TMDS with 10 bit UART (same baud rate):
+# # add_definitions(-DDVI_SERIAL_DEBUG=1)
+# # add_definitions(-DRUN_FROM_CRYSTAL)
 
-add_executable(sprite_bounce
-	sprite_bounce.c
-)
+# add_executable(sprite_bounce
+# 	sprite_bounce.c
+# )
 
-target_compile_options(sprite_bounce PRIVATE -Wall)
+# target_compile_options(sprite_bounce PRIVATE -Wall)
 
-target_compile_definitions(sprite_bounce PRIVATE
-	DVI_DEFAULT_SERIAL_CONFIG=${DVI_DEFAULT_SERIAL_CONFIG}
-	)
+# target_compile_definitions(sprite_bounce PRIVATE
+# 	DVI_DEFAULT_SERIAL_CONFIG=${DVI_DEFAULT_SERIAL_CONFIG}
+# 	)
 
-target_link_libraries(sprite_bounce
-	pico_stdlib
-	pico_multicore
-	pico_util
-	libdvi
-	libsprite
-)
+# target_link_libraries(sprite_bounce
+# 	pico_stdlib
+# 	pico_multicore
+# 	pico_util
+# 	libdvi
+# 	libsprite
+# )
 
-# create map/bin/hex file etc.
-pico_add_extra_outputs(sprite_bounce)
+# # create map/bin/hex file etc.
+# pico_add_extra_outputs(sprite_bounce)
+
+
 
 # Replace TMDS with 10 bit UART (same baud rate):
 # add_definitions(-DDVI_SERIAL_DEBUG=1)
@@ -90,22 +92,28 @@ pico_add_extra_outputs(sprite_bounce)
 
 add_executable(my_terminal
 	my_terminal.c
+	hid_app.c
 	ichigojam-jp.fnt.h
 )
+
+target_include_directories(my_terminal PUBLIC
+        ${CMAKE_CURRENT_LIST_DIR})
 
 target_compile_definitions(my_terminal PRIVATE
 	DVI_DEFAULT_SERIAL_CONFIG=${DVI_DEFAULT_SERIAL_CONFIG}
 	)
 
-target_link_libraries(my_terminal
+target_link_libraries(my_terminal PUBLIC
 	pico_stdlib
 	pico_multicore
 	pico_util
 	libdvi
 	libsprite
+	tinyusb_host
+	tinyusb_board
 )
 
-pico_enable_stdio_usb(my_terminal 1)
+# pico_enable_stdio_usb(my_terminal 0)
 pico_enable_stdio_uart(my_terminal 1)
 
 # create map/bin/hex file etc.
