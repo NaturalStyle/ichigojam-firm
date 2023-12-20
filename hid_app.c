@@ -30,13 +30,14 @@
  // MACRO TYPEDEF CONSTANT ENUM DECLARATION
  //--------------------------------------------------------------------+
 
-// If your host terminal support ansi escape code such as TeraTerm
-// it can be use to simulate mouse cursor movement within terminal
+ // If your host terminal support ansi escape code such as TeraTerm
+ // it can be use to simulate mouse cursor movement within terminal
 #define USE_ANSI_ESCAPE   0
 
 #define MAX_REPORT  4
 
 static uint8_t const keycode2ascii[128][2] = { HID_KEYCODE_TO_ASCII };
+extern uint8_t char_code;
 
 // Each HID instance can has multiple reports
 static struct
@@ -104,17 +105,17 @@ void tuh_hid_report_received_cb(uint8_t dev_addr, uint8_t instance, uint8_t cons
   {
   case HID_ITF_PROTOCOL_KEYBOARD:
     TU_LOG2("HID receive boot keyboard report\r\n");
-      process_kbd_report((hid_keyboard_report_t const*)report);
+    process_kbd_report((hid_keyboard_report_t const*)report);
     break;
 
-    case HID_ITF_PROTOCOL_MOUSE:
-      TU_LOG2("HID receive boot mouse report\r\n");
-      process_mouse_report((hid_mouse_report_t const*)report);
+  case HID_ITF_PROTOCOL_MOUSE:
+    TU_LOG2("HID receive boot mouse report\r\n");
+    process_mouse_report((hid_mouse_report_t const*)report);
     break;
 
-    default:
-      // Generic report requires matching ReportID and contents with previous parsed report info
-      process_generic_report(dev_addr, instance, report, len);
+  default:
+    // Generic report requires matching ReportID and contents with previous parsed report info
+    process_generic_report(dev_addr, instance, report, len);
     break;
   }
 
@@ -158,7 +159,8 @@ static void process_kbd_report(hid_keyboard_report_t const* report)
         // not existed in previous report means the current key is pressed
         bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
         uint8_t ch = keycode2ascii[report->keycode[i]][is_shift ? 1 : 0];
-        putchar(ch);
+        // putchar(ch);
+        char_code = ch;
         if (ch == '\r') putchar('\n'); // added new line for enter key
 
         fflush(stdout); // flush right away, else nanolib will wait for newline
@@ -286,16 +288,16 @@ static void process_generic_report(uint8_t dev_addr, uint8_t instance, uint8_t c
     case HID_USAGE_DESKTOP_KEYBOARD:
       TU_LOG1("HID receive keyboard report\r\n");
       // Assume keyboard follow boot report layout
-        process_kbd_report((hid_keyboard_report_t const*)report);
+      process_kbd_report((hid_keyboard_report_t const*)report);
       break;
 
-      case HID_USAGE_DESKTOP_MOUSE:
-        TU_LOG1("HID receive mouse report\r\n");
-        // Assume mouse follow boot report layout
-        process_mouse_report((hid_mouse_report_t const*)report);
+    case HID_USAGE_DESKTOP_MOUSE:
+      TU_LOG1("HID receive mouse report\r\n");
+      // Assume mouse follow boot report layout
+      process_mouse_report((hid_mouse_report_t const*)report);
       break;
 
-      default: break;
+    default: break;
     }
   }
 }

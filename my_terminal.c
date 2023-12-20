@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
 #include "hardware/clocks.h"
@@ -14,6 +15,9 @@
 #include "dvi_serialiser.h"
 #include "common_dvi_pin_configs.h"
 #include "sprite.h"
+
+#include "bsp/board.h"
+#include "tusb.h"
 
 // TMDS bit clock 252 MHz
 // DVDD 1.2V (1.1V seems ok too)
@@ -34,9 +38,8 @@
 
 struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_WIDTH * FRAME_HEIGHT];
-
-
 uint16_t charbuf[CHAR_ROWS * CHAR_COLS];
+uint8_t char_code;
 
 void core1_main() {
 	dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);
@@ -69,6 +72,9 @@ void charbuf_to_framebuf(int charbuf_x, int charbuf_y) {
 }
 
 int main() {
+	board_init();
+	stdio_init_all();
+
 	vreg_set_voltage(VREG_VSEL);
 	sleep_ms(10);
 #ifdef RUN_FROM_CRYSTAL
@@ -82,6 +88,7 @@ int main() {
 
 	gpio_init(LED_PIN);
 	gpio_set_dir(LED_PIN, GPIO_OUT);
+	gpio_put(LED_PIN, 1);
 
 	printf("Configuring DVI\n");
 
@@ -101,7 +108,8 @@ int main() {
 	printf("Core 1 start\n");
 	multicore_launch_core1(core1_main);
 
-	printf("Start rendering\n");
+	// init host stack on configured roothub port
+	tuh_init(BOARD_TUH_RHPORT);
 
 	for (int y = 0; y < CHAR_ROWS; ++y) {
 		for (int x = 0; x < CHAR_COLS; ++x) {
@@ -113,8 +121,18 @@ int main() {
 			charbuf_to_framebuf(x, y);
 		}
 	}
-	while (1)
+	while (1) {
+		tuh_task();
+		charbuf[0] = char_code;
+		for (int y = 0; y < CHAR_ROWS; ++y) {
+			for (int x = 0; x < CHAR_COLS; ++x) {
+				charbuf_to_framebuf(x, y);
+			}
+		}
+		printf("%d", char_code);
 		__wfe();
+	}
+
 	__builtin_unreachable();
 }
 
