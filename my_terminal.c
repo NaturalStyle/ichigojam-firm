@@ -40,6 +40,7 @@ struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_WIDTH * FRAME_HEIGHT];
 uint16_t charbuf[CHAR_ROWS * CHAR_COLS];
 uint8_t char_code;
+uint16_t now = 0;
 
 void core1_main() {
 	dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);
@@ -121,16 +122,17 @@ int main() {
 			charbuf_to_framebuf(x, y);
 		}
 	}
+	char_code = 133;
 	while (1) {
 		tuh_task();
-		charbuf[0] = char_code;
-		for (int y = 0; y < CHAR_ROWS; ++y) {
-			for (int x = 0; x < CHAR_COLS; ++x) {
-				charbuf_to_framebuf(x, y);
-			}
+		charbuf[now] = char_code;
+		charbuf_to_framebuf(now % CHAR_COLS, now / CHAR_COLS);
+		if (char_code != 133) {
+			now++;
 		}
-		printf("%d", char_code);
-		__wfe();
+		char_code = 133;
+		// printf("%d", char_code);
+		// __wfe();
 	}
 
 	__builtin_unreachable();
