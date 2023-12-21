@@ -82,6 +82,10 @@ void tuh_hid_mount_cb(uint8_t dev_addr, uint8_t instance, uint8_t const* desc_re
     printf("HID has %u reports \r\n", hid_info[instance].report_count);
   }
 
+  uint8_t leds = 0;
+  leds &= ~KEYBOARD_LED_NUMLOCK;
+  tuh_hid_set_report(dev_addr, instance, 0, HID_REPORT_TYPE_OUTPUT, &leds, sizeof(leds));
+
   // request to receive report
   // tuh_hid_report_received_cb() will be invoked when report is available
   if (!tuh_hid_receive_report(dev_addr, instance))
