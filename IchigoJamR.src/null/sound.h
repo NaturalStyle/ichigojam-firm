@@ -1,0 +1,18 @@
+// created by Taisuke Fukuno, @taisukef, http://fukuno.jig.jp/
+// license CC BY-NC-SA 4.0 http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
+
+inline void sound_init();
+void sound_on();
+void sound_off();
+static inline void sound_tick();
+
+void sound_on() {
+}
+void sound_off()	{
+}
+inline void sound_init() {
+}
+static inline void sound_tick() {
+}
+static void sound_switch(int on) {
+}
