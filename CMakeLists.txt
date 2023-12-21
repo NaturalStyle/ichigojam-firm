@@ -96,12 +96,15 @@ add_executable(my_terminal
 	ichigojam-jp.fnt.h
 )
 
+# Make sure TinyUSB can find tusb_config.h
+# my_terminal.cと同じ階層にあるtusb_config.hをinclude
 target_include_directories(my_terminal PUBLIC
         ${CMAKE_CURRENT_LIST_DIR})
 
+# PicoDVI/software/apps/mandelbrot/CMakeLists.txt から引用
 target_compile_definitions(my_terminal PRIVATE
 	DVI_DEFAULT_SERIAL_CONFIG=${DVI_DEFAULT_SERIAL_CONFIG}
-	)
+)
 
 target_link_libraries(my_terminal PUBLIC
 	pico_stdlib
