@@ -9,7 +9,6 @@
 #include "hardware/sync.h"
 #include "hardware/vreg.h"
 #include "pico/sem.h"
-#include "ichigojam-jp.fnt.h"
 
 #include "dvi.h"
 #include "dvi_serialiser.h"
@@ -19,6 +18,7 @@
 #include "bsp/board.h"
 #include "tusb.h"
 
+#include "IchigoJamR.src/ichigojam-jp.fnt.h"
 // TMDS bit clock 252 MHz
 // DVDD 1.2V (1.1V seems ok too)
 #define FRAME_WIDTH 320
