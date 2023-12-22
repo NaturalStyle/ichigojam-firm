@@ -93,7 +93,6 @@ add_subdirectory(PicoDVI/software/libsprite)
 add_executable(my_terminal
 	my_terminal.c
 	hid_app.c
-	ichigojam-jp.fnt.h
 )
 
 # Make sure TinyUSB can find tusb_config.h
