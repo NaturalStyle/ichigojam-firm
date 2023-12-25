@@ -216,85 +216,86 @@ int main() {
 
 
     // from IchigoJamR.src
-	char* linebuf = (char*)ram + OFFSET_RAM_LINEBUF;
-	if (*linebuf) {
-//		put_str(ERR_MESSAGES[ERR_STACK_OVERFLOW - 1]);
-//		put_chr('\n');
-		if (_g.cursory == -1) { // 1.4.1 前にもってくる
-			_g.cursory = 0;
-		}
-		if (!noresmode) {
-			if (!_g.err) {
-				_g.err = ERR_COMPLEX_EXPRESSION;
-			}
-			basic_printError();
-//			put_str(ERR_MESSAGES[_g.err - 1]);
-//			put_chr('\n');
-		}
-		// from exec
-//		screen_showCursor(1);
-	//	if (res != 2) { // 1.2b36 追加、edit時(==2)以外に限定
-		//if (res == BASIC_RESULT_ERR) { // 1.3b4 エラー停止の時だけ、キークリア
-		key_clearKey(); // 1.3b4 エラー停止の時だけ、キークリア
+// 	char* linebuf = (char*)ram + OFFSET_RAM_LINEBUF;
+// 	if (*linebuf) {
+// //		put_str(ERR_MESSAGES[ERR_STACK_OVERFLOW - 1]);
+// //		put_chr('\n');
+// 		if (_g.cursory == -1) { // 1.4.1 前にもってくる
+// 			_g.cursory = 0;
+// 		}
+// 		if (!noresmode) {
+// 			if (!_g.err) {
+// 				_g.err = ERR_COMPLEX_EXPRESSION;
+// 			}
+// 			basic_printError();
+// //			put_str(ERR_MESSAGES[_g.err - 1]);
+// //			put_chr('\n');
+// 		}
+// 		// from exec
+// //		screen_showCursor(1);
+// 	//	if (res != 2) { // 1.2b36 追加、edit時(==2)以外に限定
+// 		//if (res == BASIC_RESULT_ERR) { // 1.3b4 エラー停止の時だけ、キークリア
+// 		key_clearKey(); // 1.3b4 エラー停止の時だけ、キークリア
 
-		key_flg.insert = key_flg.bkinsert;
-	}
-	for (;;) {
-		tuh_task();     //MOTTEKITA
+// 		key_flg.insert = key_flg.bkinsert;
+// 	}
+// 	for (;;) {
+// 		tuh_task();     //MOTTEKITA
 
 
 
-    	// put_num(hid_desc.header.bLength); // bCountryCode);
-		//put_num(usb_host.dev_prop.dev_desc.idVendor);
-		if (_g.sleepflg) {
-			_g.sleepflg = 0;
-			*linebuf = 1;
+//     	// put_num(hid_desc.header.bLength); // bCountryCode);
+// 		//put_num(usb_host.dev_prop.dev_desc.idVendor);
+// 		if (_g.sleepflg) {
+// 			_g.sleepflg = 0;
+// 			*linebuf = 1;
 
-			#define BOOT_WAIT2 25	// 1.4b10 -> b11 ここに移動
-			video_waitSync(BOOT_WAIT2);
+// 			#define BOOT_WAIT2 25	// 1.4b10 -> b11 ここに移動
+// 			video_waitSync(BOOT_WAIT2);
 
-			exec("LRUN");
-		}
-		screen_showCursor(1); // 1.4b10
-		IJB_random(1);
-		video_waitSync(1); // 消すとUART受信漏れ発生?
+// 			exec("LRUN");
+// 		}
+// 		screen_showCursor(1); // 1.4b10
+// 		IJB_random(1);
+// 		video_waitSync(1); // 消すとUART受信漏れ発生?
+
+// 		int key = key_getKey();
+// 		if (key < 0)
+// 			continue;
+// 		if (_g.uartmode_txd & 4) { // 1.2b62 UART echo back
+// 			uart_putc(key); // 1.3b2
+// //			put_chr(key);
+// 		}
+// 		if (key == 27)
+// 			continue;
 		
-		int key = key_getKey();
-		if (key < 0)
-			continue;
-		if (_g.uartmode_txd & 4) { // 1.2b62 UART echo back
-			uart_putc(key); // 1.3b2
-//			put_chr(key);
-		}
-		if (key == 27)
-			continue;
+// 		_g.screen_insertmode = key_flg.insert;
 
-		_g.screen_insertmode = key_flg.insert;
+// 		screen_putc(key);
 
-		screen_putc(key);
+// 		if (key == '\n') {
+// 			uint8* s = screen_gets();
 
-		if (key == '\n') {
-			uint8* s = screen_gets();
-	//		put_str(s);
-			if (*s == '\'') { // 1.1b14
-			} else if (*s != 0) {
-				uint8 i;
-				for (i = 0; i < N_LINEBUF; i++) {
-					linebuf[i] = s[i];
-					if (!s[i])
-						break;
-				}
-//				_g.screen_insertmode = 1;
-				if (s[i]) {
-//					put_str("Too long line\n");
-					put_str("Too long\n"); // 1.2b45
-				} else {
-					linebuf[i] = 0; // いっぱいまで入れるとバグっていた 1.2b32
-					exec(linebuf);
-				}
-			}
-		}
-	}
+// 	//		put_str(s);
+// 			if (*s == '\'') { // 1.1b14
+// 			} else if (*s != 0) {
+// 				uint8 i;
+// 				for (i = 0; i < N_LINEBUF; i++) {
+// 					linebuf[i] = s[i];
+// 					if (!s[i])
+// 						break;
+// 				}
+// //				_g.screen_insertmode = 1;
+// 				if (s[i]) {
+// //					put_str("Too long line\n");
+// 					put_str("Too long\n"); // 1.2b45
+// 				} else {
+// 					linebuf[i] = 0; // いっぱいまで入れるとバグっていた 1.2b32
+// 					exec(linebuf);
+// 				}
+// 			}
+// 		}
+// 	}
 
 
 
