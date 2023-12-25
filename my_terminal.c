@@ -54,7 +54,7 @@
 
 struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_WIDTH * FRAME_HEIGHT];
-uint16_t charbuf[CHAR_ROWS * CHAR_COLS];
+extern uint8* vram;
 uint8_t char_code;
 uint16_t now = 0;
 
@@ -77,13 +77,22 @@ void core1_scanline_callback() {
 	scanline = (scanline + 1) % FRAME_HEIGHT;
 }
 
-void charbuf_to_framebuf(int charbuf_x, int charbuf_y) {
-	int c = charbuf[charbuf_y * CHAR_COLS + charbuf_x];
-	for (int y = 0; y < FONT_SIZE; ++y) {
-		for (int x = 0; x < FONT_SIZE; ++x) {
+//指定したvramの位置の1文字をframebufに反映する
+void vram_to_framebuf(int vram_x, int vram_y) {
+	int c = vram[vram_y * CHAR_COLS + vram_x];
+	for (int y = 0; y < FONT_SIZE; y++) {
+		for (int x = 0; x < FONT_SIZE; x++) {
 			int pixel = (CHAR_PATTERN[c * FONT_SIZE + y] & (0x80 >> x)) ? 0xffff : 0x0000;
-			framebuf[(y + charbuf_y * FONT_SIZE + MARGIN_HEIGHT) * FRAME_WIDTH
-				+ (x + charbuf_x * FONT_SIZE + MARGIN_WIDTH)] = pixel;
+			framebuf[(y + vram_y * FONT_SIZE + MARGIN_HEIGHT) * FRAME_WIDTH
+				+ (x + vram_x * FONT_SIZE + MARGIN_WIDTH)] = pixel;
+		}
+	}
+}
+
+void vram_to_framebuf_all() {
+	for (int y = 0;y < _g.screenh;y++) {
+		for (int x = 0;x < _g.screenw;x++) {
+			vram_to_framebuf(x, y);
 		}
 	}
 }
@@ -168,29 +177,35 @@ int main() {
 
 	// init host stack on configured roothub port
 	tuh_init(BOARD_TUH_RHPORT);
+	_g.screenw = CHAR_COLS;
+	_g.screenh = CHAR_ROWS;
+	screen_clear();
 
 	for (int y = 0; y < CHAR_ROWS; ++y) {
 		for (int x = 0; x < CHAR_COLS; ++x) {
-			charbuf[y * CHAR_COLS + x] = (y * CHAR_COLS + x) % (256 - 32) + 32;
+			vram[y * CHAR_COLS + x] = (y * CHAR_COLS + x) % (256 - 32) + 32;
 		}
 	}
 	for (int y = 0; y < CHAR_ROWS; ++y) {
 		for (int x = 0; x < CHAR_COLS; ++x) {
-			charbuf_to_framebuf(x, y);
+			vram_to_framebuf(x, y);
 		}
 	}
-	char_code = 133;
-	// while (1) {
-	// 	tuh_task();
-	// 	charbuf[now] = char_code;
-	// 	charbuf_to_framebuf(now % CHAR_COLS, now / CHAR_COLS);
-	// 	if (char_code != 133) {
-	// 		now++;
-	// 	}
-	// 	char_code = 133;
-	// 	// printf("%d", char_code);
-	// 	// __wfe();
-	// }
+	char_code = 0;
+	while (1) {
+		tuh_task();
+		if (char_code) {
+			screen_putc(char_code);
+		}
+		vram_to_framebuf_all();
+
+		//暫定的にCでスクリーンクリアする
+		if (char_code == 'c') {
+			screen_clear();
+		}
+		char_code = 0;
+		// __wfe();
+	}
 
 
 
@@ -253,11 +268,11 @@ int main() {
 		}
 		if (key == 27)
 			continue;
-		
+
 		_g.screen_insertmode = key_flg.insert;
 
 		screen_putc(key);
-		
+
 		if (key == '\n') {
 			uint8* s = screen_gets();
 	//		put_str(s);
