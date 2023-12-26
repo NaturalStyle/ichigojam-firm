@@ -78,21 +78,27 @@ void core1_scanline_callback() {
 }
 
 //指定したvramの位置の1文字をframebufに反映する
-void vram_to_framebuf(int vram_x, int vram_y) {
+void vram_to_framebuf(int vram_x, int vram_y, int inversion) {
 	int c = vram[vram_y * CHAR_COLS + vram_x];
 	for (int y = 0; y < FONT_SIZE; y++) {
+		int line = CHAR_PATTERN[c * FONT_SIZE + y] ^ inversion;
 		for (int x = 0; x < FONT_SIZE; x++) {
-			int pixel = (CHAR_PATTERN[c * FONT_SIZE + y] & (0x80 >> x)) ? 0xffff : 0x0000;
+			int pixel = (line & (0x80 >> x)) ? 0xffff : 0x0000;
 			framebuf[(y + vram_y * FONT_SIZE + MARGIN_HEIGHT) * FRAME_WIDTH
 				+ (x + vram_x * FONT_SIZE + MARGIN_WIDTH)] = pixel;
 		}
 	}
 }
 
-void vram_to_framebuf_all() {
+void vram_to_framebuf_all(bool visible_cursor) {
+	int inversion;
 	for (int y = 0;y < _g.screenh;y++) {
 		for (int x = 0;x < _g.screenw;x++) {
-			vram_to_framebuf(x, y);
+			inversion = 0x00;
+			if (visible_cursor && x == _g.cursorx && y == _g.cursory) {
+				inversion = 0xf0;
+			}
+			vram_to_framebuf(x, y, inversion);
 		}
 	}
 }
@@ -186,11 +192,7 @@ int main() {
 			vram[y * CHAR_COLS + x] = (y * CHAR_COLS + x) % (256 - 32) + 32;
 		}
 	}
-	for (int y = 0; y < CHAR_ROWS; ++y) {
-		for (int x = 0; x < CHAR_COLS; ++x) {
-			vram_to_framebuf(x, y);
-		}
-	}
+	vram_to_framebuf_all(true);
 	char_code = 0;
 	while (1) {
 		tuh_task();
