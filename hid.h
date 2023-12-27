@@ -26,19 +26,47 @@
 
  /** \ingroup group_class
   *  \defgroup ClassDriver_HID Human Interface Device (HID)
-  *  @{ */
-   /*--------------------------------------------------------------------
-    * KEYCODE to Ascii Conversion
-    *  Expand to array of [128][2] (ascii without shift, ascii with shift)
-    *
-    * Usage: example to convert ascii from keycode (key) and shift modifier (shift).
-    * Here we assume key < 128 ( printable )
-    *
-    *  uint8_t const conv_table[128][2] =  { HID_KEYCODE_TO_ASCII };
-    *  char ch = shift ? conv_table[chr][1] : conv_table[chr][0];
-    *
-    *--------------------------------------------------------------------*/
+/*--------------------------------------------------------------------
+* KEYCODE to Ascii Conversion
+*  Expand to array of [128][2] (ascii without shift, ascii with shift)
+*
+* Usage: example to convert ascii from keycode (key) and shift modifier (shift).
+* Here we assume key < 128 ( printable )
+*
+*  uint8_t const conv_table[128][2] =  { HID_KEYCODE_TO_ASCII };
+*  char ch = shift ? conv_table[chr][1] : conv_table[chr][0];
+*
+*--------------------------------------------------------------------*/
+
+
+//あえてHID_KEYCODE_TO_ASCIIを再定義(redefined)しているので、警告が出ても気にしない
+
 #define RETURN '\n'
+#define SHIFSP 14 //shift + space
+#define KANA 15
+#define DLE 16 //0x10 行の途中で改行
+#define INSERT 17
+#define HOME 18
+#define END 23
+#define PGUP 19 //ページアップ
+#define PGDOWN 20 //ページダウン
+#define LEFT 28
+#define RIGHT 29
+#define UP 30
+#define DOWN 31
+#define DELETE 127
+#define F1 128
+#define F2 F1 + 1
+#define F3 F1 + 2
+#define F4 F1 + 3
+#define F5 F1 + 4
+#define F6 F1 + 5
+#define F7 F1 + 6
+#define F8 F1 + 7
+#define F9 F1 + 8
+#define F10 F1 + 9
+#define F11 F1 + 10
+#define F12 F1 + 11
 #define HID_KEYCODE_TO_ASCII    \
     {0     , 0      }, /* 0x00 */ \
     {0     , 0      }, /* 0x01 */ \
@@ -80,11 +108,11 @@
     {'8'   , '*'    }, /* 0x25 */ \
     {'9'   , '('    }, /* 0x26 */ \
     {'0'   , ')'    }, /* 0x27 */ \
-    {RETURN, RETURN }, /* 0x28 */ \
+    {RETURN, DLE    }, /* 0x28 */ \
     {'\x1b', '\x1b' }, /* 0x29 */ \
     {'\b'  , '\b'   }, /* 0x2a */ \
     {'\t'  , '\t'   }, /* 0x2b */ \
-    {' '   , ' '    }, /* 0x2c */ \
+    {' '   , SHIFSP }, /* 0x2c */ \
     {'-'   , '_'    }, /* 0x2d */ \
     {'='   , '+'    }, /* 0x2e */ \
     {'['   , '{'    }, /* 0x2f */ \
@@ -99,38 +127,38 @@
     {'/'   , '?'    }, /* 0x38 */ \
                                   \
     {0     , 0      }, /* 0x39 */ \
-    {0     , 0      }, /* 0x3a */ \
-    {0     , 0      }, /* 0x3b */ \
-    {0     , 0      }, /* 0x3c */ \
-    {0     , 0      }, /* 0x3d */ \
-    {0     , 0      }, /* 0x3e */ \
-    {0     , 0      }, /* 0x3f */ \
-    {0     , 0      }, /* 0x40 */ \
-    {0     , 0      }, /* 0x41 */ \
-    {0     , 0      }, /* 0x42 */ \
-    {0     , 0      }, /* 0x43 */ \
-    {0     , 0      }, /* 0x44 */ \
-    {0     , 0      }, /* 0x45 */ \
+    {F1    , F1     }, /* 0x3a */ \
+    {F2    , F2     }, /* 0x3b */ \
+    {F3    , F3     }, /* 0x3c */ \
+    {F4    , F4     }, /* 0x3d */ \
+    {F5    , F5     }, /* 0x3e */ \
+    {F6    , F6     }, /* 0x3f */ \
+    {F7    , F7     }, /* 0x40 */ \
+    {F8    , F8     }, /* 0x41 */ \
+    {F9    , F9     }, /* 0x42 */ \
+    {F10   , F10    }, /* 0x43 */ \
+    {F11   , F11    }, /* 0x44 */ \
+    {F12   , F12    }, /* 0x45 */ \
     {0     , 0      }, /* 0x46 */ \
     {0     , 0      }, /* 0x47 */ \
     {0     , 0      }, /* 0x48 */ \
-    {0     , 0      }, /* 0x49 */ \
-    {0     , 0      }, /* 0x4a */ \
-    {0     , 0      }, /* 0x4b */ \
-    {0     , 0      }, /* 0x4c */ \
-    {0     , 0      }, /* 0x4d */ \
-    {0     , 0      }, /* 0x4e */ \
-    {0     , 0      }, /* 0x4f */ \
-    {0     , 0      }, /* 0x50 */ \
-    {0     , 0      }, /* 0x51 */ \
-    {0     , 0      }, /* 0x52 */ \
+    {INSERT, INSERT }, /* 0x49 */ \
+    {HOME  , HOME   }, /* 0x4a */ \
+    {PGUP  , PGUP   }, /* 0x4b */ \
+    {DELETE, DELETE }, /* 0x4c */ \
+    {END   , END    }, /* 0x4d */ \
+    {PGDOWN, PGDOWN }, /* 0x4e */ \
+    {RIGHT , RIGHT  }, /* 0x4f */ \
+    {LEFT  , LEFT   }, /* 0x50 */ \
+    {DOWN  , DOWN   }, /* 0x51 */ \
+    {UP    , UP     }, /* 0x52 */ \
     {0     , 0      }, /* 0x53 */ \
                                   \
     {'/'   , '/'    }, /* 0x54 */ \
     {'*'   , '*'    }, /* 0x55 */ \
     {'-'   , '-'    }, /* 0x56 */ \
     {'+'   , '+'    }, /* 0x57 */ \
-    {RETURN, RETURN }, /* 0x58 */ \
+    {RETURN, DLE    }, /* 0x58 */ \
     {'1'   , 0      }, /* 0x59 */ \
     {'2'   , 0      }, /* 0x5a */ \
     {'3'   , 0      }, /* 0x5b */ \
@@ -149,7 +177,5 @@
 
 
 #ifdef __cplusplus
-}
-#endif
 
-/// @}
+#endif
