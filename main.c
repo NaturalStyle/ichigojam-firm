@@ -31,7 +31,7 @@
 #include "IchigoJam.selected/ram.h"
 #include "IchigoJam.selected/screen.h"
 #include "IchigoJam.selected/error.h"
-#include "ichigojam-jp.fnt.h"
+#include "IchigoJam.selected/ichigojam-jp.fnt.h"
 #include "IchigoJam.selected/psg.h"
 #include "IchigoJam.selected/basic.h"
 //---
