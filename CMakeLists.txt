@@ -90,22 +90,22 @@ add_subdirectory(PicoDVI/software/libsprite)
 # add_definitions(-DDVI_SERIAL_DEBUG=1)
 # add_definitions(-DRUN_FROM_CRYSTAL)
 
-add_executable(my_terminal
-	my_terminal.c
+add_executable(IchigoJam_pico
+	main.c
 	hid_app.c
 )
 
 # Make sure TinyUSB can find tusb_config.h
-# my_terminal.cと同じ階層にあるtusb_config.hをinclude
-target_include_directories(my_terminal PUBLIC
+# main.cと同じ階層にあるtusb_config.hをinclude
+target_include_directories(IchigoJam_pico PUBLIC
         ${CMAKE_CURRENT_LIST_DIR})
 
 # PicoDVI/software/apps/mandelbrot/CMakeLists.txt から引用
-target_compile_definitions(my_terminal PRIVATE
+target_compile_definitions(IchigoJam_pico PRIVATE
 	DVI_DEFAULT_SERIAL_CONFIG=${DVI_DEFAULT_SERIAL_CONFIG}
 )
 
-target_link_libraries(my_terminal PUBLIC
+target_link_libraries(IchigoJam_pico PUBLIC
 	pico_stdlib
 	pico_multicore
 	pico_util
@@ -115,8 +115,8 @@ target_link_libraries(my_terminal PUBLIC
 	tinyusb_board
 )
 
-# pico_enable_stdio_usb(my_terminal 0)
-pico_enable_stdio_uart(my_terminal 1)
+# pico_enable_stdio_usb(IchigoJam_pico 0)
+pico_enable_stdio_uart(IchigoJam_pico 1)
 
 # create map/bin/hex file etc.
-pico_add_extra_outputs(my_terminal)
+pico_add_extra_outputs(IchigoJam_pico)
