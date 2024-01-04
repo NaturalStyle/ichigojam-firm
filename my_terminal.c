@@ -17,10 +17,11 @@
 
 #include "bsp/board.h"
 #include "tusb.h"
+#include "hid.h"
 
 // for IchigoJam BASIC
-#define IJB_BUILD 0
-#define IJB_VER 255
+#define IJB_BUILD 0 //TODO 要修正
+#define IJB_VER 255 //TODO 要修正
 #define NO_MEMCPY
 #define uart_putc ichigojam_uart_putc
 #include "config.h"
@@ -55,8 +56,8 @@
 struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_WIDTH * FRAME_HEIGHT];
 extern uint8* vram;
+struct keyflg_def key_flg;
 uint8_t char_code;
-uint16_t now = 0;
 
 void core1_main() {
 	dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);
@@ -371,8 +372,9 @@ static void video_waitSync(uint){
     // pico sdk / picodvi api を叩いて作っていく
 }
 
-static inline void ichigojam_uart_putc(char c){
+static inline void uart_putc(char c) {
     // pico sdk / picodvi api を叩いて作っていく
+	putchar(c);
 }
 
 static void sound_switch(int on){
@@ -485,10 +487,6 @@ static inline uint key_getKeyboardID(){
 static inline void ws_out(int port, int nled, int reapeat){
     // pico sdk / picodvi api を叩いて作っていく
 }
-
-
-
-struct keyflg_def key_flg;
 
 int key_getKey(void){
     // pico sdk / picodvi api を叩いて作っていく
