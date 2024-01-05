@@ -171,6 +171,13 @@ static void process_kbd_report(hid_keyboard_report_t const* report)
         fflush(stdout); // flush right away, else nanolib will wait for newline
       }
     }
+			  if (1) {
+				  if ('a' <= ch && ch <= 'z') {
+					  ch -= 32;
+				  } else if ('A' <= ch && ch <= 'Z') {
+					  ch += 32;
+				  }
+			  }
     // TODO example skips key released
   }
 
