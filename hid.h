@@ -50,23 +50,24 @@
 #define END 23
 #define PGUP 19 //ページアップ
 #define PGDOWN 20 //ページダウン
+#define CAPS 22
 #define LEFT 28
 #define RIGHT 29
 #define UP 30
 #define DOWN 31
 #define DELETE 127
-#define F1 128
-#define F2 F1 + 1
-#define F3 F1 + 2
-#define F4 F1 + 3
-#define F5 F1 + 4
-#define F6 F1 + 5
-#define F7 F1 + 6
-#define F8 F1 + 7
-#define F9 F1 + 8
-#define F10 F1 + 9
-#define F11 F1 + 10
-#define F12 F1 + 11
+#define F1  0
+#define F2  0
+#define F3  0
+#define F4  0
+#define F5  0
+#define F6  0
+#define F7  0
+#define F8  0
+#define F9  0
+#define F10 0
+#define F11 0
+#define F12 0
 #define HID_KEYCODE_TO_ASCII    \
     {0     , 0      }, /* 0x00 */ \
     {0     , 0      }, /* 0x01 */ \
@@ -126,7 +127,7 @@
     {'.'   , '>'    }, /* 0x37 */ \
     {'/'   , '?'    }, /* 0x38 */ \
                                   \
-    {0     , 0      }, /* 0x39 */ \
+    {CAPS  , CAPS   }, /* 0x39 */ \
     {F1    , F1     }, /* 0x3a */ \
     {F2    , F2     }, /* 0x3b */ \
     {F3    , F3     }, /* 0x3c */ \
