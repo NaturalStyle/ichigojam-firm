@@ -116,20 +116,7 @@ INLINE void IJB_lcd(uint mode) {
     // pico sdk / picodvi api を叩いて作っていく
 }
 
-static void key_clearKey() {
-    // pico sdk / picodvi api を叩いて作っていく
-}
-
-static inline uint key_getKeyboardID() {
-    // pico sdk / picodvi api を叩いて作っていく
-    return 0;//###
-}
-
 static inline void ws_out(int port, int nled, int reapeat) {
-    // pico sdk / picodvi api を叩いて作っていく
-}
-
-int key_getKey(void) {
     // pico sdk / picodvi api を叩いて作っていく
 }
 

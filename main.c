@@ -37,6 +37,7 @@
 //---
 #include "platform_depends_functions.h"
 #include "hid_app.c"
+#include "keyboard.h"
 
 // TMDS bit clock 252 MHz
 // DVDD 1.2V (1.1V seems ok too)
