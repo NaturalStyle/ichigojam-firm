@@ -3,19 +3,19 @@
 #include <string.h>
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
-#include "hardware/clocks.h"
-#include "hardware/gpio.h"
+// #include "hardware/clocks.h"
+// #include "hardware/gpio.h"
 #include "hardware/irq.h"
-#include "hardware/sync.h"
+// #include "hardware/sync.h"
 #include "hardware/vreg.h"
-#include "pico/sem.h"
+// #include "pico/sem.h"
 
 #include "dvi.h"
-#include "dvi_serialiser.h"
+// #include "dvi_serialiser.h"
 #include "common_dvi_pin_configs.h"
 #include "sprite.h"
 
-#include "bsp/board.h"
+// #include "bsp/board.h"
 #include "tusb.h"
 #include "hid.h"
 
