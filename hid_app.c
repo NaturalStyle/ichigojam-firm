@@ -26,6 +26,8 @@
 #include "bsp/board.h"
 #include "tusb.h"
 #include "hid.h"
+#include "IchigoJam.selected/screen.h"
+#include "keyboard.h"
 
  //--------------------------------------------------------------------+
  // MACRO TYPEDEF CONSTANT ENUM DECLARATION
@@ -38,7 +40,7 @@
 #define MAX_REPORT  4
 
 static uint8_t const keycode2ascii[128][2] = { HID_KEYCODE_TO_ASCII };
-extern uint8_t char_code;
+extern char* keybuf;
 
 // Each HID instance can has multiple reports
 static struct
@@ -176,8 +178,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report)
 					  ch += 32;
 				  }
 			  }
-			  // putchar(ch);
-			  char_code = ch;
+        key_pushc(ch);
 			  if (ch == '\r') putchar('\n'); // added new line for enter key
 
 			  fflush(stdout); // flush right away, else nanolib will wait for newline
@@ -322,8 +323,8 @@ static void process_generic_report(uint8_t dev_addr, uint8_t instance, uint8_t c
 
 //IchigoJam
 void delete_line_and_screen_puts(char* s) {
-	screen_putc(24);
-	screen_puts(s);
+  key_pushc(24);
+  key_push(s);
 }
 
 void put_function_key(uint8_t key) {

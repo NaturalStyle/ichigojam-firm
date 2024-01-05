@@ -60,7 +60,6 @@ struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_WIDTH * FRAME_HEIGHT];
 extern uint8* vram;
 struct keyflg_def key_flg;
-uint8_t char_code;
 
 void core1_main() {
 	dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);
@@ -197,17 +196,65 @@ int main() {
 		}
 	}
 	vram_to_framebuf_all(true);
-	char_code = 0;
+	key_clearKey();
 
+	char* linebuf = (char*)ram + OFFSET_RAM_LINEBUF;
+	if (*linebuf) {
+		//		put_str(ERR_MESSAGES[ERR_STACK_OVERFLOW - 1]);
+		//		put_chr('\n');
+		if (_g.cursory == -1) { // 1.4.1 前にもってくる
+			_g.cursory = 0;
+		}
+		if (!noresmode) {
+			if (!_g.err) {
+				_g.err = ERR_COMPLEX_EXPRESSION;
+			}
+			basic_printError();
+			//			put_str(ERR_MESSAGES[_g.err - 1]);
+			//			put_chr('\n');
+		}
+		// from exec
+//		screen_showCursor(1);
+	//	if (res != 2) { // 1.2b36 追加、edit時(==2)以外に限定
+		//if (res == BASIC_RESULT_ERR) { // 1.3b4 エラー停止の時だけ、キークリア
+		key_clearKey(); // 1.3b4 エラー停止の時だけ、キークリア
+
+		key_flg.insert = key_flg.bkinsert;
+	}
 	while (1) {
 		tuh_task();
-		if (0 < char_code && char_code < 128) {
-			screen_putc(char_code);
-		} else {
-			put_special_key(char_code);
+		while (1) {
+			int ch = key_getKey();
+			if (ch == -1) {
+				break;
+			} else if (ch == 0) {
+				continue;
+			}
+			screen_putc(ch);
+			if (ch == RETURN) {
+				uint8* s = screen_gets();
+
+				//		put_str(s);
+				if (*s == '\'') { // 1.1b14
+				} else if (*s != 0) {
+					uint8 i;
+					for (i = 0; i < N_LINEBUF; i++) {
+						linebuf[i] = s[i];
+						if (!s[i])
+							break;
+					}
+					//				_g.screen_insertmode = 1;
+					if (s[i]) {
+						//					put_str("Too long line\n");
+						put_str("Too long\n"); // 1.2b45
+					} else {
+						linebuf[i] = 0; // いっぱいまで入れるとバグっていた 1.2b32
+						exec(linebuf);
+					}
+				}
+			}
 		}
 		vram_to_framebuf_all(true);
-		char_code = 0;
 		// __wfe();
 	}
 
