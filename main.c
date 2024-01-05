@@ -106,48 +106,6 @@ void vram_to_framebuf_all(bool visible_cursor) {
 	}
 }
 
-void delete_line_and_screen_puts(char* s) {
-	screen_putc(24);
-	screen_puts(s);
-}
-
-void put_special_key(uint8_t code) {
-	switch (code) {
-	case F1:
-		screen_clear();
-		break;
-	case F2:
-		delete_line_and_screen_puts("LOAD");
-		break;
-	case F3:
-		delete_line_and_screen_puts("SAVE");
-		break;
-	case F4:
-		delete_line_and_screen_puts("LIST\n");
-		break;
-	case F5:
-		delete_line_and_screen_puts("RUN\n");
-		break;
-	case F6:
-		delete_line_and_screen_puts("?FREE()\n");
-		break;
-	case F7:
-		delete_line_and_screen_puts("OUT0\n");
-		break;
-	case F8:
-		delete_line_and_screen_puts("VIDEO1\n");
-		break;
-	case F9:
-		delete_line_and_screen_puts("FILES");
-		break;
-	case F10:
-		delete_line_and_screen_puts("SWITCH\n");
-		break;
-	default:
-		break;
-	}
-}
-
 
 
 

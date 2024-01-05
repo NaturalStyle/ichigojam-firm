@@ -50,6 +50,8 @@ static struct
 static void process_kbd_report(hid_keyboard_report_t const* report);
 static void process_mouse_report(hid_mouse_report_t const* report);
 static void process_generic_report(uint8_t dev_addr, uint8_t instance, uint8_t const* report, uint16_t len);
+void delete_line_and_screen_puts(char*);
+void put_function_key(uint8_t);
 
 void hid_app_task(void)
 {
@@ -161,16 +163,12 @@ static void process_kbd_report(hid_keyboard_report_t const* report)
       }
       else
       {
-        // not existed in previous report means the current key is pressed
-        bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
-        uint8_t ch = keycode2ascii[report->keycode[i]][is_shift ? 1 : 0];
-        // putchar(ch);
-        char_code = ch;
-        if (ch == '\r') putchar('\n'); // added new line for enter key
-
-        fflush(stdout); // flush right away, else nanolib will wait for newline
-      }
-    }
+		  if (0x3a <= report->keycode[i] && report->keycode[i] <= 0x45) {
+			  put_function_key(report->keycode[i]);
+		  } else {
+			  // not existed in previous report means the current key is pressed
+			  bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
+			  uint8_t ch = keycode2ascii[report->keycode[i]][is_shift ? 1 : 0];
 			  if (1) {
 				  if ('a' <= ch && ch <= 'z') {
 					  ch -= 32;
@@ -178,6 +176,14 @@ static void process_kbd_report(hid_keyboard_report_t const* report)
 					  ch += 32;
 				  }
 			  }
+			  // putchar(ch);
+			  char_code = ch;
+			  if (ch == '\r') putchar('\n'); // added new line for enter key
+
+			  fflush(stdout); // flush right away, else nanolib will wait for newline
+		  }
+	  }
+	}
     // TODO example skips key released
   }
 
@@ -312,4 +318,47 @@ static void process_generic_report(uint8_t dev_addr, uint8_t instance, uint8_t c
     default: break;
     }
   }
+}
+
+//IchigoJam
+void delete_line_and_screen_puts(char* s) {
+	screen_putc(24);
+	screen_puts(s);
+}
+
+void put_function_key(uint8_t key) {
+	switch (key) {
+	case 0x3a: //F1
+		screen_clear();
+		break;
+	case 0x3b: //F2　以下同様
+		delete_line_and_screen_puts("LOAD");
+		break;
+	case 0x3c:
+		delete_line_and_screen_puts("SAVE");
+		break;
+	case 0x3d:
+		delete_line_and_screen_puts("LIST\n");
+		break;
+	case 0x3e:
+		delete_line_and_screen_puts("RUN\n");
+		break;
+	case 0x3f:
+		delete_line_and_screen_puts("?FREE()\n");
+		break;
+	case 0x40:
+		delete_line_and_screen_puts("OUT0\n");
+		break;
+	case 0x41:
+		delete_line_and_screen_puts("VIDEO1\n");
+		break;
+	case 0x42:
+		delete_line_and_screen_puts("FILES");
+		break;
+	case 0x43: //F10
+		delete_line_and_screen_puts("SWITCH\n");
+		break;
+	default:
+		break;
+	}
 }
