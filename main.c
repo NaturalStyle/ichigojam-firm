@@ -36,6 +36,7 @@
 #include "IchigoJam.selected/basic.h"
 //---
 #include "platform_depends_functions.h"
+#include "hid_app.c"
 
 // TMDS bit clock 252 MHz
 // DVDD 1.2V (1.1V seems ok too)

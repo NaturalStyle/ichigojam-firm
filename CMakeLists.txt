@@ -92,7 +92,7 @@ add_subdirectory(PicoDVI/software/libsprite)
 
 add_executable(IchigoJam_pico
 	main.c
-	hid_app.c
+	# hid_app.c
 )
 
 # Make sure TinyUSB can find tusb_config.h
