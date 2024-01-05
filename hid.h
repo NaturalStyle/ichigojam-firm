@@ -42,9 +42,9 @@
 //あえてHID_KEYCODE_TO_ASCIIを再定義(redefined)しているので、警告が出ても気にしない
 
 #define RETURN '\n'
-#define SHIFSP 14 //shift + space
+#define SFTSP 14 //shift + space
 #define KANA 15
-#define DLE 16 //0x10 行の途中で改行
+#define SFTRET 16 //行の途中で改行
 #define INSERT 17
 #define HOME 18
 #define END 23
@@ -109,11 +109,11 @@
     {'8'   , '*'    }, /* 0x25 */ \
     {'9'   , '('    }, /* 0x26 */ \
     {'0'   , ')'    }, /* 0x27 */ \
-    {RETURN, DLE    }, /* 0x28 */ \
+    {RETURN, SFTRET }, /* 0x28 */ \
     {'\x1b', '\x1b' }, /* 0x29 */ \
     {'\b'  , '\b'   }, /* 0x2a */ \
     {'\t'  , '\t'   }, /* 0x2b */ \
-    {' '   , SHIFSP }, /* 0x2c */ \
+    {' '   , SFTSP  }, /* 0x2c */ \
     {'-'   , '_'    }, /* 0x2d */ \
     {'='   , '+'    }, /* 0x2e */ \
     {'['   , '{'    }, /* 0x2f */ \
@@ -159,7 +159,7 @@
     {'*'   , '*'    }, /* 0x55 */ \
     {'-'   , '-'    }, /* 0x56 */ \
     {'+'   , '+'    }, /* 0x57 */ \
-    {RETURN, DLE    }, /* 0x58 */ \
+    {RETURN, SFTRET }, /* 0x58 */ \
     {'1'   , 0      }, /* 0x59 */ \
     {'2'   , 0      }, /* 0x5a */ \
     {'3'   , 0      }, /* 0x5b */ \
