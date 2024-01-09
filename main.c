@@ -198,6 +198,7 @@ int main() {
 	vram_to_framebuf_all(true);
 	key_clearKey();
     key_flg.caps = true;
+    key_flg.insert = 0;
 
 	char* linebuf = (char*)ram + OFFSET_RAM_LINEBUF;
 	if (*linebuf) {
@@ -231,6 +232,7 @@ int main() {
 			} else if (ch == 0) {
 				continue;
 			}
+            _g.screen_insertmode = key_flg.insert;
 			screen_putc(ch);
 			if (ch == RETURN) {
 				uint8* s = screen_gets();
