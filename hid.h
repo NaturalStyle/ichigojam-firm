@@ -50,7 +50,7 @@
 #define END 23
 #define PGUP 19 //ページアップ
 #define PGDOWN 20 //ページダウン
-#define CAPS 22
+#define CAPS 0
 #define LEFT 28
 #define RIGHT 29
 #define UP 30

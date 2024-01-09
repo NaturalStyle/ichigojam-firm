@@ -41,6 +41,7 @@
 
 static uint8_t const keycode2ascii[128][2] = { HID_KEYCODE_TO_ASCII };
 extern char* keybuf;
+extern struct keyflg_def key_flg;
 
 // Each HID instance can has multiple reports
 static struct
@@ -155,23 +156,23 @@ static void process_kbd_report(hid_keyboard_report_t const* report)
   static hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
 
   //------------- example code ignore control (non-printable) key affects -------------//
-  for (uint8_t i = 0; i < 6; i++)
-  {
-    if (report->keycode[i])
-    {
-      if (find_key_in_report(&prev_report, report->keycode[i]))
-      {
+    for (uint8_t i = 0; i < 6; i++) {
+        uint8_t keycode = report->keycode[i];
+        if (keycode) {
+            if (find_key_in_report(&prev_report, keycode)) {
         // exist in previous report means the current key is holding
-      }
-      else
-      {
-		  if (0x3a <= report->keycode[i] && report->keycode[i] <= 0x45) {
-			  put_function_key(report->keycode[i]);
 		  } else {
 			  // not existed in previous report means the current key is pressed
 			  bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
-			  uint8_t ch = keycode2ascii[report->keycode[i]][is_shift ? 1 : 0];
-			  if (1) {
+                uint8_t ch = keycode2ascii[keycode][is_shift ? 1 : 0];
+                if (ch == 0) {
+                    if (0x3a <= keycode && keycode <= 0x45) {
+                        put_function_key(keycode);
+                    } else if (keycode == 0x39) {
+                        key_flg.caps = !key_flg.caps;
+                    }
+                } else {
+                    if (key_flg.caps) {
 				  if ('a' <= ch && ch <= 'z') {
 					  ch -= 32;
 				  } else if ('A' <= ch && ch <= 'Z') {

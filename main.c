@@ -197,6 +197,7 @@ int main() {
 	}
 	vram_to_framebuf_all(true);
 	key_clearKey();
+    key_flg.caps = true;
 
 	char* linebuf = (char*)ram + OFFSET_RAM_LINEBUF;
 	if (*linebuf) {
