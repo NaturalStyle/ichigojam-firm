@@ -3,51 +3,64 @@
 
 static void video_on() {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("video_on");
 }
 
 static void video_off(int clkdiv) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("video_off");
 }
 
 static void video_waitSync(uint num) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("video_waitsync");
 }
 
 static inline void uart_putc(char c) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("uart_putc");
     putchar(c);
 }
 
 static void sound_switch(int on) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("sound_switch");
 }
 
 STATIC void put_chr(char c) {
-    // pico sdk / picodvi api を叩いて作っていく
+    if (_g.uartmode_txd > 0) { // 1.0.2b12 uartを先に
+        uart_putc(c);
+    }
+    screen_putc(c);
 }
 
 INLINE int stopExecute() {
     // pico sdk / picodvi api を叩いて作っていく
-    return 0;//###
+    // printf("stopexecute");
+    return _g.key_flg_esc;
 }
 
 static int IJB_save(int n, uint8* list, int size) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_save");
     return 0;//###
 }
 // 0:ok
 static int IJB_load(int n, uint8* list, int sizelimit, int init) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_load");
     return 0;//###
 }
 // ret:size if:-1 _g.err
 static int i2c0_init() {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("i2c0_init");
     return 0;//###
 }
 /* Initialize I2C module  0:ok 1:_g.err */
 INLINE int IJB_file() {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_file");
     return 0;//###
 }
 
@@ -58,84 +71,104 @@ static int IJB_wait(int n, int active) {
 
 INLINE void IJB_led(int on) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_led");
 }
 
 INLINE void IJB_random_seed(int n) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_random_seed");
 }
 
 INLINE int IJB_ana(int n) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_ana");
     return 0;//###
 }
 
 INLINE void IJB_clo() {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_clo");
 }
 
 static void IJB_sleep() {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_sleep");
 }
 
 INLINE void IJB_reset() {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_reset");
 }
 
 static void IJB_input(char** line) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_input");
 }
 
 INLINE void IJB_uart(int16 txd, int16 rxd) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_uart");
 }
 
 INLINE void IJB_bps(int uart, int i2c) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_bps");
 }
 
 INLINE int IJB_i2c(uint8 writemode, uint16* param) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_i2c");
     return 0;//###
 }
 // -1:ad error 1:ok 0:i2c error
 INLINE int IJB_peek(int ad) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_peek");
     return 0;//###
 }
 
 INLINE void IJB_poke(int ad, int n) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_poke");
 }
 
 INLINE int IJB_usr(int ad, int n) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_usr");
     return 0;//###
 }
 
 INLINE void IJB_lcd(uint mode) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_lcd");
 }
 
 static inline void ws_out(int port, int nled, int reapeat) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ws_out");
 }
 
 int IJB_in() {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_in");
 }
 
 int IJB_random(int n) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_random");
 }
 
 int IJB_btn(int n) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_btn");
 }
 
 void IJB_out(int port, int st) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_out");
 }
 
 void IJB_pwm(int port, int plen, int len) {
     // pico sdk / picodvi api を叩いて作っていく
+    printf("ijb_pwm");
 }
