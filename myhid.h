@@ -39,8 +39,6 @@
 *--------------------------------------------------------------------*/
 
 
-//あえてHID_KEYCODE_TO_ASCIIを再定義(redefined)しているので、警告が出ても気にしない
-
 #define RETURN '\n'
 #define SFTSP 14 //shift + space
 #define KANA 15
@@ -68,7 +66,7 @@
 #define F10 0
 #define F11 0
 #define F12 0
-#define HID_KEYCODE_TO_ASCII    \
+#define MY_HID_KEYCODE_TO_ASCII    \
     {0     , 0      }, /* 0x00 */ \
     {0     , 0      }, /* 0x01 */ \
     {0     , 0      }, /* 0x02 */ \

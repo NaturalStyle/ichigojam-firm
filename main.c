@@ -17,7 +17,7 @@
 
 // #include "bsp/board.h"
 #include "tusb.h"
-#include "hid.h"
+#include "myhid.h"
 
 // for IchigoJam BASIC
 #define IJB_BUILD 0 //TODO 要修正

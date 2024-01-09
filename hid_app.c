@@ -25,7 +25,7 @@
 
 #include "bsp/board.h"
 #include "tusb.h"
-#include "hid.h"
+#include "myhid.h"
 #include "IchigoJam.selected/screen.h"
 #include "keyboard.h"
 
@@ -39,7 +39,7 @@
 
 #define MAX_REPORT  4
 
-static uint8_t const keycode2ascii[128][2] = { HID_KEYCODE_TO_ASCII };
+static uint8_t const keycode2ascii[128][2] = { MY_HID_KEYCODE_TO_ASCII };
 extern char* keybuf;
 extern struct keyflg_def key_flg;
 
