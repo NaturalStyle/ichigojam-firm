@@ -26,6 +26,7 @@
 #define uart_putc ichigojam_uart_putc
 #include "config.h"
 #include "IchigoJam.selected/stddef.h"
+#include "IchigoJam.selected/random.h"
 #include "IchigoJam.selected/lang.h"
 #include "IchigoJam.selected/vars.h"
 #include "IchigoJam.selected/ram.h"
@@ -159,6 +160,7 @@ void ichigojam_init() {
     key_clearKey();
     key_flg.caps = true;
     key_flg.insert = 0;
+    random_init();
 }
 
 
@@ -230,6 +232,7 @@ int main() {
 	}
 	while (1) {
 		tuh_task();
+        IJB_random(1);
 		while (1) {
 			int ch = key_getKey();
 			if (ch == -1) {

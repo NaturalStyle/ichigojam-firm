@@ -75,8 +75,17 @@ INLINE void IJB_led(int on) {
 }
 
 INLINE void IJB_random_seed(int n) {
-    // pico sdk / picodvi api を叩いて作っていく
+    random_seed(n);
     printf("ijb_random_seed");
+}
+
+int IJB_random(int n) {
+    uint r = rnd();
+    if (n <= 0) {
+        return 0;
+    }
+    return (r >> 1) % n; // マイナスがでてしまう対処、udivが使われる div?? こっちの方が小さい
+    printf("ijb_random");
 }
 
 INLINE int IJB_ana(int n) {
@@ -151,11 +160,6 @@ static inline void ws_out(int port, int nled, int reapeat) {
 int IJB_in() {
     // pico sdk / picodvi api を叩いて作っていく
     printf("ijb_in");
-}
-
-int IJB_random(int n) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_random");
 }
 
 int IJB_btn(int n) {
