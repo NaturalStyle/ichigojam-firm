@@ -1,6 +1,3 @@
-#include "IchigoJam.selected/stddef.h"
-#include "IchigoJam.selected/screen.h"
-
 static void video_on() {
     // pico sdk / picodvi api を叩いて作っていく
     printf("video_on");
@@ -66,7 +63,30 @@ INLINE int IJB_file() {
 
 static int IJB_wait(int n, int active) {
     // pico sdk / picodvi api を叩いて作っていく
-    return 0;//###
+    printf("ijb_wait");
+    uint64 before = time_us_64();
+    while (time_us_64() - before < n * 16000) {
+        if (stopExecute())
+            return 1;
+    }
+    // if (active) {
+    //     if (n < 0) { // ver 1.2b10
+    //         while (time_us_64() - before < n * 16000) {
+    //             if (stopExecute())
+    //                 return 1;
+    //         }
+    //     } else {
+    //         for (int i = 0; i < n; i++) {
+    //             if (stopExecute())
+    //                 return 1;
+    //             video_waitSync(1);
+    //         }
+    //     }
+    //     return 0;
+    // } else if (n > 0) {
+    //     // enterDeepSleep(n * 16); // msec, deep
+    // }
+    return 0;
 }
 
 INLINE void IJB_led(int on) {
