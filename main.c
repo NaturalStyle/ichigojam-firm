@@ -3,19 +3,13 @@
 #include <string.h>
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
-// #include "hardware/clocks.h"
-// #include "hardware/gpio.h"
 #include "hardware/irq.h"
-// #include "hardware/sync.h"
 #include "hardware/vreg.h"
-// #include "pico/sem.h"
 
 #include "dvi.h"
-// #include "dvi_serialiser.h"
 #include "common_dvi_pin_configs.h"
 #include "sprite.h"
 
-// #include "bsp/board.h"
 #include "tusb.h"
 #include "myhid.h"
 
@@ -40,25 +34,31 @@
 #include "hid_app.c"
 #include "keyboard.h"
 
+//pico
 // TMDS bit clock 252 MHz
 // DVDD 1.2V (1.1V seems ok too)
 #define FRAME_WIDTH 320
 #define FRAME_HEIGHT 240
 #define VREG_VSEL VREG_VOLTAGE_1_20
 #define DVI_TIMING dvi_timing_640x480p_60hz
-
-#define CHAR_ROWS 24
-#define CHAR_COLS 32
-
-#define FONT_SIZE 8
-
-#define MARGIN_WIDTH (FRAME_WIDTH - CHAR_COLS * FONT_SIZE) / 2
-#define MARGIN_HEIGHT (FRAME_HEIGHT - CHAR_ROWS * FONT_SIZE) / 2
-
+#define SCANLINE_INIT 2
 #define LED_PIN 25
 
+//IchigoJam
+#define CHAR_ROWS 24
+#define CHAR_COLS 32
+#define FONT_SIZE 8
+#define MARGIN_WIDTH (FRAME_WIDTH - CHAR_COLS * FONT_SIZE) / 2
+#define MARGIN_HEIGHT (FRAME_HEIGHT - CHAR_ROWS * FONT_SIZE) / 2
+// #define MARGIN_WIDTH 32
+// #define MARGIN_HEIGHT 24
+
+//pico
 struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_WIDTH * FRAME_HEIGHT];
+static repeating_timer_t out;
+
+//IchigoJam
 extern uint8* vram;
 struct keyflg_def key_flg;
 
@@ -69,42 +69,52 @@ void core1_main() {
     __builtin_unreachable();
 }
 
+//この関数の実行時間が長くなるとUSBキーボードを使う時、不具合が起こる
 void core1_scanline_callback() {
     // Discard any scanline pointers passed back
     uint16_t* bufptr;
     while (queue_try_remove_u32(&dvi0.q_colour_free, &bufptr))
         ;
     // // Note first two scanlines are pushed before DVI start
-    static uint scanline = 2;
+    static uint scanline = SCANLINE_INIT;
     bufptr = &framebuf[FRAME_WIDTH * scanline];
     queue_add_blocking_u32(&dvi0.q_colour_valid, &bufptr);
     scanline = (scanline + 1) % FRAME_HEIGHT;
 }
 
-//指定したvramの位置の1文字をframebufに反映する
-void vram_to_framebuf(int vram_x, int vram_y, int inversion) {
-    int c = vram[vram_y * CHAR_COLS + vram_x];
-    for (int y = 0; y < FONT_SIZE; y++) {
-        int line = CHAR_PATTERN[c * FONT_SIZE + y] ^ inversion;
-        for (int x = 0; x < FONT_SIZE; x++) {
-            int pixel = (line & (0x80 >> x)) ? 0xffff : 0x0000;
-            framebuf[(y + vram_y * FONT_SIZE + MARGIN_HEIGHT) * FRAME_WIDTH
-                + (x + vram_x * FONT_SIZE + MARGIN_WIDTH)] = pixel;
+//1scanline分vramの内容をframebufに反映する
+void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
+    int vram_y = (scanline - MARGIN_HEIGHT) / FONT_SIZE;
+    if (0 <= vram_y && vram_y < CHAR_ROWS) {//scanlineが画面の表示範囲なら処理、そうでなければ黒のままでいいので何もしない
+        int inversion = key_flg.insert ? 0xff : 0xf0;//上書きモードなら文字全体を反転、挿入モードなら文字の左半分を反転
+        int font_y = scanline % FONT_SIZE;
+        uint16_t* framebuf_base = &framebuf[scanline * FRAME_WIDTH + MARGIN_WIDTH];
+        uint8* c = &vram[vram_y * CHAR_COLS];
+        for (int vram_x = 0; vram_x < CHAR_COLS; vram_x++) {
+            unsigned char char_line = CHAR_PATTERN[*c * FONT_SIZE + font_y];
+            c++;
+            if (visible_cursor && _g.cursorx == vram_x && _g.cursory == vram_y) {//カーソルの位置の文字だけ反転させる
+                char_line ^= inversion;
+            }
+            for (int x = 0; x < FONT_SIZE; x++) {
+                int pixel = 0xffff * ((char_line >> (7 - x)) & 0x01);//char_lineのビットが1なら0xffff(白)、0なら0x0000(黒)に変換
+                *framebuf_base = pixel;
+                framebuf_base++;
+            }
         }
     }
 }
 
 void vram_to_framebuf_all(bool visible_cursor) {
-    int inversion;
-    for (int y = 0;y < _g.screenh;y++) {
-        for (int x = 0;x < _g.screenw;x++) {
-            inversion = 0x00;
-            if (visible_cursor && x == _g.cursorx && y == _g.cursory) {
-                inversion = 0xf0;
-            }
-            vram_to_framebuf(x, y, inversion);
-        }
+    for (int sl = 0; sl < FRAME_HEIGHT; sl++) {
+        vram_to_framebuf_scanline(sl, visible_cursor);
     }
+}
+
+bool timer(repeating_timer_t* rt) {
+    vram_to_framebuf_all(true);
+    tuh_task();
+    return true;
 }
 
 void pico_init() {
@@ -122,9 +132,14 @@ void pico_init() {
 
     setup_default_uart();
 
+    //ラズパイが動いていることを確認するためにLEDを常時点灯させる
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
     gpio_put(LED_PIN, 1);
+
+    // init host stack on configured roothub port
+    tuh_init(BOARD_TUH_RHPORT);
+    add_repeating_timer_ms(-33, timer, NULL, &out);//FPS30
 
     dvi0.timing = &DVI_TIMING;
     dvi0.ser_cfg = DVI_DEFAULT_SERIAL_CONFIG;
@@ -135,14 +150,12 @@ void pico_init() {
     // it without any intervention from core 0
     sprite_fill16(framebuf, 0x0000, FRAME_WIDTH * FRAME_HEIGHT);
     uint16_t* bufptr = framebuf;
-    queue_add_blocking_u32(&dvi0.q_colour_valid, &bufptr);
-    bufptr += FRAME_WIDTH;
-    queue_add_blocking_u32(&dvi0.q_colour_valid, &bufptr);
+    for (int i = 0; i < SCANLINE_INIT; i++) {
+        queue_add_blocking_u32(&dvi0.q_colour_valid, &bufptr);
+        bufptr += FRAME_WIDTH;
+    }
 
     multicore_launch_core1(core1_main);
-
-    // init host stack on configured roothub port
-    tuh_init(BOARD_TUH_RHPORT);
 }
 
 void ichigojam_init() {
@@ -229,43 +242,42 @@ int main() {
 		key_clearKey(); // 1.3b4 エラー停止の時だけ、キークリア
 
 		key_flg.insert = key_flg.bkinsert;
-	}
-	while (1) {
-		tuh_task();
+    }
+    while (1) {
         IJB_random(1);
-		while (1) {
-			int ch = key_getKey();
-			if (ch == -1) {
-				break;
-			} else if (ch == 0) {
-				continue;
-			}
+        while (1) {
+            int ch = key_getKey();
+            if (ch == -1) {
+                break;
+            } else if (ch == 0) {
+                continue;//今は通らない？
+            }
             _g.screen_insertmode = key_flg.insert;
-			screen_putc(ch);
-			if (ch == RETURN) {
-				uint8* s = screen_gets();
+            screen_putc(ch);
+            if (ch == RETURN) {
+                uint8* s = screen_gets();
 
-				//		put_str(s);
-				if (*s == '\'') { // 1.1b14
-				} else if (*s != 0) {
-					uint8 i;
-					for (i = 0; i < N_LINEBUF; i++) {
-						linebuf[i] = s[i];
-						if (!s[i])
-							break;
-					}
-					//				_g.screen_insertmode = 1;
-					if (s[i]) {
-						//					put_str("Too long line\n");
-						put_str("Too long\n"); // 1.2b45
-					} else {
-						linebuf[i] = 0; // いっぱいまで入れるとバグっていた 1.2b32
-						exec(linebuf);
-					}
-				}
-			}
-		}
-		vram_to_framebuf_all(true);
+                //		put_str(s);
+                if (*s == '\'') { // 1.1b14
+                } else if (*s != 0) {
+                    uint8 i;
+                    for (i = 0; i < N_LINEBUF; i++) {
+                        linebuf[i] = s[i];
+                        if (!s[i])
+                            break;
+                    }
+                    //				_g.screen_insertmode = 1;
+                    if (s[i]) {
+                        //					put_str("Too long line\n");
+                        put_str("Too long\n"); // 1.2b45
+                    } else {
+                        linebuf[i] = 0; // いっぱいまで入れるとバグっていた 1.2b32
+                        exec(linebuf);
+                    }
+                }
+            }
+        }
+        // vram_to_framebuf_all(true); //割り込み処理の中でframebufを更新するので不要
 		// __wfe();
 	}
 
