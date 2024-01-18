@@ -39,9 +39,9 @@
 
 #define MAX_REPORT  4
 
-static uint8_t const keycode2ascii[128][2] = { MY_HID_KEYCODE_TO_ASCII };
-extern char* keybuf;
+uint8_t const keycode2ascii[128][2] = { MY_HID_KEYCODE_TO_ASCII };
 extern struct keyflg_def key_flg;
+hid_keyboard_report_t now_key_report = { 0, 0, {0} };
 
 // Each HID instance can has multiple reports
 static struct
@@ -74,7 +74,7 @@ void tuh_hid_mount_cb(uint8_t dev_addr, uint8_t instance, uint8_t const* desc_re
 {
   printf("HID device address = %d, instance = %d is mounted\r\n", dev_addr, instance);
 
-  // Interface protocol (hid_interface_protocol_enum_t)
+  //   Interface protocol (hid_interface_protocol_enum_t)
   const char* protocol_str[] = { "None", "Keyboard", "Mouse" };
   uint8_t const itf_protocol = tuh_hid_interface_protocol(dev_addr, instance);
 
@@ -151,19 +151,18 @@ static inline bool find_key_in_report(hid_keyboard_report_t const* report, uint8
   return false;
 }
 
-static void process_kbd_report(hid_keyboard_report_t const* report)
-{
-  static hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
+static void process_kbd_report(hid_keyboard_report_t const* report) {
+    static hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
 
-  //------------- example code ignore control (non-printable) key affects -------------//
+    //------------- example code ignore control (non-printable) key affects -------------//
     for (uint8_t i = 0; i < 6; i++) {
         uint8_t keycode = report->keycode[i];
         if (keycode) {
             if (find_key_in_report(&prev_report, keycode)) {
-        // exist in previous report means the current key is holding
-		  } else {
-			  // not existed in previous report means the current key is pressed
-			  bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
+                // exist in previous report means the current key is holding
+            } else {
+                // not existed in previous report means the current key is pressed
+                bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
                 uint8_t ch = keycode2ascii[keycode][is_shift ? 1 : 0];
                 if (ch == 0) {
                     if (0x3a <= keycode && keycode <= 0x45) {
@@ -173,23 +172,24 @@ static void process_kbd_report(hid_keyboard_report_t const* report)
                     }
                 } else {
                     if (key_flg.caps) {
-				  if ('a' <= ch && ch <= 'z') {
-					  ch -= 32;
-				  } else if ('A' <= ch && ch <= 'Z') {
-					  ch += 32;
-				  }
-			  }
-        key_pushc(ch);
-			  if (ch == '\r') putchar('\n'); // added new line for enter key
+                        if ('a' <= ch && ch <= 'z') {
+                            ch -= 32;
+                        } else if ('A' <= ch && ch <= 'Z') {
+                            ch += 32;
+                        }
+                    }
+                    key_pushc(ch);
+                    if (ch == '\r') putchar('\n'); // added new line for enter key
 
-			  fflush(stdout); // flush right away, else nanolib will wait for newline
-		  }
-	  }
-	}
+                    // fflush(stdout); // flush right away, else nanolib will wait for newline
+                }
+            }
+        }
     // TODO example skips key released
-  }
+    }
 
-  prev_report = *report;
+    prev_report = *report;
+    now_key_report = *report;
 }
 
 //--------------------------------------------------------------------+
