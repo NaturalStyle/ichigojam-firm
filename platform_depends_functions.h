@@ -1,3 +1,6 @@
+extern hid_keyboard_report_t now_key_report;
+extern uint8_t const keycode2ascii[128][2];
+
 static void video_on() {
     // pico sdk / picodvi api を叩いて作っていく
     printf("video_on");
@@ -182,9 +185,17 @@ int IJB_in() {
     printf("ijb_in");
 }
 
+//TODO 反応するキーを絞るか検討する
 int IJB_btn(int n) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_btn");
+    for (uint8_t i = 0; i < 6; i++) {
+        uint8_t keycode = now_key_report.keycode[i];
+        if (keycode) {
+            if (n == keycode2ascii[keycode][0] || n == keycode2ascii[keycode][1]) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 void IJB_out(int port, int st) {
