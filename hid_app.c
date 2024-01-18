@@ -39,7 +39,7 @@
 
 #define MAX_REPORT  4
 
-uint8_t const keycode2ascii[128][2] = { MY_HID_KEYCODE_TO_ASCII };
+uint8_t const keycode2ascii[128][4] = { MY_HID_KEYCODE_TO_ASCII };
 extern struct keyflg_def key_flg;
 hid_keyboard_report_t now_key_report = { 0, 0, {0} };
 
@@ -163,7 +163,9 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
             } else {
                 // not existed in previous report means the current key is pressed
                 bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
-                uint8_t ch = keycode2ascii[keycode][is_shift ? 1 : 0];
+                bool const is_alt = report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT);
+                int mods = (is_alt << 1) | is_shift;
+                uint8_t ch = keycode2ascii[keycode][mods];
                 if (ch == 0) {
                     if (0x3a <= keycode && keycode <= 0x45) {
                         put_function_key(keycode);
