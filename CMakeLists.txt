@@ -113,6 +113,8 @@ target_link_libraries(IchigoJam_pico PUBLIC
 	libsprite
 	tinyusb_host
 	tinyusb_board
+	hardware_flash
+	# hardware_sync #フラッシュメモリいじるのに要るって書いてあったけど本当に要る？
 )
 
 # pico_enable_stdio_usb(IchigoJam_pico 0)

@@ -31,27 +31,10 @@ INLINE int stopExecute() {
     return _g.key_flg_esc;
 }
 
-static int IJB_save(int n, uint8* list, int size) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_save");
-    return 0;//###
-}
-// 0:ok
-static int IJB_load(int n, uint8* list, int sizelimit, int init) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_load");
-    return 0;//###
-}
-// ret:size if:-1 _g.err
+/* Initialize I2C module  0:ok 1:_g.err */
 static int i2c0_init() {
     // pico sdk / picodvi api を叩いて作っていく
     printf("i2c0_init");
-    return 0;//###
-}
-/* Initialize I2C module  0:ok 1:_g.err */
-INLINE int IJB_file() {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_file");
     return 0;//###
 }
 

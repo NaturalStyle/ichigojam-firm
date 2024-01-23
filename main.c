@@ -33,6 +33,7 @@
 #include "platform_depends_functions.h"
 #include "hid_app.c"
 #include "keyboard.h"
+#include "storage.h"
 #include "display.h"
 
 //pico
@@ -64,6 +65,7 @@ extern uint8* vram;
 struct keyflg_def key_flg;
 
 void core1_main() {
+    multicore_lockout_victim_init();
     dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);
     dvi_start(&dvi0);
     dvi_scanbuf_main_16bpp(&dvi0);
