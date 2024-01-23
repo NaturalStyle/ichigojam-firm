@@ -96,8 +96,7 @@ void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
             unsigned char char_line = CHAR_PATTERN[*c * FONT_SIZE + font_y];
             c++;
             if (visible_cursor && _g.cursorx == vram_x && _g.cursory == vram_y) {//カーソルの位置の文字だけ反転させる
-                int inversion = key_flg.insert ? 0xff : 0xf0;//上書きモードなら文字全体を反転、挿入モードなら文字の左半分を反転
-                char_line ^= inversion;
+                char_line ^= key_flg.insert ? 0xff : 0xf0;//上書きモードなら文字全体を反転、挿入モードなら文字の左半分を反転
             }
             for (int x = 0; x < FONT_SIZE; x++) {
                 int pixel = 0xffff * ((char_line >> (7 - x)) & 0x01);//char_lineのビットが1なら0xffff(白)、0なら0x0000(黒)に変換
