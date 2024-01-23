@@ -89,7 +89,6 @@ void core1_scanline_callback() {
 void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
     int vram_y = (scanline - MARGIN_HEIGHT) / FONT_SIZE;
     if (0 <= vram_y && vram_y < CHAR_ROWS) {//scanlineが画面の表示範囲なら処理、そうでなければ黒のままでいいので何もしない
-        int inversion = key_flg.insert ? 0xff : 0xf0;//上書きモードなら文字全体を反転、挿入モードなら文字の左半分を反転
         int font_y = scanline % FONT_SIZE;
         uint16_t* framebuf_base = &framebuf[scanline * FRAME_WIDTH + MARGIN_WIDTH];
         uint8* c = &vram[vram_y * CHAR_COLS];
@@ -97,6 +96,7 @@ void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
             unsigned char char_line = CHAR_PATTERN[*c * FONT_SIZE + font_y];
             c++;
             if (visible_cursor && _g.cursorx == vram_x && _g.cursory == vram_y) {//カーソルの位置の文字だけ反転させる
+                int inversion = key_flg.insert ? 0xff : 0xf0;//上書きモードなら文字全体を反転、挿入モードなら文字の左半分を反転
                 char_line ^= inversion;
             }
             for (int x = 0; x < FONT_SIZE; x++) {
@@ -115,7 +115,7 @@ void vram_to_framebuf_all(bool visible_cursor) {
 }
 
 bool timer(repeating_timer_t* rt) {
-    vram_to_framebuf_all(true);
+    vram_to_framebuf_all(_g.cursorflg);
     tuh_task();
     return true;
 }
@@ -247,6 +247,11 @@ int main() {
 		key_flg.insert = key_flg.bkinsert;
     }
     while (1) {
+        static uint64 cursor_time = 0;
+        if (time_us_64() - cursor_time > 250000) {
+            screen_showCursor(!_g.cursorflg);
+            cursor_time = time_us_64();
+        }
         IJB_random(1);
         while (1) {
             int ch = key_getKey();
