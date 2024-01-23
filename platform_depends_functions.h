@@ -1,15 +1,6 @@
 extern hid_keyboard_report_t now_key_report;
 extern uint8_t const keycode2ascii[128][4];
-
-static void video_on() {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("video_on");
-}
-
-static void video_off(int clkdiv) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("video_off");
-}
+extern struct dvi_inst dvi0;
 
 static void video_waitSync(uint num) {
     // pico sdk / picodvi api を叩いて作っていく

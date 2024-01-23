@@ -33,6 +33,7 @@
 #include "platform_depends_functions.h"
 #include "hid_app.c"
 #include "keyboard.h"
+#include "display.h"
 
 //pico
 // TMDS bit clock 252 MHz
