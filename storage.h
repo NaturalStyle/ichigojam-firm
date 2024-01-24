@@ -14,13 +14,11 @@ static int IJB_save(int n, uint8* list, int size) {
         int offset = FLASH_BLOCK_OFFSET + n * FLASH_SECTOR_SIZE;
         //フラッシュメモリに書き込む時は排他制御する
         dvi_stop(&dvi0);
-        multicore_lockout_start_blocking();
         int save = save_and_disable_interrupts();
         flash_range_erase(offset, FLASH_SECTOR_SIZE);
         flash_range_program(offset, list, FLASH_SECTOR_SIZE);
-        restore_interrupts(save);
-        multicore_lockout_end_blocking();
         dvi_start(&dvi0);
+        restore_interrupts(save);
         res = 0;
     } else {
         res = 1;
