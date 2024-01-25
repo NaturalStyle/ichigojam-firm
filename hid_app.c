@@ -155,9 +155,11 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     static hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
 
     //------------- example code ignore control (non-printable) key affects -------------//
+    bool no_keycode = true;
     for (uint8_t i = 0; i < 6; i++) {
         uint8_t keycode = report->keycode[i];
         if (keycode) {
+            no_keycode = false;
             if (find_key_in_report(&prev_report, keycode)) {
                 // exist in previous report means the current key is holding
             } else {
@@ -188,6 +190,17 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
             }
         }
     // TODO example skips key released
+    }
+    if (no_keycode) {
+        bool const is_ctrl = report->modifier & (KEYBOARD_MODIFIER_LEFTCTRL | KEYBOARD_MODIFIER_RIGHTCTRL);
+        bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
+        bool const is_alt = report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT);
+        if (is_ctrl && is_shift) {
+            key_flg.kana = !key_flg.kana;
+        }
+        if (is_ctrl && is_alt) {
+            key_flg.insert = !key_flg.insert;
+        }
     }
 
     prev_report = *report;
