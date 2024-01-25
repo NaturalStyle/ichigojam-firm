@@ -16,7 +16,7 @@
 #define IJB_TITLE "IchigoJam BASIC pico 1.x.0 by jig.jp\n"
 #endif
 
-// #define N_FLASH_STORAGE 15
+#define N_FLASH_STORAGE 15
 
 // #define EXT_IOT
 // #define KEY_INIT_DELAY

@@ -52,6 +52,7 @@
 #define FONT_SIZE 8
 #define MARGIN_WIDTH (FRAME_WIDTH - CHAR_COLS * FONT_SIZE) / 2
 #define MARGIN_HEIGHT (FRAME_HEIGHT - CHAR_ROWS * FONT_SIZE) / 2
+#define CURSOR_BLINK_INTERVAL 250000
 // #define MARGIN_WIDTH 32
 // #define MARGIN_HEIGHT 24
 
@@ -247,7 +248,7 @@ int main() {
     }
     while (1) {
         static uint64 cursor_time = 0;
-        if (time_us_64() - cursor_time > 250000) {
+        if (time_us_64() - cursor_time > CURSOR_BLINK_INTERVAL) {
             screen_showCursor(!_g.cursorflg);
             cursor_time = time_us_64();
         }
