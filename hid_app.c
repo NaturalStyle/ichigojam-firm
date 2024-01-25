@@ -28,6 +28,8 @@
 #include "myhid.h"
 #include "IchigoJam.selected/screen.h"
 #include "keyboard.h"
+#include "IchigoJam.selected/romajikana.h"
+
 
  //--------------------------------------------------------------------+
  // MACRO TYPEDEF CONSTANT ENUM DECLARATION
@@ -182,6 +184,9 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                             ch += 32;
                         }
                     }
+                    if (key_flg.kana) {
+                        ch = romajikana_input(ch);
+                    }
                     key_pushc(ch);
                     if (ch == '\r') putchar('\n'); // added new line for enter key
 
@@ -197,6 +202,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
         bool const is_alt = report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT);
         if (is_ctrl && is_shift) {
             key_flg.kana = !key_flg.kana;
+            _g.key_kana_buf_0 = _g.key_kana_buf_1 = 0;
         }
         if (is_ctrl && is_alt) {
             key_flg.insert = !key_flg.insert;
