@@ -2,11 +2,6 @@ extern hid_keyboard_report_t now_key_report;
 extern uint8_t const keycode2ascii[128][4];
 extern struct dvi_inst dvi0;
 
-static void video_waitSync(uint num) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("video_waitsync");
-}
-
 static inline void uart_putc(char c) {
     // pico sdk / picodvi api を叩いて作っていく
     printf("uart_putc");
