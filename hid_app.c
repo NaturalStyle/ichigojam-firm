@@ -187,6 +187,9 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                     if (key_flg.kana) {
                         ch = romajikana_input(ch);
                     }
+                    if (ch == ESC) {
+                        _g.key_flg_esc = 1;
+                    }
                     key_pushc(ch);
                     if (ch == '\r') putchar('\n'); // added new line for enter key
 

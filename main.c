@@ -257,7 +257,7 @@ int main() {
             int ch = key_getKey();
             if (ch == -1) {
                 break;
-            } else if (ch == 0) {
+            } else if (ch == 0 || ch == ESC) {
                 continue;//今は通らない？
             }
             _g.screen_insertmode = key_flg.insert;

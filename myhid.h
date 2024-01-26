@@ -49,6 +49,7 @@
 #define PGUP 19 //ページアップ
 #define PGDOWN 20 //ページダウン
 #define CAPS 0
+#define ESC 27
 #define LEFT 28
 #define RIGHT 29
 #define UP 30
@@ -108,7 +109,7 @@
     {'9'   , '('   , 233   , 137   }, /* 0x26 */ \
     {'0'   , ')'   , 224   , 128   }, /* 0x27 */ \
     {RETURN, SFTRET, RETURN, SFTRET}, /* 0x28 */ \
-    {'\x1b', '\x1b', '\x1b', '\x1b'}, /* 0x29 */ \
+    {ESC   , ESC   , ESC   , ESC   }, /* 0x29 */ \
     {'\b'  , '\b'  , 0     , 0     }, /* 0x2a */ \
     {'\t'  , '\t'  , '\t'  , '\t'  }, /* 0x2b */ \
     {' '   , SFTSP , ' '   , SFTSP }, /* 0x2c */ \
