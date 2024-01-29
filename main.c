@@ -60,6 +60,8 @@
 struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
 static repeating_timer_t out;
+uint8_t last_char = 0;
+uint64_t last_key_report_time = 0;
 
 //IchigoJam
 extern uint8* vram;
@@ -121,6 +123,15 @@ bool timer(repeating_timer_t* rt) {
     vram_to_framebuf_all(_g.cursorflg);
     tuh_task();
     return true;
+}
+
+void putc_long_push_key() {
+    if (time_us_64() - last_key_report_time > 100000) {
+        last_key_report_time = time_us_64();
+        if (last_char != 0) {
+            screen_putc(last_char);
+        }
+    }
 }
 
 void pico_init() {
@@ -260,6 +271,7 @@ int main() {
         while (1) {
             int ch = key_getKey();
             if (ch == -1) {
+                putc_long_push_key();
                 break;
             } else if (ch == 0 || ch == ESC) {
                 continue;//今は通らない？

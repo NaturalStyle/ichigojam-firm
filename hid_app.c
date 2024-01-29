@@ -43,6 +43,8 @@
 
 uint8_t const keycode2ascii[128][4] = { MY_HID_KEYCODE_TO_ASCII };
 extern struct keyflg_def key_flg;
+extern uint8_t last_char;
+extern uint64_t last_key_report_time;
 hid_keyboard_report_t now_key_report = { 0, 0, {0} };
 
 // Each HID instance can has multiple reports
@@ -155,15 +157,20 @@ static inline bool find_key_in_report(hid_keyboard_report_t const* report, uint8
 
 static void process_kbd_report(hid_keyboard_report_t const* report) {
     static hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
+    static uint8_t last_keycode = 0;
 
     //------------- example code ignore control (non-printable) key affects -------------//
     bool no_keycode = true;
+    bool should_reset_last_key = true;
     for (uint8_t i = 0; i < 6; i++) {
         uint8_t keycode = report->keycode[i];
         if (keycode) {
             no_keycode = false;
             if (find_key_in_report(&prev_report, keycode)) {
                 // exist in previous report means the current key is holding
+                if (keycode == last_keycode) {
+                    should_reset_last_key = false;
+                }
             } else {
                 // not existed in previous report means the current key is pressed
                 bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
@@ -195,10 +202,14 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
 
                     // fflush(stdout); // flush right away, else nanolib will wait for newline
                 }
+                last_char = ch;
+                last_keycode = keycode;
+                should_reset_last_key = false;
             }
         }
     // TODO example skips key released
     }
+
     if (no_keycode) {
         bool const is_ctrl = report->modifier & (KEYBOARD_MODIFIER_LEFTCTRL | KEYBOARD_MODIFIER_RIGHTCTRL);
         bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
@@ -211,9 +222,13 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
             key_flg.insert = !key_flg.insert;
         }
     }
+    if (should_reset_last_key) {
+        last_char = 0;
+    }
 
     prev_report = *report;
     now_key_report = *report;
+    last_key_report_time = time_us_64();
 }
 
 //--------------------------------------------------------------------+
