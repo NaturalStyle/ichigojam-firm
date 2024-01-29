@@ -35,6 +35,7 @@
 #include "keyboard.h"
 #include "storage.h"
 #include "display.h"
+#include "io.h"
 
 //pico
 // TMDS bit clock 252 MHz
