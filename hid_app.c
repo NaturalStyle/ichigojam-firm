@@ -44,6 +44,7 @@
 uint8_t const keycode2ascii[128][4] = { MY_HID_KEYCODE_TO_ASCII };
 extern struct keyflg_def key_flg;
 extern uint8_t last_char;
+extern bool did_first_putc;
 extern uint64_t last_key_report_time;
 hid_keyboard_report_t now_key_report = { 0, 0, {0} };
 
@@ -203,6 +204,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                     // fflush(stdout); // flush right away, else nanolib will wait for newline
                 }
                 last_char = ch;
+                did_first_putc = false;
                 last_keycode = keycode;
                 should_reset_last_key = false;
             }

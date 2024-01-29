@@ -61,6 +61,7 @@ struct dvi_inst dvi0;
 uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
 static repeating_timer_t out;
 uint8_t last_char = 0;
+bool did_first_putc = false;
 uint64_t last_key_report_time = 0;
 
 //IchigoJam
@@ -126,10 +127,12 @@ bool timer(repeating_timer_t* rt) {
 }
 
 void putc_long_push_key() {
-    if (time_us_64() - last_key_report_time > 100000) {
+    int interval = did_first_putc ? 100000 : 500000;
+    if (time_us_64() - last_key_report_time > interval) {
         last_key_report_time = time_us_64();
         if (last_char != 0) {
             screen_putc(last_char);
+            did_first_putc = true;
         }
     }
 }
