@@ -39,26 +39,26 @@
 //pico
 // TMDS bit clock 252 MHz
 // DVDD 1.2V (1.1V seems ok too)
-#define FRAME_WIDTH 320
-#define FRAME_HEIGHT 240
+#define FRAME_MAX_WIDTH 320
+#define FRAME_MAX_HEIGHT 240
 #define VREG_VSEL VREG_VOLTAGE_1_20
 #define DVI_TIMING dvi_timing_640x480p_60hz
 #define SCANLINE_INIT 2
 #define LED_PIN 25
 
 //IchigoJam
-#define CHAR_ROWS 24
-#define CHAR_COLS 32
+#define CHAR_MAX_ROWS 24
+#define CHAR_MAX_COLS 32
 #define FONT_SIZE 8
-#define MARGIN_WIDTH (FRAME_WIDTH - CHAR_COLS * FONT_SIZE) / 2
-#define MARGIN_HEIGHT (FRAME_HEIGHT - CHAR_ROWS * FONT_SIZE) / 2
-#define CURSOR_BLINK_INTERVAL 250000
 // #define MARGIN_WIDTH 32
 // #define MARGIN_HEIGHT 24
+#define MARGIN_WIDTH (FRAME_MAX_WIDTH - CHAR_MAX_COLS * FONT_SIZE) / 2
+#define MARGIN_HEIGHT (FRAME_MAX_HEIGHT - CHAR_MAX_ROWS * FONT_SIZE) / 2
+#define CURSOR_BLINK_INTERVAL 250000
 
 //pico
 struct dvi_inst dvi0;
-uint16_t framebuf[FRAME_WIDTH * FRAME_HEIGHT];
+uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
 static repeating_timer_t out;
 
 //IchigoJam
@@ -81,19 +81,19 @@ void core1_scanline_callback() {
         ;
     // // Note first two scanlines are pushed before DVI start
     static uint scanline = SCANLINE_INIT;
-    bufptr = &framebuf[FRAME_WIDTH * scanline];
+    bufptr = &framebuf[FRAME_MAX_WIDTH * scanline];
     queue_add_blocking_u32(&dvi0.q_colour_valid, &bufptr);
-    scanline = (scanline + 1) % FRAME_HEIGHT;
+    scanline = (scanline + 1) % FRAME_MAX_HEIGHT;
 }
 
 //1scanline分vramの内容をframebufに反映する
 void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
     int vram_y = (scanline - MARGIN_HEIGHT) / FONT_SIZE;
-    if (0 <= vram_y && vram_y < CHAR_ROWS) {//scanlineが画面の表示範囲なら処理、そうでなければ黒のままでいいので何もしない
+    if (0 <= vram_y && vram_y < CHAR_MAX_ROWS) {//scanlineが画面の表示範囲なら処理、そうでなければ黒のままでいいので何もしない
         int font_y = scanline % FONT_SIZE;
-        uint16_t* framebuf_base = &framebuf[scanline * FRAME_WIDTH + MARGIN_WIDTH];
-        uint8* c = &vram[vram_y * CHAR_COLS];
-        for (int vram_x = 0; vram_x < CHAR_COLS; vram_x++) {
+        uint16_t* framebuf_base = &framebuf[scanline * FRAME_MAX_WIDTH + MARGIN_WIDTH];
+        uint8* c = &vram[vram_y * CHAR_MAX_COLS];
+        for (int vram_x = 0; vram_x < CHAR_MAX_COLS; vram_x++) {
             unsigned char char_line = CHAR_PATTERN[*c * FONT_SIZE + font_y];
             c++;
             if (visible_cursor && _g.cursorx == vram_x && _g.cursory == vram_y) {//カーソルの位置の文字だけ反転させる
@@ -109,7 +109,7 @@ void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
 }
 
 void vram_to_framebuf_all(bool visible_cursor) {
-    for (int sl = 0; sl < FRAME_HEIGHT; sl++) {
+    for (int sl = 0; sl < FRAME_MAX_HEIGHT; sl++) {
         vram_to_framebuf_scanline(sl, visible_cursor);
     }
 }
@@ -151,25 +151,25 @@ void pico_init() {
 
     // Once we've given core 1 the framebuffer, it will just keep on displaying
     // it without any intervention from core 0
-    sprite_fill16(framebuf, 0x0000, FRAME_WIDTH * FRAME_HEIGHT);
+    sprite_fill16(framebuf, 0x0000, FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT);
     uint16_t* bufptr = framebuf;
     for (int i = 0; i < SCANLINE_INIT; i++) {
         queue_add_blocking_u32(&dvi0.q_colour_valid, &bufptr);
-        bufptr += FRAME_WIDTH;
+        bufptr += FRAME_MAX_WIDTH;
     }
 
     multicore_launch_core1(core1_main);
 }
 
 void ichigojam_init() {
-    _g.screenw = CHAR_COLS;
-    _g.screenh = CHAR_ROWS;
+    _g.screenw = CHAR_MAX_COLS;
+    _g.screenh = CHAR_MAX_ROWS;
     screen_clear();
 
-    for (int y = 0; y < CHAR_ROWS; ++y) {
-        for (int x = 0; x < CHAR_COLS; ++x) {
-            // vram[y * CHAR_COLS + x] = (y * CHAR_COLS + x) % (256 - 32) + 32;
-            vram[y * CHAR_COLS + x] = 0;
+    for (int y = 0; y < CHAR_MAX_ROWS; ++y) {
+        for (int x = 0; x < CHAR_MAX_COLS; ++x) {
+            vram[y * CHAR_MAX_COLS + x] = (y * CHAR_MAX_COLS + x) % (256 - 32) + 32;
+            // vram[y * CHAR_MAX_COLS + x] = 0;
         }
     }
     vram_to_framebuf_all(true);
