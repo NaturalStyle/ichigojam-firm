@@ -39,6 +39,7 @@
 //pico
 // TMDS bit clock 252 MHz
 // DVDD 1.2V (1.1V seems ok too)
+//320*240ピクセルの画面として扱う
 #define FRAME_MAX_WIDTH 320
 #define FRAME_MAX_HEIGHT 240
 #define VREG_VSEL VREG_VOLTAGE_1_20
@@ -47,13 +48,11 @@
 #define LED_PIN 25
 
 //IchigoJam
-#define CHAR_MAX_ROWS 24
-#define CHAR_MAX_COLS 32
 #define FONT_SIZE 8
 // #define MARGIN_WIDTH 32
 // #define MARGIN_HEIGHT 24
-#define MARGIN_WIDTH (FRAME_MAX_WIDTH - CHAR_MAX_COLS * FONT_SIZE) / 2
-#define MARGIN_HEIGHT (FRAME_MAX_HEIGHT - CHAR_MAX_ROWS * FONT_SIZE) / 2
+#define MARGIN_WIDTH ((FRAME_MAX_WIDTH - CHAR_MAX_COLS * FONT_SIZE) / 2)
+#define MARGIN_HEIGHT ((FRAME_MAX_HEIGHT - CHAR_MAX_ROWS * FONT_SIZE) / 2)
 #define CURSOR_BLINK_INTERVAL 250000
 
 //pico
@@ -88,21 +87,24 @@ void core1_scanline_callback() {
 
 //1scanline分vramの内容をframebufに反映する
 void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
-    int vram_y = (scanline - MARGIN_HEIGHT) / FONT_SIZE;
-    if (0 <= vram_y && vram_y < CHAR_MAX_ROWS) {//scanlineが画面の表示範囲なら処理、そうでなければ黒のままでいいので何もしない
-        int font_y = scanline % FONT_SIZE;
+    int vram_y = ((scanline - MARGIN_HEIGHT) / FONT_SIZE) >> _g.screen_big;
+    if (0 <= vram_y && vram_y < SCREEN_H) {//scanlineが画面の表示範囲なら処理、そうでなければ黒のままでいいので何もしない
+        int font_y = ((scanline - MARGIN_HEIGHT) % (FONT_SIZE << _g.screen_big)) / (1 << _g.screen_big);
         uint16_t* framebuf_base = &framebuf[scanline * FRAME_MAX_WIDTH + MARGIN_WIDTH];
-        uint8* c = &vram[vram_y * CHAR_MAX_COLS];
-        for (int vram_x = 0; vram_x < CHAR_MAX_COLS; vram_x++) {
+        uint8* c = &vram[vram_y * SCREEN_W];
+        for (int vram_x = 0; vram_x < SCREEN_W; vram_x++) {
             unsigned char char_line = CHAR_PATTERN[*c * FONT_SIZE + font_y];
             c++;
+            char_line ^= 0xff * _g.screen_invert;//VIDEOコマンドでの画面の反転を反映する
             if (visible_cursor && _g.cursorx == vram_x && _g.cursory == vram_y) {//カーソルの位置の文字だけ反転させる
                 char_line ^= key_flg.insert ? 0xff : 0xf0;//上書きモードなら文字全体を反転、挿入モードなら文字の左半分を反転
             }
             for (int x = 0; x < FONT_SIZE; x++) {
                 int pixel = 0xffff * ((char_line >> (7 - x)) & 0x01);//char_lineのビットが1なら0xffff(白)、0なら0x0000(黒)に変換
-                *framebuf_base = pixel;
-                framebuf_base++;
+                for (int y = 0; y < (1 << _g.screen_big); y++) {
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                }
             }
         }
     }
@@ -162,8 +164,9 @@ void pico_init() {
 }
 
 void ichigojam_init() {
-    _g.screenw = CHAR_MAX_COLS;
-    _g.screenh = CHAR_MAX_ROWS;
+    //SCREEN_W,SCREEN_Hはグローバル変数に置換されるので、基本的にSCREEN_W等を介してアクセスする
+    SCREEN_W = CHAR_MAX_COLS;
+    SCREEN_H = CHAR_MAX_ROWS;
     screen_clear();
 
     for (int y = 0; y < CHAR_MAX_ROWS; ++y) {
