@@ -92,8 +92,9 @@ void core1_scanline_callback() {
 //1scanline分vramの内容をframebufに反映する
 void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
     int vram_y = ((scanline - MARGIN_HEIGHT) / FONT_SIZE) >> _g.screen_big;
+    int mag = 1 << _g.screen_big;//文字の大きさの倍率
     if (0 <= vram_y && vram_y < SCREEN_H) {//scanlineが画面の表示範囲なら処理、そうでなければ黒のままでいいので何もしない
-        int font_y = ((scanline - MARGIN_HEIGHT) % (FONT_SIZE << _g.screen_big)) / (1 << _g.screen_big);
+        int font_y = ((scanline - MARGIN_HEIGHT) % (FONT_SIZE << _g.screen_big)) >> _g.screen_big;
         uint16_t* framebuf_base = &framebuf[scanline * FRAME_MAX_WIDTH + MARGIN_WIDTH];
         uint8* c = &vram[vram_y * SCREEN_W];
         for (int vram_x = 0; vram_x < SCREEN_W; vram_x++) {
@@ -105,7 +106,43 @@ void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
             }
             for (int x = 0; x < FONT_SIZE; x++) {
                 int pixel = 0xffff * ((char_line >> (7 - x)) & 0x01);//char_lineのビットが1なら0xffff(白)、0なら0x0000(黒)に変換
-                for (int y = 0; y < (1 << _g.screen_big); y++) {
+                // for (int y = 0; y < mag; y++) {
+                //     *framebuf_base = pixel;
+                //     framebuf_base++;
+                // }
+                //展開するとめちゃくちゃ速くなる
+                if (mag == 1) {
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                } else if (mag == 2) {
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                } else if (mag == 4) {
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                } else if (mag == 8) {
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
+                    *framebuf_base = pixel;
+                    framebuf_base++;
                     *framebuf_base = pixel;
                     framebuf_base++;
                 }
