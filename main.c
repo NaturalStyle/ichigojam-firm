@@ -69,7 +69,6 @@ extern uint8* vram;
 struct keyflg_def key_flg;
 
 void core1_main() {
-    multicore_lockout_victim_init();
     dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);
     dvi_start(&dvi0);
     dvi_scanbuf_main_16bpp(&dvi0);
@@ -196,7 +195,7 @@ void pico_init() {
 
     // init host stack on configured roothub port
     tuh_init(BOARD_TUH_RHPORT);
-    add_repeating_timer_ms(-33, timer, NULL, &out);//FPS30
+    add_repeating_timer_us(-16666, timer, NULL, &out);//FPS60
 
     dvi0.timing = &DVI_TIMING;
     dvi0.ser_cfg = DVI_DEFAULT_SERIAL_CONFIG;
@@ -230,7 +229,6 @@ void ichigojam_init() {
     vram_to_framebuf_all(true);
     key_clearKey();
     key_flg.caps = true;
-    key_flg.insert = 0;
     random_init();
 }
 
@@ -314,7 +312,7 @@ int main() {
                 putc_long_push_key();
                 break;
             } else if (ch == 0 || ch == ESC) {
-                continue;//今は通らない？
+                continue;
             }
             _g.screen_insertmode = key_flg.insert;
             screen_putc(ch);

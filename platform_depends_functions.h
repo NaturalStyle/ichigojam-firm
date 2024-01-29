@@ -37,7 +37,7 @@ static int IJB_wait(int n, int active) {
     // pico sdk / picodvi api を叩いて作っていく
     printf("ijb_wait");
     uint64 before = time_us_64();
-    while (time_us_64() - before < n * 16000) {
+    while (time_us_64() - before < n * 16666) { //16666 ≒ 1000000 / 60
         if (stopExecute())
             return 1;
     }
