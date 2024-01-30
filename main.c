@@ -163,6 +163,7 @@ bool timer(repeating_timer_t* rt) {
 }
 
 void putc_long_push_key() {
+    int save = save_and_disable_interrupts();
     int interval = did_first_putc ? 100000 : 500000;
     if (time_us_64() - last_key_report_time > interval) {
         last_key_report_time = time_us_64();
@@ -171,6 +172,7 @@ void putc_long_push_key() {
             did_first_putc = true;
         }
     }
+    restore_interrupts(save);
 }
 
 void pico_init() {

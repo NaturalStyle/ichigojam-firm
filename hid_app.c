@@ -161,6 +161,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     static uint8_t last_keycode = 0;
 
     //------------- example code ignore control (non-printable) key affects -------------//
+    last_key_report_time = time_us_64();
     bool no_keycode = true;
     bool should_reset_last_key = true;
     for (uint8_t i = 0; i < 6; i++) {
@@ -230,7 +231,6 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
 
     prev_report = *report;
     now_key_report = *report;
-    last_key_report_time = time_us_64();
 }
 
 //--------------------------------------------------------------------+
