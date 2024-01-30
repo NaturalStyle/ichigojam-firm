@@ -1,3 +1,4 @@
+//TODO ちゃんと低電力化しているか確かめる
 static inline void enterDeepSleep(int waitus) {
     bool is_video_on = dvi0.started;
     video_off(0);

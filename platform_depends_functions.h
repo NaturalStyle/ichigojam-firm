@@ -1,5 +1,3 @@
-extern hid_keyboard_report_t now_key_report;
-extern uint8_t const keycode2ascii[128][4];
 extern struct dvi_inst dvi0;
 
 static inline void uart_putc(char c) {
