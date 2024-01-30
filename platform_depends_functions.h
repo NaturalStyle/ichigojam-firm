@@ -33,34 +33,6 @@ static int i2c0_init() {
     return 0;//###
 }
 
-static int IJB_wait(int n, int active) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_wait");
-    uint64 before = time_us_64();
-    while (time_us_64() - before < n * 16666) { //16666 ≒ 1000000 / 60
-        if (stopExecute())
-            return 1;
-    }
-    // if (active) {
-    //     if (n < 0) { // ver 1.2b10
-    //         while (time_us_64() - before < n * 16000) {
-    //             if (stopExecute())
-    //                 return 1;
-    //         }
-    //     } else {
-    //         for (int i = 0; i < n; i++) {
-    //             if (stopExecute())
-    //                 return 1;
-    //             video_waitSync(1);
-    //         }
-    //     }
-    //     return 0;
-    // } else if (n > 0) {
-    //     // enterDeepSleep(n * 16); // msec, deep
-    // }
-    return 0;
-}
-
 INLINE void IJB_led(int on) {
     // pico sdk / picodvi api を叩いて作っていく
     printf("ijb_led");

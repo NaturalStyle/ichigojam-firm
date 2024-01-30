@@ -36,6 +36,7 @@
 #include "storage.h"
 #include "display.h"
 #include "io.h"
+#include "system.h"
 
 //pico
 // TMDS bit clock 252 MHz
@@ -86,6 +87,7 @@ void core1_scanline_callback() {
     bufptr = &framebuf[FRAME_MAX_WIDTH * scanline];
     queue_add_blocking_u32(&dvi0.q_colour_valid, &bufptr);
     scanline = (scanline + 1) % FRAME_MAX_HEIGHT;
+    _g.linecnt++;
 }
 
 //1scanline分vramの内容をframebufに反映する
@@ -157,6 +159,7 @@ void vram_to_framebuf_all(bool visible_cursor) {
 }
 
 bool timer(repeating_timer_t* rt) {
+    frames++;
     vram_to_framebuf_all(_g.cursorflg);
     tuh_task();
     return true;
