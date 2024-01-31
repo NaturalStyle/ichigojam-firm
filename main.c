@@ -66,8 +66,6 @@ bool did_first_putc = false;
 uint64_t last_key_report_time = 0;
 
 //IchigoJam
-extern uint8* vram;
-struct keyflg_def key_flg;
 
 void core1_main() {
     dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);

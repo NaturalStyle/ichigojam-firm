@@ -1,27 +1,8 @@
 extern struct dvi_inst dvi0;
 
-static inline void uart_putc(char c) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("uart_putc");
-    putchar(c);
-}
-
 static void sound_switch(int on) {
     // pico sdk / picodvi api を叩いて作っていく
     printf("sound_switch");
-}
-
-STATIC void put_chr(char c) {
-    if (_g.uartmode_txd > 0) { // 1.0.2b12 uartを先に
-        uart_putc(c);
-    }
-    screen_putc(c);
-}
-
-INLINE int stopExecute() {
-    // pico sdk / picodvi api を叩いて作っていく
-    // printf("stopexecute");
-    return _g.key_flg_esc;
 }
 
 /* Initialize I2C module  0:ok 1:_g.err */
