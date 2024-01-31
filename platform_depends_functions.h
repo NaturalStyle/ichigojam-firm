@@ -109,11 +109,6 @@ INLINE int IJB_usr(int ad, int n) {
     return 0;//###
 }
 
-INLINE void IJB_lcd(uint mode) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_lcd");
-}
-
 static inline void ws_out(int port, int nled, int reapeat) {
     // pico sdk / picodvi api を叩いて作っていく
     printf("ws_out");

@@ -12,6 +12,16 @@ void video_off(int clkdiv) {
     dvi_stop(&dvi0);
 }
 
+inline int video_active() {
+    return dvi0.started;
+}
+
+//TODO 何のためのコマンドか確認する
+INLINE void IJB_lcd(uint mode) {
+    //SWITCHを実行すると呼ばれる
+    //何もしなくていい？
+}
+
 void video_waitSync(uint num) {
     //何もしない
 }
