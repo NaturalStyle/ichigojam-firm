@@ -1,9 +1,9 @@
 //TODO ちゃんと低電力化しているか確かめる
-static inline void enterDeepSleep(int waitus) {
-    bool is_video_on = dvi0.started;
+static inline void enterDeepSleep(int wait_us) {
+    bool active = video_active();
     video_off(0);
-    sleep_us(waitus);
-    if (is_video_on) {
+    sleep_us(wait_us);
+    if (active) {
         video_on();
     }
 }
@@ -26,7 +26,7 @@ static int IJB_wait(int n, int active) {
         }
         return 0;
     } else if (n > 0) {
-        enterDeepSleep(n * 16666); // msec, deep
+        enterDeepSleep(n * 16666); // usec, deep
     }
     return 0;
 }

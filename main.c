@@ -93,7 +93,7 @@ void core1_scanline_callback() {
 //1scanline分vramの内容をframebufに反映する
 void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
     int vram_y = ((scanline - MARGIN_HEIGHT) / FONT_SIZE) >> _g.screen_big;
-    int mag = 1 << _g.screen_big;//文字の大きさの倍率
+    int mag = 1 << _g.screen_big;//文字の大きさの倍率　最大8倍
     if (0 <= vram_y && vram_y < SCREEN_H) {//scanlineが画面の表示範囲なら処理、そうでなければ黒のままでいいので何もしない
         int font_y = ((scanline - MARGIN_HEIGHT) % (FONT_SIZE << _g.screen_big)) >> _g.screen_big;
         uint16_t* framebuf_base = &framebuf[scanline * FRAME_MAX_WIDTH + MARGIN_WIDTH];
