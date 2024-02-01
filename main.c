@@ -232,6 +232,7 @@ void ichigojam_init() {
     vram_to_framebuf_all(true);
     key_clearKey();
     key_flg.caps = true;
+    set_keymap(keycode_to_ascii_us);
     random_init();
 }
 

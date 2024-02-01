@@ -5,14 +5,26 @@
 
 char* keybuf = (char*)(ram + (OFFSET_RAM_KEYBUF + 1));
 struct keyflg_def key_flg;
+extern uint8_t keycode2ascii[128][4];
+//TODO? フラッシュに書き込んで保存する？
+bool kbd_mode = 0;
 
 static inline uint key_getKeyboardID() {
-    //TODO 適切な処理をする
-    return 0;//###
+    return kbd_mode;
+}
+
+void set_keymap(uint8_t keymap[][4]) {
+    memcpy(keycode2ascii, keymap, sizeof(keycode2ascii));
 }
 
 INLINE void IJB_kbd(uint mode) {
-    //TODO 実装する
+    if (mode == 0) { //US
+        set_keymap(keycode_to_ascii_us);
+    } else { //JA
+        mode = 1;
+        set_keymap(keycode_to_ascii_ja);
+    }
+    kbd_mode = mode;
 }
 
 //TODO いつ呼ばれるか確認する

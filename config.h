@@ -18,5 +18,7 @@
 
 #define N_FLASH_STORAGE 15
 
+#define VERSION15
+
 // #define EXT_IOT
 // #define KEY_INIT_DELAY
