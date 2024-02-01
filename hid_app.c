@@ -371,9 +371,7 @@ void delete_line_and_screen_puts(char* s) {
 void put_function_key(uint8_t key) {
 	switch (key) {
 	case 0x3a: //F1
-        delete_line_and_screen_puts("CLS\n");
-        key_pushc(UP);
-        key_pushc(24);
+        key_push("\x13\x0c\0");
 		break;
 	case 0x3b: //F2　以下同様
 		delete_line_and_screen_puts("LOAD");
