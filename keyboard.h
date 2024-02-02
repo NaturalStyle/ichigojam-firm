@@ -76,6 +76,17 @@ void key_clearKey() {
     *keybuf = 0;
 }
 
+void uart_bps(int n) { // 0:115200, -1:57600, -2:38400
+    if (n == 0) {
+        n = 115200;
+    } else if (n == -1) {
+        n = 57600;
+    } else if (n == -2) {
+        n = 38400;
+    }
+    //	UARTInit(n);
+}
+
 INLINE int stopExecute() {
     return _g.key_flg_esc;
 }
