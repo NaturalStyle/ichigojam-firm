@@ -177,7 +177,19 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                 bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
                 bool const is_alt = report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT);
                 int mods = (is_alt << 1) | is_shift;
-                uint8_t ch = keycode2ascii[keycode][mods];
+                uint8_t ch = 0;
+                if (keycode >= 128) {
+                    if (keycode == UNDBAR) {
+                        ch = '_';
+                    } else if (keycode == JAKANA) {
+                        key_flg.kana = !key_flg.kana;
+                    } else if (keycode == YENPIPE) {
+                        ch = is_shift ? '|' : '\\';
+                    }
+                } else {
+                    ch = keycode2ascii[keycode][mods];
+                }
+
                 if (ch == 0) {
                     if (0x3a <= keycode && keycode <= 0x45) {
                         put_function_key(keycode);
@@ -243,8 +255,7 @@ void cursor_movement(int8_t x, int8_t y, int8_t wheel)
   if (x < 0)
   {
     printf(ANSI_CURSOR_BACKWARD(% d), (-x)); // move left
-  }
-  else if (x > 0)
+    } else if (x > 0)
   {
     printf(ANSI_CURSOR_FORWARD(% d), x); // move right
   }
@@ -253,8 +264,7 @@ void cursor_movement(int8_t x, int8_t y, int8_t wheel)
   if (y < 0)
   {
     printf(ANSI_CURSOR_UP(% d), (-y)); // move up
-  }
-  else if (y > 0)
+    } else if (y > 0)
   {
     printf(ANSI_CURSOR_DOWN(% d), y); // move down
   }
@@ -263,8 +273,7 @@ void cursor_movement(int8_t x, int8_t y, int8_t wheel)
   if (wheel < 0)
   {
     printf(ANSI_SCROLL_UP(% d), (-wheel)); // scroll up
-  }
-  else if (wheel > 0)
+    } else if (wheel > 0)
   {
     printf(ANSI_SCROLL_DOWN(% d), wheel); // scroll down
   }
@@ -308,8 +317,7 @@ static void process_generic_report(uint8_t dev_addr, uint8_t instance, uint8_t c
   {
     // Simple report without report ID as 1st byte
     rpt_info = &rpt_info_arr[0];
-  }
-  else
+    } else
   {
     // Composite report, 1st byte is report ID, data starts from 2nd byte
     uint8_t const rpt_id = report[0];
