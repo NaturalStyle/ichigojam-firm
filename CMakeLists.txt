@@ -115,6 +115,7 @@ target_link_libraries(IchigoJam_pico PUBLIC
 	tinyusb_board
 	hardware_flash
 	# hardware_sync #フラッシュメモリいじるのに要るって書いてあったけど本当に要る？
+	hardware_watchdog
 )
 
 # pico_enable_stdio_usb(IchigoJam_pico 0)

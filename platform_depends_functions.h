@@ -33,11 +33,6 @@ static void IJB_sleep() {
     printf("ijb_sleep");
 }
 
-INLINE void IJB_reset() {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_reset");
-}
-
 INLINE void IJB_uart(int16 txd, int16 rxd) {
     // pico sdk / picodvi api を叩いて作っていく
     printf("ijb_uart");

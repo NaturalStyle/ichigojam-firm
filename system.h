@@ -8,6 +8,14 @@ static inline void enterDeepSleep(int wait_us) {
     }
 }
 
+INLINE void IJB_reset() {
+    //https://forums.raspberrypi.com/viewtopic.php?t=308166 参照
+    watchdog_reboot(0, SRAM_END, 0);
+    for (;;) {
+        __wfi();
+    }
+}
+
 static int IJB_wait(int n, int active) {
     if (active) {
         if (n < 0) { // ver 1.2b10
