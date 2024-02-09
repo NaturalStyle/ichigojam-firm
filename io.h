@@ -1,3 +1,36 @@
+#define LED 20
+#define BTN 28
+#define IN1 27
+#define IN2 26
+#define IN3 22
+#define IN4 21
+#define OUT1 6
+#define OUT2 7
+#define OUT3 8
+#define OUT4 9
+#define OUT5 10
+#define OUT6 11
+
+uint8 in_pins[] = { IN1, IN2, IN3, IN4, OUT1, OUT2, OUT3, OUT4, BTN, OUT5, OUT6 };
+uint8 out_pins[] = { OUT1, OUT2, OUT3, OUT4, OUT5, OUT6, LED, IN1, IN2, IN3, IN4 };
+
+void io_init() {
+    for (int i = 0; i < 4; i++) {
+        uint8 pin = in_pins[i];
+        gpio_init(pin);
+        gpio_pull_up(pin);
+    }
+    for (int i = 0; i < 6; i++) {
+        uint8 pin = out_pins[i];
+        gpio_init(pin);
+        gpio_set_dir(pin, GPIO_OUT);
+    }
+    gpio_init(LED);
+    gpio_set_dir(LED, GPIO_OUT);
+    gpio_init(BTN);
+    gpio_set_dir(BTN, GPIO_OUT);
+}
+
 //TODO 反応するキーを絞るか検討する
 int IJB_btn(int n) {
     if (n == -1) {
@@ -41,11 +74,39 @@ int IJB_btn(int n) {
 }
 
 int IJB_in() {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_in");
+    int res = 0;
+    for (int i = 0; i < 11; i++) {
+        bool bit = gpio_get(in_pins[i]);
+        res |= bit << i;
+        printf("%d\n", bit);
+    }
+    return res;
 }
 
 void IJB_out(int port, int st) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_out");
+    if (port == 0) {
+        for (int i = 0; i < 11; i++) {
+            gpio_put(out_pins[i], st & (1 << i));
+        }
+    } else {
+        uint8 pin = out_pins[port - 1];
+        if (st >= 0) {
+            gpio_set_dir(pin, GPIO_OUT);
+            gpio_put(pin, st);
+        } else if (st == -1) {
+            gpio_set_dir(pin, GPIO_IN);
+            gpio_pull_down(pin);
+        } else if (st == -2) {
+            gpio_set_dir(pin, GPIO_IN);
+            gpio_pull_up(pin);
+        }
+    }
+}
+
+INLINE void IJB_led(int st) {
+    IJB_out(7, st != 0);
+}
+
+INLINE void IJB_clo() {
+    io_init();
 }

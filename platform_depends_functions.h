@@ -12,20 +12,10 @@ static int i2c0_init() {
     return 0;//###
 }
 
-INLINE void IJB_led(int on) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_led");
-}
-
 INLINE int IJB_ana(int n) {
     // pico sdk / picodvi api を叩いて作っていく
     printf("ijb_ana");
     return 0;//###
-}
-
-INLINE void IJB_clo() {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_clo");
 }
 
 static void IJB_sleep() {

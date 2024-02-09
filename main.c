@@ -235,6 +235,7 @@ void ichigojam_init() {
     key_flg.caps = true;
     set_keymap(keycode_to_ascii_us);
     random_init();
+    io_init();
 }
 
 
