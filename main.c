@@ -101,6 +101,9 @@ void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
         uint8* c = &vram[vram_y * SCREEN_W];
         for (int vram_x = 0; vram_x < SCREEN_W; vram_x++) {
             unsigned char char_line = CHAR_PATTERN[*c * FONT_SIZE + font_y];
+            if (*c >= 0xE0) {
+                char_line = screen_pcg[(*c - 0xE0) * FONT_SIZE + font_y];//POKEで書き換えができる文字はscreen_pcgを参照する
+            }
             c++;
             char_line ^= 0xff * _g.screen_invert;//VIDEOコマンドでの画面の反転を反映する
             if (visible_cursor && _g.cursorx == vram_x && _g.cursory == vram_y) {//カーソルの位置の文字だけ反転させる
@@ -239,6 +242,7 @@ void ichigojam_init() {
     set_keymap(keycode_to_ascii_us);
     random_init();
     io_init();
+    screen_clp();
 }
 
 
