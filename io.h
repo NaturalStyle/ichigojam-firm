@@ -14,11 +14,29 @@
 uint8 in_pins[] = { IN1, IN2, IN3, IN4, OUT1, OUT2, OUT3, OUT4, BTN, OUT5, OUT6 };
 uint8 out_pins[] = { OUT1, OUT2, OUT3, OUT4, OUT5, OUT6, LED, IN1, IN2, IN3, IN4 };
 
+bool is_adc_pin(uint gpio) {
+    return gpio == IN1 || gpio == IN2 || gpio == BTN;
+}
+
+/*TODO プルの指定をどうするか考える
+現状
+IN プルアップ(デフォルト)　プルダウンにも変更可能
+OUT 指定しない
+ANA 指定しない
+*/
+
+//TODO ANA使うためにADCの設定(特にadc_gpio_init)が必要か確認する
+//しなくても動くように見えるが...
 void io_init() {
+    adc_init();
     for (int i = 0; i < 4; i++) {
         uint8 pin = in_pins[i];
-        gpio_init(pin);
-        gpio_pull_up(pin);
+        if (is_adc_pin(pin)) {
+            adc_gpio_init(pin);
+        } else {
+            gpio_init(pin);
+            gpio_pull_up(pin);
+        }
     }
     for (int i = 0; i < 6; i++) {
         uint8 pin = out_pins[i];
@@ -27,8 +45,7 @@ void io_init() {
     }
     gpio_init(LED);
     gpio_set_dir(LED, GPIO_OUT);
-    gpio_init(BTN);
-    gpio_set_dir(BTN, GPIO_OUT);
+    adc_gpio_init(BTN);
 }
 
 //TODO 反応するキーを絞るか検討する
@@ -105,6 +122,20 @@ void IJB_out(int port, int st) {
 
 INLINE void IJB_led(int st) {
     IJB_out(7, st != 0);
+}
+
+INLINE int IJB_ana(int n) {
+    if (0 <= n && n <= 2) {
+        if (n == 0) {
+            n = 9;
+        }
+        uint8 pin = in_pins[n - 1];
+        adc_select_input(pin - 26);
+        int v = adc_read() >> 2;//最大値を2^12から2^10に
+        return v;
+    } else {
+        return 0;
+    }
 }
 
 INLINE void IJB_clo() {

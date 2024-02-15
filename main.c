@@ -6,6 +6,7 @@
 #include "hardware/irq.h"
 #include "hardware/vreg.h"
 #include "hardware/watchdog.h"
+#include "hardware/adc.h"
 
 #include "dvi.h"
 #include "common_dvi_pin_configs.h"
