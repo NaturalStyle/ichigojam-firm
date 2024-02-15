@@ -1,5 +1,3 @@
-#include "hardware/flash.h"
-
 #define FLASH_BLOCK_OFFSET 0x1F0000//フラッシュメモリの最後のブロック(31番目)の先頭アドレス
 
 INLINE int IJB_file() {

@@ -3,6 +3,7 @@
 #include <string.h>
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
+#include "hardware/flash.h"
 #include "hardware/irq.h"
 #include "hardware/vreg.h"
 #include "hardware/watchdog.h"
@@ -200,6 +201,7 @@ void pico_init() {
 
     // init host stack on configured roothub port
     tuh_init(BOARD_TUH_RHPORT);
+    tuh_task();//消すと起動時にキーボード接続していた時に、認識しない時がある？
     add_repeating_timer_us(-16666, timer, NULL, &out);//FPS60
 
     dvi0.timing = &DVI_TIMING;
