@@ -243,6 +243,27 @@ void ichigojam_init() {
     random_init();
     io_init();
     screen_clp();
+
+    int sleepflg = getSleepFlag();
+    if (!sleepflg) {
+        psg_beep(10, 3);
+    }
+    // video_waitSync(BOOT_WAIT);
+#ifdef IJB_TITLE
+    for (int i = 0;; i++) { // 自動起動時は表示だけしない
+        char c = IJB_TITLE[i];
+        if (!sleepflg)
+            put_chr(c);
+        video_waitSync(1);
+        if (c == '\n')
+            break;
+    }
+#endif
+    if (!sleepflg) {
+        put_str("OK\n");
+    }
+    _g.sleepflg = sleepflg;
+
 }
 
 
@@ -313,6 +334,17 @@ int main() {
 		key_flg.insert = key_flg.bkinsert;
     }
     while (1) {
+        // put_num(hid_desc.header.bLength); // bCountryCode);
+        //put_num(usb_host.dev_prop.dev_desc.idVendor);
+        if (_g.sleepflg) {
+            _g.sleepflg = 0;
+            *linebuf = 1;
+
+            // #define BOOT_WAIT2 25	// 1.4b10 -> b11 ここに移動
+            //             video_waitSync(BOOT_WAIT2);
+
+            exec("LRUN");
+        }
         static uint64 cursor_time = 0;
         if (time_us_64() - cursor_time > CURSOR_BLINK_INTERVAL) {
             screen_showCursor(!_g.cursorflg);

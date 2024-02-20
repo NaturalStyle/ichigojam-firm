@@ -1,3 +1,7 @@
+int getSleepFlag() {
+    return IJB_btn(0);
+}
+
 //TODO ちゃんと低電力化しているか確かめる
 static inline void enterDeepSleep(int wait_us) {
     bool active = video_active();
