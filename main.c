@@ -232,8 +232,8 @@ void ichigojam_init() {
 
     for (int y = 0; y < CHAR_MAX_ROWS; ++y) {
         for (int x = 0; x < CHAR_MAX_COLS; ++x) {
-            vram[y * CHAR_MAX_COLS + x] = (y * CHAR_MAX_COLS + x) % (256 - 32) + 32;
-            // vram[y * CHAR_MAX_COLS + x] = 0;
+            // vram[y * CHAR_MAX_COLS + x] = (y * CHAR_MAX_COLS + x) % (256 - 32) + 32;
+            vram[y * CHAR_MAX_COLS + x] = 0;
         }
     }
     vram_to_framebuf_all(true);
