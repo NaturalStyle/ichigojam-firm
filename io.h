@@ -45,7 +45,9 @@ void io_init() {
     }
     gpio_init(LED);
     gpio_set_dir(LED, GPIO_OUT);
-    adc_gpio_init(BTN);
+    // adc_gpio_init(BTN);
+    gpio_init(BTN);
+    gpio_pull_up(BTN);
 }
 
 //TODO 反応するキーを絞るか検討する
@@ -77,6 +79,8 @@ int IJB_btn(int n) {
             }
         }
         return res;
+    } else if (n == 0) {
+        return !gpio_get(BTN);
     } else {
         for (uint8_t i = 0; i < 6; i++) {
             uint8_t keycode = now_key_report.keycode[i];
