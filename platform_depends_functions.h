@@ -40,11 +40,6 @@ static inline void ws_out(int port, int nled, int reapeat) {
     printf("ws_out");
 }
 
-void IJB_pwm(int port, int plen, int len) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_pwm");
-}
-
 void IJB_dac(int port, int val) {
 
 }

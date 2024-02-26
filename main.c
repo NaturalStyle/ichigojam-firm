@@ -8,6 +8,7 @@
 #include "hardware/vreg.h"
 #include "hardware/watchdog.h"
 #include "hardware/adc.h"
+#include "hardware/pwm.h"
 
 #include "dvi.h"
 #include "common_dvi_pin_configs.h"
