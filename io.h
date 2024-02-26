@@ -37,7 +37,7 @@ void IJB_pwm(int port, int plen, int len) {
     uint slice_num = pwm_gpio_to_slice_num(pin);
     pwm_set_clkdiv(slice_num, CLKDIV);
     pwm_set_wrap(slice_num, PWM_WRAP);
-    pwm_set_chan_level(slice_num, pwm_gpio_to_channel(pin), (PWM_WRAP + 1) * plen / 2000);
+    pwm_set_gpio_level(pin, (PWM_WRAP + 1) * plen / 2000);
     pwm_set_enabled(slice_num, true);
 }
 
@@ -65,10 +65,8 @@ void io_init() {
             gpio_pull_up(pin);
         }
     }
-    for (int i = 0; i < 6; i++) {
-        uint8 pin = out_pins[i];
-        gpio_init(pin);
-        gpio_set_dir(pin, GPIO_OUT);
+    for (int i = 1; i <= 6; i++) {
+        IJB_out(i, 0);
     }
     gpio_init(LED);
     gpio_set_dir(LED, GPIO_OUT);
@@ -79,7 +77,7 @@ void io_init() {
 
 //TODO 反応するキーを絞るか検討する
 int IJB_btn(int n) {
-    if (n == -1) {
+    if (n < 0) {
         int res = 0;
         for (uint8_t i = 0; i < 6; i++) {
             uint8_t keycode = now_key_report.keycode[i];
@@ -123,7 +121,7 @@ int IJB_btn(int n) {
 
 int IJB_in() {
     int res = 0;
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < IO_PIN_NUM; i++) {
         bool bit = gpio_get(in_pins[i]);
         res |= bit << i;
         printf("%d\n", bit);
@@ -132,20 +130,22 @@ int IJB_in() {
 }
 
 void IJB_out(int port, int st) {
+    if (!(0 <= port && port <= IO_PIN_NUM)) {
+        return;
+    }
     if (port == 0) {
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < IO_PIN_NUM; i++) {
             gpio_put(out_pins[i], st & (1 << i));
         }
     } else {
         uint8 pin = out_pins[port - 1];
+        gpio_init(pin);
         if (st >= 0) {
             gpio_set_dir(pin, GPIO_OUT);
             gpio_put(pin, st);
         } else if (st == -1) {
-            gpio_set_dir(pin, GPIO_IN);
             gpio_pull_down(pin);
         } else if (st == -2) {
-            gpio_set_dir(pin, GPIO_IN);
             gpio_pull_up(pin);
         }
     }
