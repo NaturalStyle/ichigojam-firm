@@ -1,10 +1,5 @@
 extern struct dvi_inst dvi0;
 
-static void sound_switch(int on) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("sound_switch");
-}
-
 /* Initialize I2C module  0:ok 1:_g.err */
 static int i2c0_init() {
     // pico sdk / picodvi api を叩いて作っていく

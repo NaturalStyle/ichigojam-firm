@@ -1,4 +1,4 @@
-#define LED 20
+#define LED 2
 #define BTN 28
 #define IN1 27
 #define IN2 26

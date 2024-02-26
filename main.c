@@ -41,6 +41,7 @@
 #include "display.h"
 #include "io.h"
 #include "system.h"
+#include "sound.h"
 #include "mainc_functions.h"
 
 //pico
@@ -165,6 +166,8 @@ void vram_to_framebuf_all(bool visible_cursor) {
 
 bool timer(repeating_timer_t* rt) {
     frames++;
+    psg_tick();
+    set_tone();
     vram_to_framebuf_all(_g.cursorflg);
     tuh_task();
     return true;
@@ -258,6 +261,7 @@ void ichigojam_init() {
     random_init();
     io_init();
     screen_clp();
+    sound_init();
 
     int sleepflg = getSleepFlag();//起動時ボタンを押していたらtrue
     sleepflg |= is_arun();//プログラムの先頭が@ARUNならtrue

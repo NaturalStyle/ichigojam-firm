@@ -1,0 +1,36 @@
+#define SOUND_PIN 20
+
+static uint slice_num;
+
+void sound_init() {
+    _g.psgratio = 1;
+    gpio_set_function(SOUND_PIN, GPIO_FUNC_PWM);
+    slice_num = pwm_gpio_to_slice_num(SOUND_PIN);
+    pwm_set_clkdiv(slice_num, CLKDIV);
+    pwm_set_wrap(slice_num, 0);//適当に小さい値を設定しておかないと起動音が鳴らない
+}
+
+void set_tone() {
+    static uint16 prev_tone = 0;
+    if (_g.psgtone && prev_tone != _g.psgtone) {
+        int freq = 60 * 261 / _g.psgtone;   //IchigoJamのソースの式
+        // int freq = 0x7fff / ((_g.psgtone + 1) * 2);  //こっちの式の方が実際の周波数に近い？
+        int wrap = PICO_CLOCK_FREQ / (freq * CLKDIV) - 1;
+        if (wrap < 0) {
+            wrap = 0;
+        } else if (wrap > 0xffff) {
+            wrap = 0xffff;
+        }
+        pwm_set_wrap(slice_num, wrap);
+        pwm_set_gpio_level(SOUND_PIN, wrap / 2);
+    }
+    prev_tone = _g.psgtone;
+}
+
+static void sound_switch(int on) {
+    pwm_set_enabled(slice_num, on);
+    if (!on) {  //音をオフにする時、信号をLowにする
+        pwm_set_counter(slice_num, 0);
+        pwm_set_gpio_level(SOUND_PIN, 0);
+    }
+}
