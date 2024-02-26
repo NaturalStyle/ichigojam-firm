@@ -182,6 +182,20 @@ void putc_long_push_key() {
     restore_interrupts(save);
 }
 
+//0番のプログラムの先頭行の先頭が @ARUN かどうか
+bool is_arun() {
+    //0番のプログラムデータ
+    //行番号0、行番号1、行の文字数、行の内容...とデータが入っているので、index3からチェックする(行番号1*256+行番号0=行番号)
+    const uint8_t* flash = (const uint8_t*)(XIP_BASE + FLASH_BLOCK_OFFSET);
+    uint8_t arun[] = "@ARUN";
+    for (int i = 0; i < 5; i++) {
+        if (arun[i] != flash[i + 3]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 void pico_init() {
     board_init();
     stdio_init_all();
@@ -244,7 +258,8 @@ void ichigojam_init() {
     io_init();
     screen_clp();
 
-    int sleepflg = getSleepFlag();
+    int sleepflg = getSleepFlag();//起動時ボタンを押していたらtrue
+    sleepflg |= is_arun();//プログラムの先頭が@ARUNならtrue
     if (!sleepflg) {
         psg_beep(10, 3);
     }
