@@ -13,7 +13,7 @@
 #ifdef IJB_BETA
 #define IJB_TITLE "IchigoJam BASIC 1.5b rv jig.jp\n"
 #else
-#define IJB_TITLE "IchigoJam BASIC pico 1.x.0 by jig.jp\n"
+#define IJB_TITLE "IchigoJam BASIC 0.5.0 RP2040\n"
 #endif
 
 #define N_FLASH_STORAGE 15
