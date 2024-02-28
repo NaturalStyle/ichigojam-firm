@@ -12,6 +12,16 @@ static inline void enterDeepSleep(int wait_us) {
     }
 }
 
+//TODO ディープスリープを使って実装する
+static void IJB_sleep() {//TODO ボタンを一瞬だけ押すと普通に起動してしまうので、修正する(LRUN0が実行されるのが正しい)
+    while (IJB_btn(0)) {
+    }
+    video_off(0);
+    while (!IJB_btn(0)) {
+    }
+    IJB_reset();
+}
+
 INLINE void IJB_reset() {
     //https://forums.raspberrypi.com/viewtopic.php?t=308166 参照
     watchdog_reboot(0, SRAM_END, 0);
