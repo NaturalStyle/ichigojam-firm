@@ -124,7 +124,6 @@ int IJB_in() {
     for (int i = 0; i < IO_PIN_NUM; i++) {
         bool bit = gpio_get(in_pins[i]);
         res |= bit << i;
-        printf("%d\n", bit);
     }
     return res;
 }
