@@ -173,6 +173,18 @@ bool timer(repeating_timer_t* rt) {
     return true;
 }
 
+void on_uart_rx() {
+    while (uart_is_readable(UART_ID)) {
+        uint8_t ch = uart_getc(UART_ID);
+        if (ch == 27) {
+            _g.key_flg_esc = (_g.uartmode_rxd & 2) == 0; // 1.2b41
+        }
+        if (_g.uartmode_rxd & 1) {
+            key_pushc(ch);
+        }
+    }
+}
+
 void putc_long_push_key() {
     int save = save_and_disable_interrupts();
     int interval = did_first_putc ? 100000 : 500000;
@@ -202,7 +214,6 @@ bool is_arun() {
 
 void pico_init() {
     board_init();
-    stdio_init_all();
 
     vreg_set_voltage(VREG_VSEL);
     sleep_ms(10);
@@ -213,7 +224,12 @@ void pico_init() {
     set_sys_clock_khz(DVI_TIMING.bit_clk_khz, true);
 #endif
 
-    setup_default_uart();
+    stdio_init_all(); //クロックを変えてから初期化する
+    // uart_set_hw_flow(UART_ID, false, false);//いる？
+    // uart_set_fifo_enabled(UART_ID, false);
+    irq_set_exclusive_handler(UART_IRQ, on_uart_rx);
+    irq_set_enabled(UART_IRQ, true);
+    uart_set_irq_enables(UART_ID, true, false);
 
     //ラズパイが動いていることを確認するためにLEDを常時点灯させる
     gpio_init(LED_PIN);
@@ -262,6 +278,7 @@ void ichigojam_init() {
     io_init();
     screen_clp();
     sound_init();
+    uart_init_IJ();
 
     int sleepflg = getSleepFlag();//起動時ボタンを押していたらtrue
     sleepflg |= is_arun();//プログラムの先頭が@ARUNならtrue
@@ -371,12 +388,18 @@ int main() {
             cursor_time = time_us_64();
         }
         IJB_random(1);
-        while (1) {
             int ch = key_getKey();
-            if (ch == -1) {
+        if (ch < 0) {
                 putc_long_push_key();
-                break;
-            } else if (ch == 0 || ch == ESC) {
+            continue;
+        } else if (ch == 0) {
+            continue;
+        }
+        if (_g.uartmode_txd & 4) { // 1.2b62 UART echo back
+            uart_putc(ch); // 1.3b2
+            //			put_chr(key);
+        }
+        if (ch == ESC) {
                 continue;
             }
             _g.screen_insertmode = key_flg.insert;

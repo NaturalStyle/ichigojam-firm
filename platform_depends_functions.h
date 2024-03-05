@@ -7,11 +7,6 @@ static int i2c0_init() {
     return 0;//###
 }
 
-INLINE void IJB_uart(int16 txd, int16 rxd) {
-    // pico sdk / picodvi api を叩いて作っていく
-    printf("ijb_uart");
-}
-
 INLINE int IJB_i2c(uint8 writemode, uint16* param) {
     // pico sdk / picodvi api を叩いて作っていく
     printf("ijb_i2c");

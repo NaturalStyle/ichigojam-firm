@@ -3,6 +3,11 @@
 
 #define KEY_BUF_LEN (SIZE_RAM_KEYBUF - 2)
 
+#define DEFAULT_UARTMODE_TXD 2	// txd 0:disable, 1:only text, 2:with ctrl, +4:echo back mode, +8:画面表示オフ(PRINTやSyntax errorなどのメッセージがオフになり、キーボード入力は表示されたまま)
+#define DEFAULT_UARTMODE_RXD 1	// rxd 0:disable, 1:enable, 2:ignore esc mode, 4:CR mode, 6:ignore esc & CR mode (auto comment mode??) // -> keyboard_ps2.h
+#define UART_ID uart0
+#define UART_IRQ UART0_IRQ
+
 char* keybuf = (char*)(ram + (OFFSET_RAM_KEYBUF + 1));
 struct keyflg_def key_flg;
 extern uint8_t keycode2ascii[128][4];
@@ -27,17 +32,36 @@ INLINE void IJB_kbd(uint mode) {
     kbd_mode = mode;
 }
 
-//TODO いつ呼ばれるか確認する
+INLINE void uart_init_IJ() {
+    // #if DEFAULT_UARTMODE_TXD != 0
+    _g.uartmode_txd = DEFAULT_UARTMODE_TXD; // 最初のクリア信号を送らない
+    // #endif
+    _g.uartmode_rxd = DEFAULT_UARTMODE_RXD;
+    irq_set_enabled(UART_IRQ, _g.uartmode_rxd & 1);
+}
+
+INLINE void IJB_uart(int16 txd, int16 rxd) {
+    _g.uartmode_txd = txd;
+    _g.uartmode_rxd = rxd;
+}
+
+//TODO キャリッジリターンをする状態になっているが、大丈夫か確認する(実機ではキャリッジリターンしていない)
 static inline void uart_putc(char c) {
-    printf("uart_putc");
+    if ((_g.uartmode_txd & 3) == 3) { // 1.3b2
+        if (c == '\n') {
+            uart_putc('\r');
+        }
+    }
     putchar(c);
 }
 
 STATIC void put_chr(char c) {
-    if (_g.uartmode_txd > 0) { // 1.0.2b12 uartを先に
+    if (_g.uartmode_txd & 3) { // 1.3b2
         uart_putc(c);
     }
-    screen_putc(c);
+    if (!(_g.uartmode_txd & 8)) { // 1.3b11
+        screen_putc(c);
+    }
 }
 
 void key_pushc(char c) {
