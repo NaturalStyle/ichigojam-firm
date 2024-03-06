@@ -50,8 +50,8 @@ hid_keyboard_report_t now_key_report = { 0, 0, {0} };
 // Each HID instance can has multiple reports
 static struct
 {
-  uint8_t report_count;
-  tuh_hid_report_info_t report_info[MAX_REPORT];
+    uint8_t report_count;
+    tuh_hid_report_info_t report_info[MAX_REPORT];
 }hid_info[CFG_TUH_HID];
 
 static void process_kbd_report(hid_keyboard_report_t const* report);
@@ -62,7 +62,7 @@ void put_function_key(uint8_t);
 
 void hid_app_task(void)
 {
-  // nothing to do
+    // nothing to do
 }
 
 //--------------------------------------------------------------------+
@@ -76,68 +76,68 @@ void hid_app_task(void)
 // therefore report_desc = NULL, desc_len = 0
 void tuh_hid_mount_cb(uint8_t dev_addr, uint8_t instance, uint8_t const* desc_report, uint16_t desc_len)
 {
-  printf("HID device address = %d, instance = %d is mounted\r\n", dev_addr, instance);
+    // printf("HID device address = %d, instance = %d is mounted\r\n", dev_addr, instance);
 
-  //   Interface protocol (hid_interface_protocol_enum_t)
-  const char* protocol_str[] = { "None", "Keyboard", "Mouse" };
-  uint8_t const itf_protocol = tuh_hid_interface_protocol(dev_addr, instance);
+    //   Interface protocol (hid_interface_protocol_enum_t)
+    const char* protocol_str[] = { "None", "Keyboard", "Mouse" };
+    uint8_t const itf_protocol = tuh_hid_interface_protocol(dev_addr, instance);
 
-  printf("HID Interface Protocol = %s\r\n", protocol_str[itf_protocol]);
+    // printf("HID Interface Protocol = %s\r\n", protocol_str[itf_protocol]);
 
-  // By default host stack will use activate boot protocol on supported interface.
-  // Therefore for this simple example, we only need to parse generic report descriptor (with built-in parser)
-  if (itf_protocol == HID_ITF_PROTOCOL_NONE)
-  {
-    hid_info[instance].report_count = tuh_hid_parse_report_descriptor(hid_info[instance].report_info, MAX_REPORT, desc_report, desc_len);
-    printf("HID has %u reports \r\n", hid_info[instance].report_count);
-  }
+    // By default host stack will use activate boot protocol on supported interface.
+    // Therefore for this simple example, we only need to parse generic report descriptor (with built-in parser)
+    if (itf_protocol == HID_ITF_PROTOCOL_NONE)
+    {
+        hid_info[instance].report_count = tuh_hid_parse_report_descriptor(hid_info[instance].report_info, MAX_REPORT, desc_report, desc_len);
+        // printf("HID has %u reports \r\n", hid_info[instance].report_count);
+    }
 
-  uint8_t leds = 0;
-  leds &= ~KEYBOARD_LED_NUMLOCK;
-  tuh_hid_set_report(dev_addr, instance, 0, HID_REPORT_TYPE_OUTPUT, &leds, sizeof(leds));
+    uint8_t leds = 0;
+    leds &= ~KEYBOARD_LED_NUMLOCK;
+    tuh_hid_set_report(dev_addr, instance, 0, HID_REPORT_TYPE_OUTPUT, &leds, sizeof(leds));
 
-  // request to receive report
-  // tuh_hid_report_received_cb() will be invoked when report is available
-  if (!tuh_hid_receive_report(dev_addr, instance))
-  {
-    printf("Error: cannot request to receive report\r\n");
-  }
+    // request to receive report
+    // tuh_hid_report_received_cb() will be invoked when report is available
+    if (!tuh_hid_receive_report(dev_addr, instance))
+    {
+        // printf("Error: cannot request to receive report\r\n");
+    }
 }
 
 // Invoked when device with hid interface is un-mounted
 void tuh_hid_umount_cb(uint8_t dev_addr, uint8_t instance)
 {
-  printf("HID device address = %d, instance = %d is unmounted\r\n", dev_addr, instance);
+    // printf("HID device address = %d, instance = %d is unmounted\r\n", dev_addr, instance);
 }
 
 // Invoked when received report from device via interrupt endpoint
 void tuh_hid_report_received_cb(uint8_t dev_addr, uint8_t instance, uint8_t const* report, uint16_t len)
 {
-  uint8_t const itf_protocol = tuh_hid_interface_protocol(dev_addr, instance);
+    uint8_t const itf_protocol = tuh_hid_interface_protocol(dev_addr, instance);
 
-  switch (itf_protocol)
-  {
-  case HID_ITF_PROTOCOL_KEYBOARD:
-    TU_LOG2("HID receive boot keyboard report\r\n");
-    process_kbd_report((hid_keyboard_report_t const*)report);
-    break;
+    switch (itf_protocol)
+    {
+    case HID_ITF_PROTOCOL_KEYBOARD:
+        TU_LOG2("HID receive boot keyboard report\r\n");
+        process_kbd_report((hid_keyboard_report_t const*)report);
+        break;
 
-  case HID_ITF_PROTOCOL_MOUSE:
-    TU_LOG2("HID receive boot mouse report\r\n");
-    process_mouse_report((hid_mouse_report_t const*)report);
-    break;
+    case HID_ITF_PROTOCOL_MOUSE:
+        TU_LOG2("HID receive boot mouse report\r\n");
+        process_mouse_report((hid_mouse_report_t const*)report);
+        break;
 
-  default:
-    // Generic report requires matching ReportID and contents with previous parsed report info
-    process_generic_report(dev_addr, instance, report, len);
-    break;
-  }
+    default:
+        // Generic report requires matching ReportID and contents with previous parsed report info
+        process_generic_report(dev_addr, instance, report, len);
+        break;
+    }
 
-  // continue to request to receive report
-  if (!tuh_hid_receive_report(dev_addr, instance))
-  {
-    printf("Error: cannot request to receive report\r\n");
-  }
+    // continue to request to receive report
+    if (!tuh_hid_receive_report(dev_addr, instance))
+    {
+        // printf("Error: cannot request to receive report\r\n");
+    }
 }
 
 //--------------------------------------------------------------------+
@@ -147,12 +147,12 @@ void tuh_hid_report_received_cb(uint8_t dev_addr, uint8_t instance, uint8_t cons
 // look up new key in previous keys
 static inline bool find_key_in_report(hid_keyboard_report_t const* report, uint8_t keycode)
 {
-  for (uint8_t i = 0; i < 6; i++)
-  {
-    if (report->keycode[i] == keycode)  return true;
-  }
+    for (uint8_t i = 0; i < 6; i++)
+    {
+        if (report->keycode[i] == keycode)  return true;
+    }
 
-  return false;
+    return false;
 }
 
 static void process_kbd_report(hid_keyboard_report_t const* report) {
@@ -221,7 +221,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                 should_reset_last_key = false;
             }
         }
-    // TODO example skips key released
+        // TODO example skips key released
     }
 
     if (no_keycode) {
@@ -251,55 +251,55 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
 void cursor_movement(int8_t x, int8_t y, int8_t wheel)
 {
 #if USE_ANSI_ESCAPE
-  // Move X using ansi escape
-  if (x < 0)
-  {
-    printf(ANSI_CURSOR_BACKWARD(% d), (-x)); // move left
+    // Move X using ansi escape
+    if (x < 0)
+    {
+        // printf(ANSI_CURSOR_BACKWARD(% d), (-x)); // move left
     } else if (x > 0)
-  {
-    printf(ANSI_CURSOR_FORWARD(% d), x); // move right
-  }
+    {
+        // printf(ANSI_CURSOR_FORWARD(% d), x); // move right
+    }
 
-  // Move Y using ansi escape
-  if (y < 0)
-  {
-    printf(ANSI_CURSOR_UP(% d), (-y)); // move up
+    // Move Y using ansi escape
+    if (y < 0)
+    {
+        // printf(ANSI_CURSOR_UP(% d), (-y)); // move up
     } else if (y > 0)
-  {
-    printf(ANSI_CURSOR_DOWN(% d), y); // move down
-  }
+    {
+        // printf(ANSI_CURSOR_DOWN(% d), y); // move down
+    }
 
-  // Scroll using ansi escape
-  if (wheel < 0)
-  {
-    printf(ANSI_SCROLL_UP(% d), (-wheel)); // scroll up
+    // Scroll using ansi escape
+    if (wheel < 0)
+    {
+        // printf(ANSI_SCROLL_UP(% d), (-wheel)); // scroll up
     } else if (wheel > 0)
-  {
-    printf(ANSI_SCROLL_DOWN(% d), wheel); // scroll down
-  }
+    {
+        // printf(ANSI_SCROLL_DOWN(% d), wheel); // scroll down
+    }
 
-  printf("\r\n");
+    // printf("\r\n");
 #else
-  printf("(%d %d %d)\r\n", x, y, wheel);
+    // printf("(%d %d %d)\r\n", x, y, wheel);
 #endif
 }
 
 static void process_mouse_report(hid_mouse_report_t const* report)
 {
-  static hid_mouse_report_t prev_report = { 0 };
+    static hid_mouse_report_t prev_report = { 0 };
 
-  //------------- button state  -------------//
-  uint8_t button_changed_mask = report->buttons ^ prev_report.buttons;
-  if (button_changed_mask & report->buttons)
-  {
-    printf(" %c%c%c ",
-      report->buttons & MOUSE_BUTTON_LEFT ? 'L' : '-',
-      report->buttons & MOUSE_BUTTON_MIDDLE ? 'M' : '-',
-      report->buttons & MOUSE_BUTTON_RIGHT ? 'R' : '-');
-  }
+    //------------- button state  -------------//
+    uint8_t button_changed_mask = report->buttons ^ prev_report.buttons;
+    if (button_changed_mask & report->buttons)
+    {
+        // printf(" %c%c%c ",
+        // report->buttons& MOUSE_BUTTON_LEFT ? 'L' : '-',
+        //     report->buttons& MOUSE_BUTTON_MIDDLE ? 'M' : '-',
+        //     report->buttons& MOUSE_BUTTON_RIGHT ? 'R' : '-');
+    }
 
-  //------------- cursor movement -------------//
-  cursor_movement(report->x, report->y, report->wheel);
+    //------------- cursor movement -------------//
+    cursor_movement(report->x, report->y, report->wheel);
 }
 
 //--------------------------------------------------------------------+
@@ -307,108 +307,108 @@ static void process_mouse_report(hid_mouse_report_t const* report)
 //--------------------------------------------------------------------+
 static void process_generic_report(uint8_t dev_addr, uint8_t instance, uint8_t const* report, uint16_t len)
 {
-  (void)dev_addr;
+    (void)dev_addr;
 
-  uint8_t const rpt_count = hid_info[instance].report_count;
-  tuh_hid_report_info_t* rpt_info_arr = hid_info[instance].report_info;
-  tuh_hid_report_info_t* rpt_info = NULL;
+    uint8_t const rpt_count = hid_info[instance].report_count;
+    tuh_hid_report_info_t* rpt_info_arr = hid_info[instance].report_info;
+    tuh_hid_report_info_t* rpt_info = NULL;
 
-  if (rpt_count == 1 && rpt_info_arr[0].report_id == 0)
-  {
-    // Simple report without report ID as 1st byte
-    rpt_info = &rpt_info_arr[0];
+    if (rpt_count == 1 && rpt_info_arr[0].report_id == 0)
+    {
+        // Simple report without report ID as 1st byte
+        rpt_info = &rpt_info_arr[0];
     } else
-  {
-    // Composite report, 1st byte is report ID, data starts from 2nd byte
-    uint8_t const rpt_id = report[0];
-
-    // Find report id in the array
-    for (uint8_t i = 0; i < rpt_count; i++)
     {
-      if (rpt_id == rpt_info_arr[i].report_id)
-      {
-        rpt_info = &rpt_info_arr[i];
-        break;
-      }
+        // Composite report, 1st byte is report ID, data starts from 2nd byte
+        uint8_t const rpt_id = report[0];
+
+        // Find report id in the array
+        for (uint8_t i = 0; i < rpt_count; i++)
+        {
+            if (rpt_id == rpt_info_arr[i].report_id)
+            {
+                rpt_info = &rpt_info_arr[i];
+                break;
+            }
+        }
+
+        report++;
+        len--;
     }
 
-    report++;
-    len--;
-  }
-
-  if (!rpt_info)
-  {
-    printf("Couldn't find the report info for this report !\r\n");
-    return;
-  }
-
-  // For complete list of Usage Page & Usage checkout src/class/hid/hid.h. For examples:
-  // - Keyboard                     : Desktop, Keyboard
-  // - Mouse                        : Desktop, Mouse
-  // - Gamepad                      : Desktop, Gamepad
-  // - Consumer Control (Media Key) : Consumer, Consumer Control
-  // - System Control (Power key)   : Desktop, System Control
-  // - Generic (vendor)             : 0xFFxx, xx
-  if (rpt_info->usage_page == HID_USAGE_PAGE_DESKTOP)
-  {
-    switch (rpt_info->usage)
+    if (!rpt_info)
     {
-    case HID_USAGE_DESKTOP_KEYBOARD:
-      TU_LOG1("HID receive keyboard report\r\n");
-      // Assume keyboard follow boot report layout
-      process_kbd_report((hid_keyboard_report_t const*)report);
-      break;
-
-    case HID_USAGE_DESKTOP_MOUSE:
-      TU_LOG1("HID receive mouse report\r\n");
-      // Assume mouse follow boot report layout
-      process_mouse_report((hid_mouse_report_t const*)report);
-      break;
-
-    default: break;
+        // printf("Couldn't find the report info for this report !\r\n");
+        return;
     }
-  }
+
+    // For complete list of Usage Page & Usage checkout src/class/hid/hid.h. For examples:
+    // - Keyboard                     : Desktop, Keyboard
+    // - Mouse                        : Desktop, Mouse
+    // - Gamepad                      : Desktop, Gamepad
+    // - Consumer Control (Media Key) : Consumer, Consumer Control
+    // - System Control (Power key)   : Desktop, System Control
+    // - Generic (vendor)             : 0xFFxx, xx
+    if (rpt_info->usage_page == HID_USAGE_PAGE_DESKTOP)
+    {
+        switch (rpt_info->usage)
+        {
+        case HID_USAGE_DESKTOP_KEYBOARD:
+            TU_LOG1("HID receive keyboard report\r\n");
+            // Assume keyboard follow boot report layout
+            process_kbd_report((hid_keyboard_report_t const*)report);
+            break;
+
+        case HID_USAGE_DESKTOP_MOUSE:
+            TU_LOG1("HID receive mouse report\r\n");
+            // Assume mouse follow boot report layout
+            process_mouse_report((hid_mouse_report_t const*)report);
+            break;
+
+        default: break;
+        }
+    }
 }
 
 //IchigoJam
 void delete_line_and_screen_puts(char* s) {
-  key_pushc(24);
-  key_push(s);
+    key_pushc(24);
+    key_push(s);
 }
 
 void put_function_key(uint8_t key) {
-	switch (key) {
-	case 0x3a: //F1
+    switch (key) {
+    case 0x3a: //F1
         key_push("\x13\x0c\0");
-		break;
-	case 0x3b: //F2　以下同様
-		delete_line_and_screen_puts("LOAD");
-		break;
-	case 0x3c:
-		delete_line_and_screen_puts("SAVE");
-		break;
-	case 0x3d:
-		delete_line_and_screen_puts("LIST\n");
-		break;
-	case 0x3e:
-		delete_line_and_screen_puts("RUN\n");
-		break;
-	case 0x3f:
-		delete_line_and_screen_puts("?FREE()\n");
-		break;
-	case 0x40:
-		delete_line_and_screen_puts("OUT0\n");
-		break;
-	case 0x41:
-		delete_line_and_screen_puts("VIDEO1\n");
-		break;
-	case 0x42:
-		delete_line_and_screen_puts("FILES");
-		break;
-	case 0x43: //F10
-		delete_line_and_screen_puts("SWITCH\n");
-		break;
-	default:
-		break;
-	}
+        break;
+    case 0x3b: //F2　以下同様
+        delete_line_and_screen_puts("LOAD");
+        break;
+    case 0x3c:
+        delete_line_and_screen_puts("SAVE");
+        break;
+    case 0x3d:
+        delete_line_and_screen_puts("LIST\n");
+        break;
+    case 0x3e:
+        delete_line_and_screen_puts("RUN\n");
+        break;
+    case 0x3f:
+        delete_line_and_screen_puts("?FREE()\n");
+        break;
+    case 0x40:
+        delete_line_and_screen_puts("OUT0\n");
+        break;
+    case 0x41:
+        delete_line_and_screen_puts("VIDEO1\n");
+        break;
+    case 0x42:
+        delete_line_and_screen_puts("FILES");
+        break;
+    case 0x43: //F10
+        delete_line_and_screen_puts("SWITCH\n");
+        break;
+    default:
+        break;
+    }
 }
