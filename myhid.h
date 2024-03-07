@@ -38,6 +38,7 @@
 *
 *--------------------------------------------------------------------*/
 
+//pico-sdk/lib/tinyusb/src/class/hid/hid.hから必要な部分を抜粋、修正
 
 #define RETURN '\n'
 #define SFTSP 14 //shift + space

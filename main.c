@@ -177,7 +177,9 @@ bool timer(repeating_timer_t* rt) {
     frames++;
     psg_tick();
     set_tone();
+    if (video_active()) {
     vram_to_framebuf_all(_g.cursorflg);
+    }
     tuh_task();
     return true;
 }
@@ -233,7 +235,7 @@ void pico_init() {
     set_sys_clock_khz(DVI_TIMING.bit_clk_khz, true);
 #endif
 
-    stdio_init_all(); //クロックを変えてから初期化する
+    stdio_uart_init();//クロックを変えてから初期化する
     // uart_set_hw_flow(UART_ID, false, false);//いる？
     // uart_set_fifo_enabled(UART_ID, false);
     irq_set_exclusive_handler(UART_IRQ, on_uart_rx);
@@ -412,7 +414,6 @@ int main() {
                         exec(linebuf);
                     }
                 }
-            }
         }
 		// __wfe();
 	}
