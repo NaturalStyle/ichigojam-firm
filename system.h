@@ -1,4 +1,5 @@
 static uint scb_orig, clock0_orig, clock1_orig;
+static bool awake;
 
 int getSleepFlag() {
     return IJB_btn(0);
@@ -28,12 +29,65 @@ void recover_from_sleep(uint scb_orig, uint clock0_orig, uint clock1_orig) {
     return;
 }
 
+static void sleep_callback(void) {
+    awake = true;
+}
+
+static void rtc_sleep(int sec) {
+    sec++;//スリープする時間は (t_alarm と tの差) - 1秒、なので調整する
+    int min = sec / 60;
+    sec = sec % 60;
+
+    datetime_t t = {
+            .year = 2000,
+            .month = 1,
+            .day = 1,
+            .dotw = 0,
+            .hour = 0,
+            .min = 0,
+            .sec = 0
+    };
+
+    // Alarm 10 seconds later
+    datetime_t t_alarm = {
+            .year = 2000,
+            .month = 1,
+            .day = 1,
+            .dotw = 0,
+            .hour = 0,
+            .min = min,
+            .sec = sec
+    };
+
+    // Start the RTC
+    rtc_init();
+    rtc_set_datetime(&t);
+
+    sleep_goto_sleep_until(&t_alarm, &sleep_callback);
+}
+
 //TODO ちゃんと低電力化しているか確かめる
-static inline void enterDeepSleep(int wait_us) {
+//RTCの仕様上、1秒刻みでしかディープスリープの秒数を指定できない
+//端数はsleep_msで誤魔化す？
+static inline void enterDeepSleep(int sec) {
+    if (sec == 0) {
+        return;
+    }
     bool active = video_active();
     video_off(0);
-    sleep_us(wait_us);
+    //pico-playground/sleep/hello_sleep/hello_sleep.c　10秒スリープするプログラムと書かれているが、実際は9秒
+    //https://ghubcoder.github.io/posts/awaking-the-pico/ 参照
+    record_clocks();
+    sleep_run_from_xosc();
+    awake = false;
+    rtc_sleep(sec);
+    while (!awake) {
+        // printf("Should be sleeping\n");
+        //ここに入る時があるが、hello_sleep.cを動かしてみた限り入らないはず？ちゃんと省電力化できているか？
+    }
+    recover_from_sleep(scb_orig, clock0_orig, clock1_orig);
     if (active) {
+        sleep_ms(1);//入れないとおかしくなる時がある
         video_on();
     }
 }
@@ -78,7 +132,7 @@ static int IJB_wait(int n, int active) {
         }
         return 0;
     } else if (n > 0) {
-        enterDeepSleep(n * 16666); // usec, deep
+        enterDeepSleep(n / 60);
     }
     return 0;
 }
