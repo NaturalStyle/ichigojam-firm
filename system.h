@@ -1,5 +1,31 @@
+static uint scb_orig, clock0_orig, clock1_orig;
+
 int getSleepFlag() {
     return IJB_btn(0);
+}
+
+void record_clocks() {
+    scb_orig = scb_hw->scr;
+    clock0_orig = clocks_hw->sleep_en0;
+    clock1_orig = clocks_hw->sleep_en1;
+}
+
+void recover_from_sleep(uint scb_orig, uint clock0_orig, uint clock1_orig) {
+
+    //Re-enable ring Oscillator control
+    rosc_write(&rosc_hw->ctrl, ROSC_CTRL_ENABLE_BITS);
+
+    //reset procs back to default
+    scb_hw->scr = scb_orig;
+    clocks_hw->sleep_en0 = clock0_orig;
+    clocks_hw->sleep_en1 = clock1_orig;
+
+    //reset clocks
+    clocks_init();
+    set_sys_clock_khz(252000, true);
+    stdio_uart_init();
+
+    return;
 }
 
 //TODO ちゃんと低電力化しているか確かめる
@@ -12,13 +38,17 @@ static inline void enterDeepSleep(int wait_us) {
     }
 }
 
-//TODO ディープスリープを使って実装する
-static void IJB_sleep() {//TODO ボタンを一瞬だけ押すと普通に起動してしまうので、修正する(LRUN0が実行されるのが正しい)
+//TODO ボタンを一瞬だけ押すと普通に起動してしまうので、修正する(LRUN0が実行されるのが正しい)
+static void IJB_sleep() {
     while (IJB_btn(0)) {
+        //ボタンを押している間はスリープに入らない
     }
     video_off(0);
-    while (!IJB_btn(0)) {
-    }
+    //pico-playground/sleep/hello_dormant/hello_dormant.c 参照
+    record_clocks();
+    sleep_run_from_xosc();
+    sleep_goto_dormant_until_pin(BTN, false, false);//ボタンを押すまでスリープし続ける
+    recover_from_sleep(scb_orig, clock0_orig, clock1_orig);
     IJB_reset();
 }
 
