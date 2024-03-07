@@ -37,7 +37,6 @@ INLINE void uart_init_IJ() {
     _g.uartmode_txd = DEFAULT_UARTMODE_TXD; // 最初のクリア信号を送らない
     // #endif
     _g.uartmode_rxd = DEFAULT_UARTMODE_RXD;
-    irq_set_enabled(UART_IRQ, _g.uartmode_rxd & 1);
 }
 
 INLINE void IJB_uart(int16 txd, int16 rxd) {
