@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 # initialize the SDK based on PICO_SDK_PATH
 # note: this must happen before project()
 include(pico_sdk_import.cmake)
+include(pico_extras_import.cmake)
 
 project(my_project)
 
@@ -12,7 +13,7 @@ pico_sdk_init()
 set(DVI_DEFAULT_SERIAL_CONFIG "pico_sock_cfg" CACHE STRING
 	"Select a default pin configuration from common_dvi_pin_configs.h" FORCE)
 include_directories(
-	PicoDVI/software/assets
+	# PicoDVI/software/assets
 	PicoDVI/software/include
 	)
 add_subdirectory(PicoDVI/software/libdvi)
@@ -118,6 +119,7 @@ target_link_libraries(IchigoJam_pico PUBLIC
 	hardware_watchdog
 	hardware_adc
 	hardware_pwm
+	hardware_sleep
 )
 
 # pico_enable_stdio_usb(IchigoJam_pico 0)

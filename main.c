@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+//pico-sdk
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
 #include "hardware/flash.h"
@@ -9,7 +11,14 @@
 #include "hardware/watchdog.h"
 #include "hardware/adc.h"
 #include "hardware/pwm.h"
+#include "hardware/clocks.h"
+#include "hardware/structs/scb.h"
 
+//pico-extras
+#include "pico/sleep.h"
+#include "hardware/rosc.h"
+
+//PicoDVI
 #include "dvi.h"
 #include "common_dvi_pin_configs.h"
 #include "sprite.h"
