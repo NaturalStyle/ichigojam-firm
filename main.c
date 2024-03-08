@@ -26,6 +26,17 @@
 #include "tusb.h"
 #include "myhid.h"
 
+//pico
+// TMDS bit clock 252 MHz
+// DVDD 1.2V (1.1V seems ok too)
+//320*240ピクセルの画面として扱う
+#define FRAME_MAX_WIDTH 320
+#define FRAME_MAX_HEIGHT 240
+#define VREG_VSEL VREG_VOLTAGE_1_20
+#define DVI_TIMING dvi_timing_640x480p_60hz
+#define SCANLINE_INIT 2
+#define LED_PIN 25
+
 // for IchigoJam BASIC
 #define IJB_BUILD 0 //TODO 要修正
 #define IJB_VER 255 //TODO 要修正
@@ -52,17 +63,6 @@
 #include "system.h"
 #include "sound.h"
 #include "mainc_functions.h"
-
-//pico
-// TMDS bit clock 252 MHz
-// DVDD 1.2V (1.1V seems ok too)
-//320*240ピクセルの画面として扱う
-#define FRAME_MAX_WIDTH 320
-#define FRAME_MAX_HEIGHT 240
-#define VREG_VSEL VREG_VOLTAGE_1_20
-#define DVI_TIMING dvi_timing_640x480p_60hz
-#define SCANLINE_INIT 2
-#define LED_PIN 25
 
 //IchigoJam
 #define FONT_SIZE 8

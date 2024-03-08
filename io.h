@@ -13,9 +13,11 @@
 
 #define IO_PIN_NUM 11
 
+#define PLEN_MAX 2000
+
 //ラズパイの動作クロックは252MHz(PicoDVIでオーバークロックしている)、IchigoJamのPWMは1周期20msなので50Hz
 //https://rikei-tawamure.com/entry/2021/02/08/213335#PWM%E7%94%A8%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF 計算方法は左記参照
-#define PICO_CLOCK_FREQ 252000000
+#define PICO_CLOCK_FREQ DVI_TIMING.bit_clk_khz * 1000
 #define CLKDIV 252
 #define PWM_WRAP ((PICO_CLOCK_FREQ / (CLKDIV * 50)) - 1)
 
@@ -29,15 +31,15 @@ void IJB_pwm(int port, int plen, int len) {
 
     if (plen < 0) {
         plen = 0;
-    } else if (plen > 2000) {
-        plen = 2000;
+    } else if (plen > PLEN_MAX) {
+        plen = PLEN_MAX;
     }
     uint8 pin = out_pins[port - 1];
     gpio_set_function(pin, GPIO_FUNC_PWM);
     uint slice_num = pwm_gpio_to_slice_num(pin);
     pwm_set_clkdiv(slice_num, CLKDIV);
     pwm_set_wrap(slice_num, PWM_WRAP);
-    pwm_set_gpio_level(pin, (PWM_WRAP + 1) * plen / 2000);
+    pwm_set_gpio_level(pin, (PWM_WRAP + 1) * plen / PLEN_MAX);
     pwm_set_enabled(slice_num, true);
 }
 

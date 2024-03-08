@@ -23,7 +23,7 @@ void recover_from_sleep(uint scb_orig, uint clock0_orig, uint clock1_orig) {
 
     //reset clocks
     clocks_init();
-    set_sys_clock_khz(252000, true);
+    set_sys_clock_khz(DVI_TIMING.bit_clk_khz, true);
     set_uart_bps();
 
     return;
