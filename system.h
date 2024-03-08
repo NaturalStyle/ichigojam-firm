@@ -24,7 +24,7 @@ void recover_from_sleep(uint scb_orig, uint clock0_orig, uint clock1_orig) {
     //reset clocks
     clocks_init();
     set_sys_clock_khz(252000, true);
-    stdio_uart_init();
+    set_uart_bps();
 
     return;
 }

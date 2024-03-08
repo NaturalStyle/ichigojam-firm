@@ -13,6 +13,7 @@ struct keyflg_def key_flg;
 extern uint8_t keycode2ascii[128][4];
 //TODO? フラッシュに書き込んで保存する？
 bool kbd_mode = 0;
+static int baudrate = 115200;
 
 static inline uint key_getKeyboardID() {
     return kbd_mode;
@@ -99,6 +100,10 @@ void key_clearKey() {
     *keybuf = 0;
 }
 
+void set_uart_bps() {
+    uart_set_baudrate(UART_ID, baudrate);
+}
+
 void uart_bps(int n) { // 0:115200, -1:57600, -2:38400
     if (n == 0) {
         n = 115200;
@@ -106,8 +111,11 @@ void uart_bps(int n) { // 0:115200, -1:57600, -2:38400
         n = 57600;
     } else if (n == -2) {
         n = 38400;
+    } else if (n <= -100) {
+        n *= -100;
     }
-    //	UARTInit(n);
+    baudrate = n;
+    set_uart_bps();
 }
 
 INLINE int stopExecute() {
