@@ -82,8 +82,8 @@ static inline void enterDeepSleep(int sec) {
     awake = false;
     rtc_sleep(sec);
     while (!awake) {
+        __wfi();//入れないとスリープから復帰できない時がある、謎
         // printf("Should be sleeping\n");
-        //ここに入る時があるが、hello_sleep.cを動かしてみた限り入らないはず？ちゃんと省電力化できているか？
     }
     recover_from_sleep(scb_orig, clock0_orig, clock1_orig);
     if (active) {
