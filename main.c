@@ -70,11 +70,10 @@
 // #define MARGIN_HEIGHT 24
 #define MARGIN_WIDTH ((FRAME_MAX_WIDTH - CHAR_MAX_COLS * FONT_SIZE) / 2)
 #define MARGIN_HEIGHT ((FRAME_MAX_HEIGHT - CHAR_MAX_ROWS * FONT_SIZE) / 2)
-#define CURSOR_BLINK_INTERVAL 250000
 
 //pico
 struct dvi_inst dvi0;
-uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
+static uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
 static repeating_timer_t out;
 uint8_t last_char = 0;
 bool did_first_putc = false;
@@ -103,6 +102,9 @@ void core1_scanline_callback() {
 }
 
 //1scanline分vramの内容をframebufに反映する
+//framebufには320*240ピクセルの色情報が入っている(ここでは白か黒)
+//vramには32*24の文字情報が入っている(mag=1の場合)
+//_g.screen_bigは0~3の範囲
 void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
     int vram_y = ((scanline - MARGIN_HEIGHT) / FONT_SIZE) >> _g.screen_big;
     int mag = 1 << _g.screen_big;//文字の大きさの倍率　最大8倍
@@ -117,7 +119,7 @@ void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
             }
             c++;
             char_line ^= 0xff * _g.screen_invert;//VIDEOコマンドでの画面の反転を反映する
-            if (visible_cursor && _g.cursorx == vram_x && _g.cursory == vram_y) {//カーソルの位置の文字だけ反転させる
+            if ((frames >> 4) & visible_cursor && _g.cursorx == vram_x && _g.cursory == vram_y) {//カーソルの位置の文字だけ反転させる
                 char_line ^= key_flg.insert ? 0xff : 0xf0;//上書きモードなら文字全体を反転、挿入モードなら文字の左半分を反転
             }
             for (int x = 0; x < FONT_SIZE; x++) {
@@ -127,6 +129,7 @@ void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
                 //     framebuf_base++;
                 // }
                 //展開するとめちゃくちゃ速くなる
+                //duff's devideは速くならなかった
                 if (mag == 1) {
                     *framebuf_base = pixel;
                     framebuf_base++;
@@ -178,7 +181,7 @@ bool timer(repeating_timer_t* rt) {
     psg_tick();
     set_tone();
     if (video_active()) {
-    vram_to_framebuf_all(_g.cursorflg);
+        vram_to_framebuf_all(_g.cursorflg);
     }
     tuh_task();
     return true;
@@ -187,7 +190,7 @@ bool timer(repeating_timer_t* rt) {
 void on_uart_rx() {
     while (uart_is_readable(UART_ID)) {
         uint8_t ch = uart_getc(UART_ID);
-        if (ch == 27) {
+        if (ch == ESC) {
             _g.key_flg_esc = (_g.uartmode_rxd & 2) == 0; // 1.2b41
         }
         if (_g.uartmode_rxd & 1) {
@@ -196,9 +199,10 @@ void on_uart_rx() {
     }
 }
 
+//hid_app.cが複雑になってるので、もっと簡潔に処理できるなら直したい
 void putc_long_push_key() {
-    int save = save_and_disable_interrupts();
-    int interval = did_first_putc ? 100000 : 500000;
+    int save = save_and_disable_interrupts();//割り込みを止めないとなぜかtime-us-64() - last_key_report_timeがオーバーフローする時がある
+    int interval = did_first_putc ? 100000 : 500000;//キーを長押しした時、最初の1回だけ入力の間隔を長くする
     if (time_us_64() - last_key_report_time > interval) {
         last_key_report_time = time_us_64();
         if (last_char != 0) {
@@ -215,7 +219,7 @@ bool is_arun() {
     //行番号0、行番号1、行の文字数、行の内容...とデータが入っているので、index3からチェックする(行番号1*256+行番号0=行番号)
     const uint8_t* flash = (const uint8_t*)(XIP_BASE + FLASH_BLOCK_OFFSET);
     uint8_t arun[] = "@ARUN";
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; arun[i] != '\0'; i++) {
         if (arun[i] != flash[i + 3]) {
             return false;
         }
@@ -227,7 +231,6 @@ void pico_init() {
     board_init();
 
     vreg_set_voltage(VREG_VSEL);
-    sleep_ms(10);
 #ifdef RUN_FROM_CRYSTAL
     set_sys_clock_khz(12000, true);
 #else
@@ -251,7 +254,9 @@ void pico_init() {
     tuh_init(BOARD_TUH_RHPORT);
     tuh_task();//消すと起動時にキーボード接続していた時に、認識しない時がある？
     add_repeating_timer_us(-16666, timer, NULL, &out);//60FPS
+}
 
+void picodvi_init() {
     dvi0.timing = &DVI_TIMING;
     dvi0.ser_cfg = DVI_DEFAULT_SERIAL_CONFIG;
     dvi0.scanline_callback = core1_scanline_callback;
@@ -334,6 +339,7 @@ STATIC void exec(char* s) {
 
 int main() {
     pico_init();
+    picodvi_init();
     ichigojam_init();
 
 	char* linebuf = (char*)ram + OFFSET_RAM_LINEBUF;
@@ -371,15 +377,11 @@ int main() {
 
             exec("LRUN");
         }
-        static uint64 cursor_time = 0;
-        if (time_us_64() - cursor_time > CURSOR_BLINK_INTERVAL) {
-            screen_showCursor(!_g.cursorflg);
-            cursor_time = time_us_64();
-        }
+        screen_showCursor(1);
         IJB_random(1);
-            int ch = key_getKey();
+        int ch = key_getKey();
         if (ch < 0) {
-                putc_long_push_key();
+            putc_long_push_key();
             continue;
         } else if (ch == 0) {
             continue;
@@ -389,33 +391,33 @@ int main() {
             //			put_chr(key);
         }
         if (ch == ESC) {
-                continue;
-            }
-            _g.screen_insertmode = key_flg.insert;
-            screen_putc(ch);
-            if (ch == RETURN) {
-                uint8* s = screen_gets();
+            continue;
+        }
+        _g.screen_insertmode = key_flg.insert;
+        screen_putc(ch);
+        if (ch == RETURN) {
+            uint8* s = screen_gets();
 
-                //		put_str(s);
-                if (*s == '\'') { // 1.1b14
-                } else if (*s != 0) {
-                    uint8 i;
-                    for (i = 0; i < N_LINEBUF; i++) {
-                        linebuf[i] = s[i];
-                        if (!s[i])
-                            break;
-                    }
-                    //				_g.screen_insertmode = 1;
-                    if (s[i]) {
-                        //					put_str("Too long line\n");
-                        put_str("Too long\n"); // 1.2b45
-                    } else {
-                        linebuf[i] = 0; // いっぱいまで入れるとバグっていた 1.2b32
-                        exec(linebuf);
-                    }
+            //		put_str(s);
+            if (*s == '\'') { // 1.1b14
+            } else if (*s != 0) {
+                uint8 i;
+                for (i = 0; i < N_LINEBUF; i++) {
+                    linebuf[i] = s[i];
+                    if (!s[i])
+                        break;
                 }
+                //				_g.screen_insertmode = 1;
+                if (s[i]) {
+                    //					put_str("Too long line\n");
+                    put_str("Too long\n"); // 1.2b45
+                } else {
+                    linebuf[i] = 0; // いっぱいまで入れるとバグっていた 1.2b32
+                    exec(linebuf);
+                }
+            }
         }
 		// __wfe();
-	}
+    }
 	__builtin_unreachable();
 }
