@@ -26,7 +26,6 @@
 #include "bsp/board.h"
 #include "tusb.h"
 #include "IchigoJam.selected/screen.h"
-#include "keyboard.h"
 #include "IchigoJam.selected/romajikana.h"
 
 

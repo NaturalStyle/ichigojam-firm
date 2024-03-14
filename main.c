@@ -55,9 +55,9 @@
 #include "IchigoJam.selected/basic.h"
 //---
 #include "platform_depends_functions.h"
-#include "hid_app.c"
-#include "keyboard.h"
 #include "storage.h"
+#include "keyboard.h"
+#include "hid_app.c"
 #include "display.h"
 #include "io.h"
 #include "system.h"
@@ -282,7 +282,7 @@ void ichigojam_init() {
 
     key_clearKey();
     key_flg.caps = true;
-    set_keymap(keycode_to_ascii_us);
+    set_keymap(key_getKeyboardID());
     random_init();
     io_init();
     screen_clp();

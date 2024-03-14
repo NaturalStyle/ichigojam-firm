@@ -11,26 +11,33 @@
 char* keybuf = (char*)(ram + (OFFSET_RAM_KEYBUF + 1));
 struct keyflg_def key_flg;
 extern uint8_t keycode2ascii[128][4];
-//TODO? フラッシュに書き込んで保存する？
-bool kbd_mode = 0;
 static int baudrate = 115200;
+static uint8_t tflash[FLASH_SECTOR_SIZE];//フラッシュの中身の一部を書き換えてから書き戻すための一時変数、トップレベルで宣言しておかないと画面の描画が止まる？
 
 static inline uint key_getKeyboardID() {
-    return kbd_mode;
+    return get_flash(get_config_offset())[0];
 }
 
-void set_keymap(uint8_t keymap[][4]) {
-    memcpy(keycode2ascii, keymap, sizeof(keycode2ascii));
+void set_keymap(uint mode) {
+    if (mode == 0) {
+        memcpy(keycode2ascii, keycode_to_ascii_us, sizeof(keycode2ascii));
+    } else if (mode == 1) {
+        memcpy(keycode2ascii, keycode_to_ascii_ja, sizeof(keycode2ascii));
+    }
 }
 
 INLINE void IJB_kbd(uint mode) {
-    if (mode == 0) { //US
-        set_keymap(keycode_to_ascii_us);
-    } else { //JA
-        mode = 1;
-        set_keymap(keycode_to_ascii_ja);
-    }
-    kbd_mode = mode;
+    mode = !!mode;//現状JAかUSなので、0以外は全てJAとみなす
+    set_keymap(mode);
+    uint32_t offset = get_config_offset();
+    memcpy(tflash, get_flash(offset), FLASH_SECTOR_SIZE);
+    tflash[0] = mode;
+    video_off(0);
+    int save = save_and_disable_interrupts();
+    flash_range_erase(offset, FLASH_SECTOR_SIZE);
+    flash_range_program(offset, tflash, FLASH_SECTOR_SIZE);
+    video_on();
+    restore_interrupts(save);
 }
 
 INLINE void uart_init_IJ() {

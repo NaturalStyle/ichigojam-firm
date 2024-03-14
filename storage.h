@@ -1,7 +1,19 @@
-#define FLASH_BLOCK_OFFSET 0x1F0000//フラッシュメモリの最後のブロック(31番目)の先頭アドレス
+#define FLASH_BLOCK_OFFSET (0x200000 - FLASH_SECTOR_SIZE * 2)//SAVE0,LOAD0で読み出す部分の先頭(一番後ろのセクターはKBDの設定値などを保存するのに使う)
 
 INLINE int IJB_file() {
     return _g.lastfile;
+}
+
+uint32_t calc_offset(int n) {
+    return FLASH_BLOCK_OFFSET - n * FLASH_SECTOR_SIZE;
+}
+
+uint32_t get_config_offset() {
+    return calc_offset(-1);
+}
+
+uint8_t* get_flash(uint32_t offset) {
+    return (uint8_t*)(XIP_BASE + offset);
 }
 
 //TODO セーブ、ロードをEEPROMでも使えるように拡張する
@@ -9,7 +21,7 @@ INLINE int IJB_file() {
 static int IJB_save(int n, uint8* list, int size) {
     int res;
     if (0 <= n && n < N_FLASH_STORAGE) {
-        int offset = FLASH_BLOCK_OFFSET + n * FLASH_SECTOR_SIZE;
+        uint32_t offset = calc_offset(n);
         //フラッシュメモリに書き込む時は排他制御する
         video_off(0);
         int save = save_and_disable_interrupts();
@@ -26,9 +38,9 @@ static int IJB_save(int n, uint8* list, int size) {
 
 // ret:size if:-1 err
 static int IJB_load(int n, uint8* list, int sizelimit, int init) {
-    if (0 <= n && n <= N_FLASH_STORAGE) {
-        int offset = FLASH_BLOCK_OFFSET + n * FLASH_SECTOR_SIZE;
-        const uint8_t* flash = (const uint8_t*)(XIP_BASE + offset);
+    if (0 <= n && n < N_FLASH_STORAGE) {
+        uint32_t offset = calc_offset(n);
+        const uint8_t* flash = get_flash(offset);
         memcpy(list, flash, sizelimit);
         return sizelimit;
     } else {
