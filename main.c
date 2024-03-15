@@ -41,7 +41,7 @@
 #define IJB_BUILD 0 //TODO 要修正
 #define IJB_VER 255 //TODO 要修正
 #define NO_MEMCPY
-#define uart_putc ichigojam_uart_putc
+#define uart_putc ichigojam_uart_putc //picoのものと名前衝突しているのを解決
 #include "config.h"
 #include "IchigoJam.selected/stddef.h"
 #include "IchigoJam.selected/random.h"

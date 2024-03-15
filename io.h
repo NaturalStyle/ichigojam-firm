@@ -24,8 +24,8 @@
 #define CLKDIV 252
 #define PWM_WRAP ((PICO_CLOCK_FREQ / (CLKDIV * 50)) - 1)
 
-uint8 in_pins[] = { IN1, IN2, IN3, IN4, OUT1, OUT2, OUT3, OUT4, BTN, OUT5, OUT6 };
-uint8 out_pins[] = { OUT1, OUT2, OUT3, OUT4, OUT5, OUT6, LED, IN1, IN2, IN3, IN4 };
+static uint8 in_pins[] = { IN1, IN2, IN3, IN4, OUT1, OUT2, OUT3, OUT4, BTN, OUT5, OUT6 };
+static uint8 out_pins[] = { OUT1, OUT2, OUT3, OUT4, OUT5, OUT6, LED, IN1, IN2, IN3, IN4 };
 
 void IJB_pwm(int port, int plen, int len) {
     if (!(1 <= port && port <= 6)) {

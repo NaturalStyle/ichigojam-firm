@@ -23,6 +23,8 @@
  *
  */
 
+ //pico-examples/usb/host/host_cdc_msc_hid/hid_app.cを拡張
+
 #ifndef __HID_APP_C__
 #define __HID_APP_C__
 

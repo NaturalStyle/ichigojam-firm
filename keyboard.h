@@ -2,13 +2,15 @@
 #define __KEYBOARD_H__
 
 #define KEY_BUF_LEN (SIZE_RAM_KEYBUF - 2)
+#define MODE_US 0
+#define MODE_JA 1
 
 #define DEFAULT_UARTMODE_TXD 2	// txd 0:disable, 1:only text, 2:with ctrl, +4:echo back mode, +8:画面表示オフ(PRINTやSyntax errorなどのメッセージがオフになり、キーボード入力は表示されたまま)
 #define DEFAULT_UARTMODE_RXD 1	// rxd 0:disable, 1:enable, 2:ignore esc mode, 4:CR mode, 6:ignore esc & CR mode (auto comment mode??) // -> keyboard_ps2.h
 #define UART_ID uart0
 #define UART_IRQ UART0_IRQ
 
-char* keybuf = (char*)(ram + (OFFSET_RAM_KEYBUF + 1));
+static char* keybuf = (char*)(ram + (OFFSET_RAM_KEYBUF + 1));
 struct keyflg_def key_flg;
 extern uint8_t keycode2ascii[128][4];
 static int baudrate = 115200;
@@ -19,9 +21,9 @@ static inline uint key_getKeyboardID() {
 }
 
 void set_keymap(uint mode) {
-    if (mode == 0) {
+    if (mode == MODE_US) {
         memcpy(keycode2ascii, keycode_to_ascii_us, sizeof(keycode2ascii));
-    } else if (mode == 1) {
+    } else if (mode == MODE_JA) {
         memcpy(keycode2ascii, keycode_to_ascii_ja, sizeof(keycode2ascii));
     }
 }
@@ -82,6 +84,7 @@ void key_pushc(char c) {
         keybuf[(uint8)*keybuf] = c;
     }
 }
+
 void key_push(char* s) { // for function keys
     for (;;) {
         char c = *s++;

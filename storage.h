@@ -1,7 +1,10 @@
+//picoに焼いたプログラムはフラッシュメモリの先頭に配置される
+//プログラム領域の終わりは、build/IchigoJam_pico.elf.mapのflash_binary_endの下7桁を見ればわかるが、かなり余裕がある(2ブロックに収まっている)
+//フラッシュメモリの容量=2M=0x200000, 1ブロックの容量=0x10000, FLASH_SECTOR_SIZE=0x1000(単位はバイト)
 #ifndef __STORAGE_H__
 #define __STORAGE_H__
 
-#define FLASH_BLOCK_OFFSET (0x200000 - FLASH_SECTOR_SIZE * 2)//SAVE0,LOAD0で読み出す部分の先頭(一番後ろのセクターはKBDの設定値などを保存するのに使う)
+#define FLASH_BLOCK_OFFSET (0x200000 - FLASH_SECTOR_SIZE * 2)//SAVE0,LOAD0で操作するセクタの先頭(一番最後のセクタはKBDの設定値などを保存するのに使うので、その1つ前のセクタ)
 
 INLINE int IJB_file() {
     return _g.lastfile;
@@ -12,7 +15,7 @@ uint32_t calc_offset(int n) {
 }
 
 uint32_t get_config_offset() {
-    return calc_offset(-1);
+    return calc_offset(-1);//一番最後のセクタ
 }
 
 uint8_t* get_flash(uint32_t offset) {
