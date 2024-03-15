@@ -1,3 +1,6 @@
+#ifndef __IO_H__
+#define __IO_H__
+
 #define LED 2
 #define BTN 28
 #define IN1 27
@@ -173,3 +176,5 @@ INLINE int IJB_ana(int n) {
 INLINE void IJB_clo() {
     io_init();
 }
+
+#endif

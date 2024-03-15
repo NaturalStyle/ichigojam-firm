@@ -1,3 +1,6 @@
+#ifndef __SOUND_H__
+#define __SOUND_H__
+
 #define SOUND_PIN 20
 
 static uint slice_num;
@@ -34,3 +37,5 @@ static void sound_switch(int on) {
         pwm_set_gpio_level(SOUND_PIN, 0);
     }
 }
+
+#endif

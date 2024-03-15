@@ -1,3 +1,6 @@
+#ifndef __STORAGE_H__
+#define __STORAGE_H__
+
 #define FLASH_BLOCK_OFFSET (0x200000 - FLASH_SECTOR_SIZE * 2)//SAVE0,LOAD0で読み出す部分の先頭(一番後ろのセクターはKBDの設定値などを保存するのに使う)
 
 INLINE int IJB_file() {
@@ -47,3 +50,5 @@ static int IJB_load(int n, uint8* list, int sizelimit, int init) {
         return -1;
     }
 }
+
+#endif

@@ -40,6 +40,9 @@
 
 //pico-sdk/lib/tinyusb/src/class/hid/hid.hから必要な部分を抜粋、修正
 
+#ifndef __MYHID_H__
+#define __MYHID_H__
+
 #define RETURN '\n'
 #define SFTSP 14 //shift + space
 #define KANA 15
@@ -297,5 +300,7 @@ uint8_t keycode_to_ascii_ja[128][4] = { HID_KEYCODE_TO_ASCII_JA };
 #define YENPIPE 137 //日本語キーボードの¥と|
 
 #ifdef __cplusplus
+
+#endif
 
 #endif

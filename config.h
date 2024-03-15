@@ -1,5 +1,7 @@
 // created by Taisuke Fukuno, @taisukef, http://fukuno.jig.jp/
 // license CC BY-NC-SA 4.0 http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
+#ifndef __CONFIG_H__
+#define __CONFIG_H__
 #define ICHIGOJAM
 
 //#define IJB_BETA // beta or not
@@ -22,3 +24,4 @@
 
 // #define EXT_IOT
 // #define KEY_INIT_DELAY
+#endif

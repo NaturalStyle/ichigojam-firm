@@ -1,3 +1,6 @@
+#ifndef __DISPLAY_H__
+#define __DISPLAY_H__
+
 #define CHAR_MAX_COLS 32
 #define CHAR_MAX_ROWS 24
 
@@ -25,3 +28,5 @@ INLINE void IJB_lcd(uint mode) {
 void video_waitSync(uint num) {
     //何もしない
 }
+
+#endif

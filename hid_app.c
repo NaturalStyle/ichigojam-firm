@@ -23,6 +23,9 @@
  *
  */
 
+#ifndef __HID_APP_C__
+#define __HID_APP_C__
+
 #include "bsp/board.h"
 #include "tusb.h"
 #include "IchigoJam.selected/screen.h"
@@ -411,3 +414,5 @@ void put_function_key(uint8_t key) {
         break;
     }
 }
+
+#endif
