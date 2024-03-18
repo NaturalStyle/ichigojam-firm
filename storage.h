@@ -25,6 +25,7 @@ uint8_t* get_flash(uint32_t offset) {
 //TODO セーブ、ロードをEEPROMでも使えるように拡張する
 // err:1 no_err:0
 static int IJB_save(int n, uint8* list, int size) {
+    _g.lastfile = n;
     int res;
     if (0 <= n && n < N_FLASH_STORAGE) {
         uint32_t offset = calc_offset(n);
@@ -44,6 +45,9 @@ static int IJB_save(int n, uint8* list, int size) {
 
 // ret:size if:-1 err
 static int IJB_load(int n, uint8* list, int sizelimit, int init) {
+    if (init) {
+        _g.lastfile = n;
+    }
     if (0 <= n && n < N_FLASH_STORAGE) {
         uint32_t offset = calc_offset(n);
         const uint8_t* flash = get_flash(offset);
