@@ -71,7 +71,7 @@ static void rtc_sleep(int sec) {
 
 //TODO ちゃんと低電力化しているか確かめる
 //RTCの仕様上、1秒刻みでしかディープスリープの秒数を指定できない
-//端数はsleep_msで誤魔化す？
+//TODO 端数はsleep_msで誤魔化す？
 static inline void enterDeepSleep(int sec) {
     if (sec == 0) {
         return;

@@ -1,5 +1,6 @@
 //picoに焼いたプログラムはフラッシュメモリの先頭に配置される
 //プログラム領域の終わりは、build/IchigoJam_pico.elf.mapのflash_binary_endの下7桁を見ればわかるが、かなり余裕がある(2ブロックに収まっている)
+//IchigoJamのプログラムはフラッシュメモリの後ろの方に保存する
 //フラッシュメモリの容量=2M=0x200000, 1ブロックの容量=0x10000, FLASH_SECTOR_SIZE=0x1000(単位はバイト)
 #ifndef __STORAGE_H__
 #define __STORAGE_H__
