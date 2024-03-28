@@ -5,6 +5,9 @@
 #define __STORAGE_H__
 
 #define FLASH_BLOCK_OFFSET (0x200000 - FLASH_SECTOR_SIZE * 2)//SAVE0,LOAD0で操作するセクタの先頭(一番最後のセクタはKBDの設定値などを保存するのに使うので、その1つ前のセクタ)
+#define EEPROM_OFFSET 100
+#define EEPROM_SIZE 128
+#define SIZELIMIT (IJB_SIZEOF_LIST - 2)//=1プログラムのサイズ=1024
 
 INLINE int IJB_file() {
     return _g.lastfile;
@@ -37,6 +40,8 @@ static int IJB_save(int n, uint8* list, int size) {
         video_on();
         restore_interrupts(save);
         res = 0;
+    } else if (EEPROM_OFFSET <= n && n < EEPROM_OFFSET + EEPROM_SIZE) {
+        res = write_eeprom((n - EEPROM_OFFSET) * SIZELIMIT, list, SIZELIMIT);
     } else {
         res = 1;
     }
@@ -53,6 +58,8 @@ static int IJB_load(int n, uint8* list, int sizelimit, int init) {
         const uint8_t* flash = get_flash(offset);
         memcpy(list, flash, sizelimit);
         return sizelimit;
+    } else if (EEPROM_OFFSET <= n && n < EEPROM_OFFSET + EEPROM_SIZE) {
+        return read_eeprom((n - EEPROM_OFFSET) * SIZELIMIT, list, sizelimit);
     } else {
         return -1;
     }

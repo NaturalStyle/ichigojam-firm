@@ -57,6 +57,7 @@
 //---
 #include "platform_depends_functions.h"
 #include "i2c.h"
+#include "i2ceeprom.h"
 #include "storage.h"
 #include "keyboard.h"
 #include "hid_app.c"
