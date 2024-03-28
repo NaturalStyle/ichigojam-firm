@@ -44,6 +44,7 @@ target_link_libraries(IchigoJam_pico PUBLIC
 	hardware_watchdog
 	hardware_adc
 	hardware_pwm
+	hardware_i2c
 	hardware_sleep
 )
 

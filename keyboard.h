@@ -9,11 +9,12 @@
 #define DEFAULT_UARTMODE_RXD 1	// rxd 0:disable, 1:enable, 2:ignore esc mode, 4:CR mode, 6:ignore esc & CR mode (auto comment mode??) // -> keyboard_ps2.h
 #define UART_ID uart0
 #define UART_IRQ UART0_IRQ
+#define UART_DEFAULT_BPS 115200
 
 static char* keybuf = (char*)(ram + (OFFSET_RAM_KEYBUF + 1));
 struct keyflg_def key_flg;
 extern uint8_t keycode2ascii[128][4];
-static int baudrate = 115200;
+static int uart_baudrate = UART_DEFAULT_BPS;
 static uint8_t tflash[FLASH_SECTOR_SIZE];//フラッシュの中身の一部を書き換えてから書き戻すための一時変数、トップレベルで宣言しておかないと画面の描画が止まる？
 
 static inline uint key_getKeyboardID() {
@@ -111,7 +112,7 @@ void key_clearKey() {
 }
 
 void set_uart_bps() {
-    uart_set_baudrate(UART_ID, baudrate);
+    uart_set_baudrate(UART_ID, uart_baudrate);
 }
 
 void uart_bps(int n) { // 0:115200, -1:57600, -2:38400
@@ -124,7 +125,7 @@ void uart_bps(int n) { // 0:115200, -1:57600, -2:38400
     } else if (n <= -100) {
         n *= -100;
     }
-    baudrate = n;
+    uart_baudrate = n;
     set_uart_bps();
 }
 

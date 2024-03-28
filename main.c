@@ -13,6 +13,7 @@
 #include "hardware/pwm.h"
 #include "hardware/clocks.h"
 #include "hardware/structs/scb.h"
+#include "hardware/i2c.h"
 
 //pico-extras
 #include "pico/sleep.h"
@@ -55,6 +56,7 @@
 #include "IchigoJam.selected/basic.h"
 //---
 #include "platform_depends_functions.h"
+#include "i2c.h"
 #include "storage.h"
 #include "keyboard.h"
 #include "hid_app.c"
@@ -288,6 +290,7 @@ void ichigojam_init() {
     screen_clp();
     sound_init();
     uart_init_IJ();
+    i2c0_init();
 
     int sleepflg = getSleepFlag();//起動時ボタンを押していたらtrue
     sleepflg |= is_arun();//プログラムの先頭が@ARUNならtrue
