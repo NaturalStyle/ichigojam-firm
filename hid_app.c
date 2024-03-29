@@ -225,7 +225,6 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                 should_reset_last_key = false;
             }
         }
-        // TODO example skips key released
     }
 
     if (no_keycode) {

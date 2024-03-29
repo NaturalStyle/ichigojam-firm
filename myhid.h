@@ -183,7 +183,6 @@
 
 uint8_t keycode_to_ascii_us[128][4] = { HID_KEYCODE_TO_ASCII_US };
 
-//TODO 日本語キーボードの配列に書き換える
 #define HID_KEYCODE_TO_ASCII_JA \
     {0     , 0     , 0     , 0     }, /* 0x00 */ \
     {0     , 0     , 0     , 0     }, /* 0x01 */ \

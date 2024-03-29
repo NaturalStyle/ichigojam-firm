@@ -26,7 +26,6 @@ uint8_t* get_flash(uint32_t offset) {
     return (uint8_t*)(XIP_BASE + offset);
 }
 
-//TODO セーブ、ロードをEEPROMでも使えるように拡張する
 // err:1 no_err:0
 static int IJB_save(int n, uint8* list, int size) {
     _g.lastfile = n;
