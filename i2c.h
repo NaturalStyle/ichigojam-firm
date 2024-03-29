@@ -2,6 +2,7 @@
 #define __I2C_H__
 
 #define I2C_DEFAULT_BPS 400000
+#define TIMEOUT_US 1000000
 
 static int i2c_baudrate = I2C_DEFAULT_BPS;
 

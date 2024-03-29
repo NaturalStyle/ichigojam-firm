@@ -80,7 +80,7 @@ void io_init() {
     gpio_pull_up(BTN);
 }
 
-//TODO 反応するキーを絞るか検討する
+//keycodeが0でないキーは全て反応する
 int IJB_btn(int n) {
     if (n < 0) {
         int res = 0;
