@@ -55,14 +55,13 @@ INLINE void IJB_uart(int16 txd, int16 rxd) {
     _g.uartmode_rxd = rxd;
 }
 
-//TODO キャリッジリターンをする状態になっているが、大丈夫か確認する(実機ではキャリッジリターンしていない)
 static inline void uart_putc(char c) {
     if ((_g.uartmode_txd & 3) == 3) { // 1.3b2
         if (c == '\n') {
             uart_putc('\r');
         }
     }
-    putchar(c);
+    uart_putc_raw(UART_ID, c);
 }
 
 STATIC void put_chr(char c) {
