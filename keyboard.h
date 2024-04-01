@@ -22,10 +22,10 @@ static inline uint key_getKeyboardID() {
 }
 
 void set_keymap(uint mode) {
-    if (mode == MODE_US) {
-        memcpy(keycode2ascii, keycode_to_ascii_us, sizeof(keycode2ascii));
-    } else if (mode == MODE_JA) {
+    if (mode == MODE_JA) {
         memcpy(keycode2ascii, keycode_to_ascii_ja, sizeof(keycode2ascii));
+    } else {//MODE_US or KBDコマンド未使用時
+        memcpy(keycode2ascii, keycode_to_ascii_us, sizeof(keycode2ascii));
     }
 }
 
