@@ -17,6 +17,7 @@
 #define IO_PIN_NUM 11
 
 #define PLEN_MAX 2000
+#define ANA_THRESHOLD (1024 / 4)
 
 //ラズパイの動作クロックは252MHz(PicoDVIでオーバークロックしている)、IchigoJamのPWMは1周期20msなので50Hz
 //https://rikei-tawamure.com/entry/2021/02/08/213335#PWM%E7%94%A8%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF 計算方法は左記参照
@@ -50,15 +51,22 @@ bool is_adc_pin(uint pin) {
     return 26 <= pin && pin <= 28;//BTN || IN1 || IN2
 }
 
-/*TODO プルの指定をどうするか考える
-現状
+//電圧を0-1023の範囲で返す
+int get_adc_volt(uint pin) {
+    adc_select_input(pin - 26);
+    return adc_read() >> 2;//12ビットから10ビットに
+}
+
+bool is_adc_high(uint pin) {
+    return get_adc_volt(pin) > ANA_THRESHOLD;
+}
+
+/*プルの指定
 IN プルアップ(デフォルト)　プルダウンにも変更可能
 OUT 指定しない
 ANA 指定しない
 */
 
-//TODO ANA使うためにADCの設定(特にadc_gpio_init)が必要か確認する
-//しなくても動くように見えるが...
 void io_init() {
     adc_init();
     for (int i = 0; i < 4; i++) {
@@ -75,9 +83,7 @@ void io_init() {
     }
     gpio_init(LED);
     gpio_set_dir(LED, GPIO_OUT);
-    // adc_gpio_init(BTN);
-    gpio_init(BTN);
-    gpio_pull_up(BTN);
+    adc_gpio_init(BTN);
 }
 
 //keycodeが0でないキーは全て反応する
@@ -110,7 +116,7 @@ int IJB_btn(int n) {
         }
         return res;
     } else if (n == 0) {
-        return !gpio_get(BTN);
+        return !is_adc_high(BTN);
     } else {
         for (uint8_t i = 0; i < 6; i++) {
             uint8_t keycode = now_key_report.keycode[i];
@@ -127,7 +133,8 @@ int IJB_btn(int n) {
 int IJB_in() {
     int res = 0;
     for (int i = 0; i < IO_PIN_NUM; i++) {
-        bool bit = gpio_get(in_pins[i]);
+        int pin = in_pins[i];
+        bool bit = is_adc_pin(pin) ? is_adc_high(pin) : gpio_get(pin);
         res |= bit << i;
     }
     return res;
@@ -144,12 +151,14 @@ void IJB_out(int port, int st) {
     } else {
         uint8 pin = out_pins[port - 1];
         gpio_init(pin);
-        if (st >= 0) {
+        if (st >= 0) {//OUT
             gpio_set_dir(pin, GPIO_OUT);
             gpio_put(pin, st);
-        } else if (st == -1) {
+        } else if (is_adc_pin(pin)) {//IN(ADCが使えるピン)
+            adc_gpio_init(pin);
+        } else if (st == -1) {//IN(プルダウン)
             gpio_pull_down(pin);
-        } else if (st == -2) {
+        } else if (st == -2) {//IN(プルアップ)
             gpio_pull_up(pin);
         }
     }
@@ -164,10 +173,7 @@ INLINE int IJB_ana(int n) {
         if (n == 0) {
             n = 9;
         }
-        uint8 pin = in_pins[n - 1];
-        adc_select_input(pin - 26);
-        int v = adc_read() >> 2;//最大値を2^12から2^10に
-        return v;
+        return get_adc_volt(in_pins[n - 1]);
     } else {
         return 0;
     }
