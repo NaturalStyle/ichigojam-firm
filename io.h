@@ -21,8 +21,8 @@
 //ラズパイの動作クロックは252MHz(PicoDVIでオーバークロックしている)、IchigoJamのPWMは1周期20msなので50Hz
 //https://rikei-tawamure.com/entry/2021/02/08/213335#PWM%E7%94%A8%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF 計算方法は左記参照
 #define PICO_CLOCK_FREQ DVI_TIMING.bit_clk_khz * 1000
-#define CLKDIV 252
-#define PWM_WRAP ((PICO_CLOCK_FREQ / (CLKDIV * 50)) - 1)
+#define CLKDIV (PICO_CLOCK_FREQ / (1000 * 1000))//=252
+#define PWM_WRAP (PICO_CLOCK_FREQ / (CLKDIV * 50) - 1)
 
 static uint8 in_pins[] = { IN1, IN2, IN3, IN4, OUT1, OUT2, OUT3, OUT4, BTN, OUT5, OUT6 };
 static uint8 out_pins[] = { OUT1, OUT2, OUT3, OUT4, OUT5, OUT6, LED, IN1, IN2, IN3, IN4 };
@@ -46,8 +46,8 @@ void IJB_pwm(int port, int plen, int len) {
     pwm_set_enabled(slice_num, true);
 }
 
-bool is_adc_pin(uint gpio) {
-    return gpio == IN1 || gpio == IN2 || gpio == BTN;
+bool is_adc_pin(uint pin) {
+    return 26 <= pin && pin <= 28;//BTN || IN1 || IN2
 }
 
 /*TODO プルの指定をどうするか考える
@@ -160,7 +160,7 @@ INLINE void IJB_led(int st) {
 }
 
 INLINE int IJB_ana(int n) {
-    if (0 <= n && n <= 2) {
+    if ((0 <= n && n <= 2) || n == 9) {
         if (n == 0) {
             n = 9;
         }
