@@ -91,7 +91,7 @@ int IJB_btn(int n) {
     if (n < 0) {
         int res = 0;
         for (uint8_t i = 0; i < 6; i++) {
-            uint8_t keycode = now_key_report.keycode[i];
+            uint8_t keycode = prev_report.keycode[i];
             uint8_t ascii = keycode2ascii[keycode][0];
             switch (ascii) {
             case LEFT:
@@ -119,7 +119,7 @@ int IJB_btn(int n) {
         return !is_adc_high(BTN);
     } else {
         for (uint8_t i = 0; i < 6; i++) {
-            uint8_t keycode = now_key_report.keycode[i];
+            uint8_t keycode = prev_report.keycode[i];
             if (keycode) {
                 if (n == keycode2ascii[keycode][0] || n == keycode2ascii[keycode][1]) {
                     return true;

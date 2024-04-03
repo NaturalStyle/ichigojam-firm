@@ -45,11 +45,10 @@
 #define MAX_REPORT  4
 
 uint8_t keycode2ascii[128][4];
-extern struct keyflg_def key_flg;
+hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
 extern uint8_t last_char;
 extern bool did_first_putc;
 extern uint64_t last_key_report_time;
-hid_keyboard_report_t now_key_report = { 0, 0, {0} };
 
 // Each HID instance can has multiple reports
 static struct
@@ -160,7 +159,6 @@ static inline bool find_key_in_report(hid_keyboard_report_t const* report, uint8
 }
 
 static void process_kbd_report(hid_keyboard_report_t const* report) {
-    static hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
     static uint8_t last_keycode = 0;
 
     //------------- example code ignore control (non-printable) key affects -------------//
@@ -197,7 +195,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                 if (ch == 0) {
                     if (0x3a <= keycode && keycode <= 0x45) {
                         put_function_key(keycode);
-                    } else if (keycode == 0x39) {
+                    } else if (keycode == CAPS) {
                         key_flg.caps = !key_flg.caps;
                     }
                 } else {
@@ -241,7 +239,6 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     }
 
     prev_report = *report;
-    now_key_report = *report;
 }
 
 //--------------------------------------------------------------------+
