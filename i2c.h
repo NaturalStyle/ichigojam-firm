@@ -21,4 +21,13 @@ INLINE int IJB_i2c(uint8 writemode, uint16* param) {
     return 0;
 }
 
+void set_i2c_bps() {
+    i2c_set_baudrate(i2c_default, i2c_baudrate);
+}
+
+void i2c0_bps(int n) {
+    i2c_baudrate = n * 1000;
+    set_i2c_bps();
+}
+
 #endif

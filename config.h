@@ -18,6 +18,8 @@
 #define IJB_TITLE "IchigoJam BASIC 0.5.0 RP2040\n"
 #endif
 
+#define ENABLE_I2C_BPS
+
 #define N_FLASH_STORAGE 100
 
 #define VERSION15
