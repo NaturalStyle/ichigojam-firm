@@ -2,7 +2,7 @@
 #define __I2C_H__
 
 #define I2C_DEFAULT_BPS 400000
-#define TIMEOUT_US 1000000
+#define TIMEOUT_US 1000000 //TODO タイムアウト入れるべきか、入れるなら何秒にすべきか検討する
 
 static int i2c_baudrate = I2C_DEFAULT_BPS;
 
@@ -16,9 +16,23 @@ int i2c0_init() {
     return 0;
 }
 
-// -1:ad error 1:ok 0:i2c error
+// 0:success 1:io error 2:parm error
+//readのときwritemode=1
+//TODO restartしても大丈夫か確かめる
 INLINE int IJB_i2c(uint8 writemode, uint16* param) {
-    return 0;
+    int client_address = param[0];
+    uint8_t* src1 = (uint8_t*)(param[1] + (uint)ram - OFFSET_RAMROM);
+    int len1 = param[2];
+    uint8_t* src2 = (uint8_t*)(param[3] + (uint)ram - OFFSET_RAMROM);
+    int len2 = param[4];
+    int res;
+    res = i2c_write_timeout_us(i2c_default, client_address, src1, len1, true, TIMEOUT_US);
+    if (!writemode) {
+        res += i2c_write_timeout_us(i2c_default, client_address, src2, len2, false, TIMEOUT_US);
+    } else {
+        res += i2c_read_timeout_us(i2c_default, client_address, src2, len2, false, TIMEOUT_US);
+    }
+    return res == len1 + len2 ? 0 : 1;
 }
 
 void set_i2c_bps() {
