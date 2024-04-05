@@ -69,7 +69,7 @@ static void rtc_sleep(int sec) {
     sleep_goto_sleep_until(&t_alarm, &sleep_callback);
 }
 
-//TODO ちゃんと低電力化しているか確かめる
+//TODO ちゃんと低電力化しているか確かめる->全然減ってないので実装を見直す
 //RTCの仕様上、1秒刻みでしかディープスリープの秒数を指定できない
 //TODO 端数はsleep_msで誤魔化す？
 static inline void enterDeepSleep(int sec) {
@@ -100,6 +100,8 @@ static void IJB_sleep() {
     while (IJB_btn(0)) {
         //ボタンを押している間はスリープに入らない
     }
+    gpio_init(BTN);//ADCのままだと正しく反応しない
+    gpio_pull_up(BTN);
     video_off(0);
     //pico-playground/sleep/hello_dormant/hello_dormant.c 参照
     record_clocks();

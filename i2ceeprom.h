@@ -49,15 +49,16 @@ int write_eeprom(int memory_address, uint8_t* list, int len) {
 }
 
 // ret:size if:-1 err
-int read_eeprom(int address, uint8_t* list, int len) {
-    uint8_t client_address = calc_client_address(address);
+int read_eeprom(int memory_address, uint8_t* list, int len) {
+    uint8_t client_address = calc_client_address(memory_address);
     uint8_t src[2];
-    src[0] = (uint8_t)(address >> 8);
-    src[1] = (uint8_t)address;
+    src[0] = (uint8_t)(memory_address >> 8);
+    src[1] = (uint8_t)memory_address;
     int res = i2c_write_timeout_us(i2c_default, client_address, src, 2, true, TIMEOUT_US);
     if (res < 0) {
         return -1;
     }
+    // res = i2c_read_timeout_us(i2c_default, client_address, list, len, false, TIMEOUT_US);//これでも動くけど、一応データシートに合わせる
     res = i2c_read_timeout_us(i2c_default, client_address, list, 1, false, TIMEOUT_US);
     list++;
     res += i2c_read_timeout_us(i2c_default, client_address, list, len - 1, false, TIMEOUT_US);
