@@ -65,6 +65,7 @@
 #include "io.h"
 #include "system.h"
 #include "sound.h"
+#include "ext_ws.h"
 #include "mainc_functions.h"
 
 //IchigoJam
