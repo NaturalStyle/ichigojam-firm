@@ -24,6 +24,6 @@
 
 #define VERSION15
 
-// #define EXT_IOT
+#define EXT_IOT
 // #define KEY_INIT_DELAY
 #endif

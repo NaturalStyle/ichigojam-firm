@@ -67,6 +67,7 @@
 #include "sound.h"
 #include "ext_ws.h"
 #include "mainc_functions.h"
+#include "IchigoJam.selected/ext_iot.h"
 
 //IchigoJam
 #define FONT_SIZE 8

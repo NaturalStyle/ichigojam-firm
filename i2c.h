@@ -26,7 +26,7 @@ INLINE int IJB_i2c(uint8 writemode, uint16* param) {
     uint8_t* src2 = (uint8_t*)(param[3] + (uint)ram - OFFSET_RAMROM);
     int len2 = param[4];
     int res;
-    res = i2c_write_timeout_us(i2c_default, client_address, src1, len1, true, TIMEOUT_US);
+    res = i2c_write_timeout_us(i2c_default, client_address, src1, len1, false, TIMEOUT_US);//nostop=trueにすると、sakura.ioが正しく動かない
     if (!writemode) {
         res += i2c_write_timeout_us(i2c_default, client_address, src2, len2, false, TIMEOUT_US);
     } else {
