@@ -55,7 +55,6 @@
 #include "IchigoJam.selected/psg.h"
 #include "IchigoJam.selected/basic.h"
 //---
-#include "platform_depends_functions.h"
 #include "i2c.h"
 #include "i2ceeprom.h"
 #include "storage.h"
@@ -68,6 +67,7 @@
 #include "ext_ws.h"
 #include "mainc_functions.h"
 #include "IchigoJam.selected/ext_iot.h"
+#include "usr.h"
 
 //IchigoJam
 #define FONT_SIZE 8
