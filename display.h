@@ -3,6 +3,7 @@
 
 #define CHAR_MAX_COLS 32
 #define CHAR_MAX_ROWS 24
+struct dvi_inst dvi0;
 
 void video_on() {
     SCREEN_W = CHAR_MAX_COLS >> _g.screen_big;

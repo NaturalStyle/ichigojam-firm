@@ -183,4 +183,8 @@ INLINE void IJB_clo() {
     io_init();
 }
 
+void IJB_dac(int port, int val) {
+    //何もしない
+}
+
 #endif

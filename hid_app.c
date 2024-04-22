@@ -29,6 +29,7 @@
 #ifdef HID_APP_C_NO_PRINTF
 #define printf //printf
 #define TU_LOG1 //TU_LOG1
+#define TU_LOG2 //TU_LOG2
 
 #endif
 
@@ -202,7 +203,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                 if (ch == 0) {
                     if (0x3a <= keycode && keycode <= 0x45) {
                         put_function_key(keycode);
-                    } else if (keycode == CAPS) {
+                    } else if (keycode == 0x39) {
                         key_flg.caps = !key_flg.caps;
                     }
                 } else {
