@@ -28,8 +28,6 @@
 #define HID_APP_C_NO_PRINTF
 #ifdef HID_APP_C_NO_PRINTF
 #define printf //printf
-#define TU_LOG1 //TU_LOG1
-#define TU_LOG2 //TU_LOG2
 
 #endif
 

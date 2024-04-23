@@ -11,7 +11,7 @@ void video_on() {
     dvi_start(&dvi0);
 }
 
-//TODO ckldivを使う必要があるか検討する
+//クロックの変更機能はつけない
 void video_off(int clkdiv) {
     dvi_stop(&dvi0);
 }

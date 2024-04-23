@@ -5,7 +5,7 @@
 #ifndef __STORAGE_H__
 #define __STORAGE_H__
 
-#define FLASH_BLOCK_OFFSET (0x200000 - FLASH_SECTOR_SIZE * 2)//SAVE0,LOAD0で操作するセクタの先頭(一番最後のセクタはKBDの設定値などを保存するのに使うので、その1つ前のセクタ)
+#define FLASH_IJ_OFFSET (0x200000 - FLASH_SECTOR_SIZE * 2)//SAVE0,LOAD0で操作するセクタの先頭(一番最後のセクタはKBDの設定値などを保存するのに使うので、その1つ前のセクタ)
 #define EEPROM_OFFSET 100
 #define EEPROM_SIZE 128
 #define SIZELIMIT (IJB_SIZEOF_LIST - 2)//=1プログラムのサイズ=1024
@@ -14,12 +14,12 @@ INLINE int IJB_file() {
     return _g.lastfile;
 }
 
-uint32_t calc_offset(int n) {
-    return FLASH_BLOCK_OFFSET - n * FLASH_SECTOR_SIZE;
+uint32_t calc_flash_offset(int n) {
+    return FLASH_IJ_OFFSET - n * FLASH_SECTOR_SIZE;
 }
 
 uint32_t get_config_offset() {
-    return calc_offset(-1);//一番最後のセクタ
+    return calc_flash_offset(-1);//一番最後のセクタ
 }
 
 uint8_t* get_flash(uint32_t offset) {
@@ -31,7 +31,7 @@ static int IJB_save(int n, uint8* list, int size) {
     _g.lastfile = n;
     int res;
     if (0 <= n && n < N_FLASH_STORAGE) {
-        uint32_t offset = calc_offset(n);
+        uint32_t offset = calc_flash_offset(n);
         //フラッシュメモリに書き込む時は排他制御する
         video_off(0);
         int save = save_and_disable_interrupts();
@@ -54,8 +54,7 @@ static int IJB_load(int n, uint8* list, int sizelimit, int init) {
         _g.lastfile = n;
     }
     if (0 <= n && n < N_FLASH_STORAGE) {
-        uint32_t offset = calc_offset(n);
-        const uint8_t* flash = get_flash(offset);
+        const uint8_t* flash = get_flash(calc_flash_offset(n));
         memcpy(list, flash, sizelimit);
         return sizelimit;
     } else if (EEPROM_OFFSET <= n && n < EEPROM_OFFSET + EEPROM_SIZE) {

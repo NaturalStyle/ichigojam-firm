@@ -18,7 +18,6 @@ int i2c0_init() {
 
 // 0:success 1:io error 2:parm error
 //readのときwritemode=1
-//TODO restartしても大丈夫か確かめる
 INLINE int IJB_i2c(uint8 writemode, uint16* param) {
     int client_address = param[0];
     uint8_t* src1 = (uint8_t*)(param[1] + (uint)ram - OFFSET_RAMROM);

@@ -222,7 +222,7 @@ void putc_long_push_key() {
 bool is_arun() {
     //0番のプログラムデータ
     //行番号0、行番号1、行の文字数、行の内容...とデータが入っているので、index3からチェックする(行番号1*256+行番号0=行番号)
-    const uint8_t* flash = (const uint8_t*)(XIP_BASE + FLASH_BLOCK_OFFSET);
+    const uint8_t* flash = get_flash(calc_flash_offset(0));
     uint8_t arun[] = "@ARUN";
     for (int i = 0; arun[i] != '\0'; i++) {
         if (arun[i] != flash[i + 3]) {
