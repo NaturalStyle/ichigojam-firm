@@ -297,6 +297,7 @@ void ichigojam_init() {
 
     int sleepflg = getSleepFlag();//起動時ボタンを押していたらtrue
     sleepflg |= is_arun();//プログラムの先頭が@ARUNならtrue
+    sleepflg |= watchdog_enable_caused_reboot();//SLEEPコマンドで再起動していたらtrue
     if (!sleepflg) {
         psg_beep(10, 3);
     }

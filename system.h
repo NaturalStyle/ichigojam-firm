@@ -95,7 +95,8 @@ static inline void enterDeepSleep(int sec) {
     }
 }
 
-//TODO ボタンを一瞬だけ押すと普通に起動してしまうので、修正する(LRUN0が実行されるのが正しい)
+//SLEEPコマンドで再起動をかけると、ボタンを押した状態で起動するのでLRUN0が実行されるのが想定の挙動だが、ボタンを一瞬だけ押すと普通に起動してしまう
+//これを解消するために起動時にwatchdog_enable_caused_reboot()でSLEEPによる再起動か判別する
 static void IJB_sleep() {
     while (IJB_btn(0)) {
         //ボタンを押している間はスリープに入らない
@@ -107,8 +108,16 @@ static void IJB_sleep() {
     record_clocks();
     sleep_run_from_xosc();
     sleep_goto_dormant_until_pin(BTN, false, false);//ボタンを押すまでスリープし続ける
-    recover_from_sleep(scb_orig, clock0_orig, clock1_orig);
-    IJB_reset();
+    recover_from_sleep(scb_orig, clock0_orig, clock1_orig);//クロックを戻さないとwatchdogが動かない？
+
+    //watchdog_reboot(0, SRAM_END, 0)では、watchdog_hw->scratch[4] = 0になるが、
+    //watchdog_hw->scratch[4] = WATCHDOG_NON_REBOOT_MAGICにしたい(watchdog_enable(0, 0)を呼び出すと可能)
+    check_hw_layout(watchdog_hw_t, scratch[7], WATCHDOG_SCRATCH7_OFFSET);
+    hw_clear_bits(&watchdog_hw->ctrl, WATCHDOG_CTRL_ENABLE_BITS);
+    watchdog_enable(0, 0);
+    for (;;) {
+        __wfi();
+    }
 }
 
 INLINE void IJB_reset() {
