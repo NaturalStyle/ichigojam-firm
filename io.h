@@ -5,14 +5,14 @@
 #define BTN 28
 #define IN1 27
 #define IN2 26
-#define IN3 22
-#define IN4 21
-#define OUT1 6
-#define OUT2 7
-#define OUT3 8
-#define OUT4 9
-#define OUT5 10
-#define OUT6 11
+#define IN3 6
+#define IN4 7
+#define OUT1 8
+#define OUT2 9
+#define OUT3 10
+#define OUT4 11
+#define OUT5 22
+#define OUT6 21
 
 #define IO_PIN_NUM 11
 
