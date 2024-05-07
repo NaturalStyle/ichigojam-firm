@@ -410,8 +410,14 @@ void put_function_key(uint8_t key) {
     case 0x42:
         delete_line_and_screen_puts("FILES");
         break;
-    case 0x43: //F10
+    case 0x43:
         delete_line_and_screen_puts("SWITCH\n");
+        break;
+    case 0x44:
+        key_pushc(0x0c);
+        break;
+    case 0x45: //F12
+        key_pushc(24);
         break;
     default:
         break;
