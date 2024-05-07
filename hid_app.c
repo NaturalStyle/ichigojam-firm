@@ -164,6 +164,11 @@ static inline bool find_key_in_report(hid_keyboard_report_t const* report, uint8
     return false;
 }
 
+void toggle_kana_mode() {
+    key_flg.kana = !key_flg.kana;
+    _g.key_kana_buf_0 = _g.key_kana_buf_1 = 0;
+}
+
 static void process_kbd_report(hid_keyboard_report_t const* report) {
     static uint8_t last_keycode = 0;
 
@@ -171,6 +176,9 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     last_key_report_time = time_us_64();
     bool no_keycode = true;
     bool should_reset_last_char = true;
+    bool const is_ctrl = report->modifier & (KEYBOARD_MODIFIER_LEFTCTRL | KEYBOARD_MODIFIER_RIGHTCTRL);
+    bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
+    bool const is_alt = report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT);
     for (uint8_t i = 0; i < 6; i++) {
         uint8_t keycode = report->keycode[i];
         if (keycode) {
@@ -182,15 +190,13 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                 }
             } else {
                 // not existed in previous report means the current key is pressed
-                bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
-                bool const is_alt = report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT);
                 int mods = (is_alt << 1) | is_shift;
                 uint8_t ch = 0;
                 if (keycode >= 128) {
                     if (keycode == UNDBAR) {
                         ch = '_';
                     } else if (keycode == JAKANA) {
-                        key_flg.kana = !key_flg.kana;
+                        toggle_kana_mode();
                     } else if (keycode == YENPIPE) {
                         ch = is_shift ? '|' : '\\';
                     }
@@ -198,7 +204,9 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                     ch = keycode2ascii[keycode][mods];
                 }
 
-                if (ch == 0) {
+                if (is_ctrl && ch == ' ') {
+                    toggle_kana_mode();
+                } else if (ch == 0) {
                     if (0x3a <= keycode && keycode <= 0x45) {
                         put_function_key(keycode);
                     } else if (keycode == 0x39) {
@@ -229,12 +237,8 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     }
 
     if (no_keycode) {
-        bool const is_ctrl = report->modifier & (KEYBOARD_MODIFIER_LEFTCTRL | KEYBOARD_MODIFIER_RIGHTCTRL);
-        bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
-        bool const is_alt = report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT);
         if (is_ctrl && is_shift) {
-            key_flg.kana = !key_flg.kana;
-            _g.key_kana_buf_0 = _g.key_kana_buf_1 = 0;
+            toggle_kana_mode();
         }
         if (is_ctrl && is_alt) {
             key_flg.insert = !key_flg.insert;
