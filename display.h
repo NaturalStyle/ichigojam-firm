@@ -21,8 +21,7 @@ inline int video_active() {
 }
 
 INLINE void IJB_lcd(uint mode) {
-    //SWITCHを実行すると呼ばれる
-    //何もしなくていい？
+    //SWITCHで呼ばれる、何もしない
 }
 
 void video_waitSync(uint num) {

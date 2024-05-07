@@ -15,7 +15,7 @@
 #ifdef IJB_BETA
 #define IJB_TITLE "IchigoJam BASIC 1.5b rv jig.jp\n"
 #else
-#define IJB_TITLE "IchigoJam BASIC 0.5.0 RP2040\n"
+#define IJB_TITLE "IchigoJam BASIC 0.5.0 RP2040\n"//TODO バージョンを変更する
 #endif
 
 #define ENABLE_I2C_BPS

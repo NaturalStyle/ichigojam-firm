@@ -188,6 +188,8 @@ bool timer(repeating_timer_t* rt) {
     if (video_active()) {
         vram_to_framebuf_all(_g.cursorflg);
     }
+    //中でsleep_ms()が呼ばれたときに止まるので、本来タイマーの中でtuh_task()を呼び出してはいけないが、なぜかPicoDVIを動かしていると止まらない
+    //pico-sdk/lib/tinyusb/src/osal/osal_pico.h　のosal_task_delay()のsleepをwhileループに置き換えるとPicoDVIなしで一応解決する
     tuh_task();
     return true;
 }

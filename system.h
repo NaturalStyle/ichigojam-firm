@@ -69,7 +69,6 @@ static void rtc_sleep(int sec) {
     sleep_goto_sleep_until(&t_alarm, &sleep_callback);
 }
 
-//TODO ちゃんと低電力化しているか確かめる->全然減ってないので実装を見直す
 //RTCの仕様上、1秒刻みでしかディープスリープの秒数を指定できない
 static inline void enterDeepSleep(int sec) {
     if (sec == 0) {
