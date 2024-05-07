@@ -71,7 +71,6 @@ static void rtc_sleep(int sec) {
 
 //TODO ちゃんと低電力化しているか確かめる->全然減ってないので実装を見直す
 //RTCの仕様上、1秒刻みでしかディープスリープの秒数を指定できない
-//TODO 端数はsleep_msで誤魔化す？
 static inline void enterDeepSleep(int sec) {
     if (sec == 0) {
         return;
@@ -147,6 +146,12 @@ static int IJB_wait(int n, int active) {
         return 0;
     } else if (n > 0) {
         enterDeepSleep(n / 60);
+        //1秒未満は普通のsleepで誤魔化す
+        uint64 start = time_us_64();
+        while (time_us_64() - start < n % 60 * 16666) { //16666 ≒ 1000000 / 60
+            //ESC押しても中断させない
+        }
+        _g.key_flg_esc = 0;//sleep中にESCを押しても押してないことにする
     }
     return 0;
 }
