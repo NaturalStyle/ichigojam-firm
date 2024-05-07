@@ -170,7 +170,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     //------------- example code ignore control (non-printable) key affects -------------//
     last_key_report_time = time_us_64();
     bool no_keycode = true;
-    bool should_reset_last_key = true;
+    bool should_reset_last_char = true;
     for (uint8_t i = 0; i < 6; i++) {
         uint8_t keycode = report->keycode[i];
         if (keycode) {
@@ -178,7 +178,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
             if (find_key_in_report(&prev_report, keycode)) {
                 // exist in previous report means the current key is holding
                 if (keycode == last_keycode) {
-                    should_reset_last_key = false;
+                    should_reset_last_char = false;
                 }
             } else {
                 // not existed in previous report means the current key is pressed
@@ -223,7 +223,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                 last_char = ch;
                 did_first_putc = false;
                 last_keycode = keycode;
-                should_reset_last_key = false;
+                should_reset_last_char = false;
             }
         }
     }
@@ -240,7 +240,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
             key_flg.insert = !key_flg.insert;
         }
     }
-    if (should_reset_last_key) {
+    if (should_reset_last_char) {
         last_char = 0;
     }
 

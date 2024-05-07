@@ -14,7 +14,7 @@ void record_clocks() {
     clock1_orig = clocks_hw->sleep_en1;
 }
 
-void recover_from_sleep(uint scb_orig, uint clock0_orig, uint clock1_orig) {
+void recover_from_sleep() {
 
     //Re-enable ring Oscillator control
     rosc_write(&rosc_hw->ctrl, ROSC_CTRL_ENABLE_BITS);
@@ -86,7 +86,7 @@ static inline void enterDeepSleep(int sec) {
         __wfi();//入れないとスリープから復帰できない時がある、謎
         // printf("Should be sleeping\n");
     }
-    recover_from_sleep(scb_orig, clock0_orig, clock1_orig);
+    recover_from_sleep();
     if (active) {
         sleep_ms(1);//入れないとおかしくなる時がある
         video_on();
@@ -106,7 +106,7 @@ static void IJB_sleep() {
     record_clocks();
     sleep_run_from_xosc();
     sleep_goto_dormant_until_pin(BTN, false, false);//ボタンを押すまでスリープし続ける
-    recover_from_sleep(scb_orig, clock0_orig, clock1_orig);//クロックを戻さないとwatchdogが動かない？
+    recover_from_sleep();//クロックを戻さないとwatchdogが動かない？
 
     //watchdog_reboot(0, SRAM_END, 0)では、watchdog_hw->scratch[4] = 0になるが、
     //watchdog_hw->scratch[4] = WATCHDOG_NON_REBOOT_MAGICにしたい(watchdog_enable(0, 0)を呼び出すと可能)
