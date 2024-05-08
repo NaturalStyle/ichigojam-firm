@@ -66,7 +66,7 @@ static struct
 static void process_kbd_report(hid_keyboard_report_t const* report);
 static void process_mouse_report(hid_mouse_report_t const* report);
 static void process_generic_report(uint8_t dev_addr, uint8_t instance, uint8_t const* report, uint16_t len);
-void delete_line_and_screen_puts(char*);
+void delete_line_and_key_push(char*);
 void put_function_key(uint8_t);
 
 void hid_app_task(void)
@@ -101,8 +101,9 @@ void tuh_hid_mount_cb(uint8_t dev_addr, uint8_t instance, uint8_t const* desc_re
         printf("HID has %u reports \r\n", hid_info[instance].report_count);
     }
 
+    //NUMLOCKを無効化する
+    //https://github.com/hathach/tinyusb/discussions/1191 参照
     uint8_t leds = 0;
-    leds &= ~KEYBOARD_LED_NUMLOCK;
     tuh_hid_set_report(dev_addr, instance, 0, HID_REPORT_TYPE_OUTPUT, &leds, sizeof(leds));
 
     // request to receive report
@@ -380,7 +381,7 @@ static void process_generic_report(uint8_t dev_addr, uint8_t instance, uint8_t c
 }
 
 //IchigoJam
-void delete_line_and_screen_puts(char* s) {
+void delete_line_and_key_push(char* s) {
     key_pushc(24);
     key_push(s);
 }
@@ -391,31 +392,31 @@ void put_function_key(uint8_t key) {
         key_push("\x13\x0c\0");
         break;
     case 0x3b: //F2　以下同様
-        delete_line_and_screen_puts("LOAD");
+        delete_line_and_key_push("LOAD");
         break;
     case 0x3c:
-        delete_line_and_screen_puts("SAVE");
+        delete_line_and_key_push("SAVE");
         break;
     case 0x3d:
-        delete_line_and_screen_puts("LIST\n");
+        delete_line_and_key_push("LIST\n");
         break;
     case 0x3e:
-        delete_line_and_screen_puts("RUN\n");
+        delete_line_and_key_push("RUN\n");
         break;
     case 0x3f:
-        delete_line_and_screen_puts("?FREE()\n");
+        delete_line_and_key_push("?FREE()\n");
         break;
     case 0x40:
-        delete_line_and_screen_puts("OUT0\n");
+        delete_line_and_key_push("OUT0\n");
         break;
     case 0x41:
-        delete_line_and_screen_puts("VIDEO1\n");
+        delete_line_and_key_push("VIDEO1\n");
         break;
     case 0x42:
-        delete_line_and_screen_puts("FILES");
+        delete_line_and_key_push("FILES");
         break;
     case 0x43:
-        delete_line_and_screen_puts("SWITCH\n");
+        delete_line_and_key_push("SWITCH\n");
         break;
     case 0x44:
         key_pushc(0x0c);

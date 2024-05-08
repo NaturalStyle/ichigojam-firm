@@ -77,7 +77,6 @@
 #define MARGIN_HEIGHT ((FRAME_MAX_HEIGHT - CHAR_MAX_ROWS * FONT_SIZE) / 2)
 
 //pico
-struct dvi_inst dvi0;
 static uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
 static repeating_timer_t out;
 uint8_t last_char = 0;

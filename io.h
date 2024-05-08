@@ -20,7 +20,7 @@
 #define ANA_THRESHOLD (1024 / 4)
 
 //ラズパイの動作クロックは252MHz(PicoDVIでオーバークロックしている)、IchigoJamのPWMは1周期20msなので50Hz
-//https://rikei-tawamure.com/entry/2021/02/08/213335#PWM%E7%94%A8%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF 計算方法は左記参照
+//https://rikei-tawamure.com/entry/2021/02/08/213335#PWM%E7%94%A8%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF PWMの計算方法は左記参照
 #define PICO_CLOCK_FREQ DVI_TIMING.bit_clk_khz * 1000
 #define CLKDIV (PICO_CLOCK_FREQ / (1000 * 1000))//=252
 #define PWM_WRAP (PICO_CLOCK_FREQ / (CLKDIV * 50) - 1)
