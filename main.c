@@ -78,8 +78,6 @@
 
 //pico
 static uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
-static repeating_timer_t out;
-
 
 void core1_main() {
     dvi_register_irqs_this_core(&dvi0, DMA_IRQ_0);
@@ -130,7 +128,7 @@ void vram_to_framebuf_scanline(uint scanline, bool visible_cursor) {
                 //     framebuf_base++;
                 // }
                 //展開するとめちゃくちゃ速くなる
-                //duff's devideは速くならなかった
+                //duff's deviceは速くならなかった
                 if (mag == 1) {
                     *framebuf_base = pixel;
                     framebuf_base++;
@@ -231,6 +229,7 @@ bool is_arun() {
 }
 
 void pico_init() {
+    static repeating_timer_t out;
     board_init();
 
     vreg_set_voltage(VREG_VSEL);
