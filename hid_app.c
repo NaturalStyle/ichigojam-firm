@@ -52,9 +52,13 @@
 
 uint8_t keycode2ascii[128][4];
 hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
-extern uint8_t last_char;
-extern bool did_first_putc;
-extern uint64_t last_key_report_time;
+struct long_press {
+    uint8_t last_char;
+    bool is_first_putc;
+    uint64_t last_key_report_time;
+};
+
+struct long_press lp = { 0,true,0 };
 
 // Each HID instance can has multiple reports
 static struct
@@ -174,7 +178,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     static uint8_t last_keycode = 0;
 
     //------------- example code ignore control (non-printable) key affects -------------//
-    last_key_report_time = time_us_64();
+    lp.last_key_report_time = time_us_64();
     bool no_keycode = true;
     bool should_reset_last_char = true;
     bool const is_ctrl = report->modifier & (KEYBOARD_MODIFIER_LEFTCTRL | KEYBOARD_MODIFIER_RIGHTCTRL);
@@ -229,8 +233,8 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                     }
                     key_pushc(ch);
                 }
-                last_char = ch;
-                did_first_putc = false;
+                lp.last_char = ch;
+                lp.is_first_putc = true;
                 last_keycode = keycode;
                 should_reset_last_char = false;
             }
@@ -246,7 +250,7 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
         }
     }
     if (should_reset_last_char) {
-        last_char = 0;
+        lp.last_char = 0;
     }
 
     prev_report = *report;

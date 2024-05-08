@@ -79,9 +79,6 @@
 //pico
 static uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
 static repeating_timer_t out;
-uint8_t last_char = 0;
-bool did_first_putc = false;
-uint64_t last_key_report_time = 0;
 
 
 void core1_main() {
@@ -206,14 +203,14 @@ void on_uart_rx() {
 }
 
 //hid_app.cが複雑になってるので、もっと簡潔に処理できるなら直したい
-void putc_long_push_key() {
-    int save = save_and_disable_interrupts();//割り込みを止めないとなぜかtime-us-64() - last_key_report_timeがオーバーフローする時がある
-    int interval = did_first_putc ? 100000 : 500000;//キーを長押しした時、最初の1回だけ入力の間隔を長くする
-    if (time_us_64() - last_key_report_time > interval) {
-        last_key_report_time = time_us_64();
-        if (last_char != 0) {
-            screen_putc(last_char);
-            did_first_putc = true;
+void putc_long_press_key() {
+    int save = save_and_disable_interrupts();//割り込みを止めないとなぜかtime-us-64() - lp.last_key_report_timeがオーバーフローする時がある
+    int interval = lp.is_first_putc ? 500000 : 100000;//キーを長押しした時、最初の1回だけ入力の間隔を長くする
+    if (time_us_64() - lp.last_key_report_time > interval) {
+        lp.last_key_report_time = time_us_64();
+        if (lp.last_char != 0) {
+            screen_putc(lp.last_char);
+            lp.is_first_putc = false;
         }
     }
     restore_interrupts(save);
@@ -389,7 +386,7 @@ int main() {
         IJB_random(1);
         int ch = key_getKey();
         if (ch < 0) {
-            putc_long_push_key();
+            putc_long_press_key();
             continue;
         } else if (ch == 0) {
             continue;
