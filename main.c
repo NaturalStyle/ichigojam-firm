@@ -44,16 +44,16 @@
 #define NO_MEMCPY
 #define uart_putc ichigojam_uart_putc //picoのものと名前衝突しているのを解決
 #include "config.h"
-#include "IchigoJam.selected/stddef.h"
-#include "IchigoJam.selected/random.h"
-#include "IchigoJam.selected/lang.h"
-#include "IchigoJam.selected/vars.h"
-#include "IchigoJam.selected/ram.h"
-#include "IchigoJam.selected/screen.h"
-#include "IchigoJam.selected/error.h"
-#include "IchigoJam.selected/ichigojam-jp.fnt.h"
-#include "IchigoJam.selected/psg.h"
-#include "IchigoJam.selected/basic.h"
+#include "IchigoJamR.src/stddef.h"
+#include "IchigoJamR.src/random.h"
+#include "IchigoJamR.src/lang.h"
+#include "IchigoJamR.src/vars.h"
+#include "IchigoJamR.src/ram.h"
+#include "IchigoJamR.src/screen.h"
+#include "IchigoJamR.src/error.h"
+#include "IchigoJamR.src/ichigojam-jp.fnt.h"
+#include "IchigoJamR.src/psg.h"
+#include "IchigoJamR.src/basic.h"
 //---
 #include "i2c.h"
 #include "i2ceeprom.h"
@@ -66,7 +66,7 @@
 #include "sound.h"
 #include "ext_ws.h"
 #include "mainc_functions.h"
-#include "IchigoJam.selected/ext_iot.h"
+#include "IchigoJamR.src/ext_iot.h"
 #include "usr.h"
 
 //IchigoJam

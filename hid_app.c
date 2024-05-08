@@ -36,8 +36,8 @@
 
 #include "bsp/board.h"
 #include "tusb.h"
-#include "IchigoJam.selected/screen.h"
-#include "IchigoJam.selected/romajikana.h"
+#include "IchigoJamR.src/screen.h"
+#include "IchigoJamR.src/romajikana.h"
 
 
  //--------------------------------------------------------------------+
