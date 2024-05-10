@@ -183,7 +183,8 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     bool should_reset_last_char = true;
     bool const is_ctrl = report->modifier & (KEYBOARD_MODIFIER_LEFTCTRL | KEYBOARD_MODIFIER_RIGHTCTRL);
     bool const is_shift = report->modifier & (KEYBOARD_MODIFIER_LEFTSHIFT | KEYBOARD_MODIFIER_RIGHTSHIFT);
-    bool const is_alt = report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT);
+    bool const is_alt = (report->modifier & (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_RIGHTALT))
+        || find_key_in_report(report, NOCHG);//ALTか無変換を押していたらtrue
     for (uint8_t i = 0; i < 6; i++) {
         uint8_t keycode = report->keycode[i];
         if (keycode) {

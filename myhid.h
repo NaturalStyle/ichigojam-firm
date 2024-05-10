@@ -297,6 +297,7 @@ uint8_t keycode_to_ascii_ja[128][4] = { HID_KEYCODE_TO_ASCII_JA };
 #define UNDBAR 135 //日本語キーボードのアンダーバー
 #define JAKANA 136 //日本語キーボードのかなキー
 #define YENPIPE 137 //日本語キーボードの¥と|
+#define NOCHG 139 //日本語キーボードの無変換
 
 #ifdef __cplusplus
 
