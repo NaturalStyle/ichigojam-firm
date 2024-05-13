@@ -50,6 +50,7 @@
 
 #define MAX_REPORT  4
 
+extern bool is_deep_sleeping;
 uint8_t keycode2ascii[128][4];
 hid_keyboard_report_t prev_report = { 0, 0, {0} }; // previous report to check key released
 struct long_press {
@@ -178,6 +179,12 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
     static uint8_t last_keycode = 0;
 
     //------------- example code ignore control (non-printable) key affects -------------//
+    if (is_deep_sleeping) {
+        //ディープスリープ直前のエンターが誤って長押しされている判定にならないようにしてから早期リターン
+        prev_report = *report;
+        lp.last_char = 0;
+        return;
+    }
     lp.last_key_report_time = time_us_64();
     bool no_keycode = true;
     bool should_reset_last_char = true;

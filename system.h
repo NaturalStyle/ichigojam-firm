@@ -3,6 +3,7 @@
 
 static uint scb_orig, clock0_orig, clock1_orig;
 static bool awake;
+bool is_deep_sleeping = false;
 
 int getSleepFlag() {
     return IJB_btn(0);
@@ -144,13 +145,12 @@ static int IJB_wait(int n, int active) {
         }
         return 0;
     } else if (n > 0) {
+        //ディープスリープ中はキーボード入力を無効にする
+        is_deep_sleeping = true;
         enterDeepSleep(n / 60);
         //1秒未満は普通のsleepで誤魔化す
-        uint64 start = time_us_64();
-        while (time_us_64() - start < n % 60 * 16666) { //16666 ≒ 1000000 / 60
-            //ESC押しても中断させない
-        }
-        _g.key_flg_esc = 0;//sleep中にESCを押しても押してないことにする
+        sleep_us((n % 60) / 60.0 * 1000000);
+        is_deep_sleeping = false;
     }
     return 0;
 }
