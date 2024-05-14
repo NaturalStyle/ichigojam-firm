@@ -115,6 +115,20 @@ void vram_to_framebuf_all(bool visible_cursor) {
     }
 }
 
+//hid_app.cが複雑になってるので、もっと簡潔に処理できるなら直したい
+void putc_long_press_key() {
+    int save = save_and_disable_interrupts();//割り込みを止めないとなぜかtime-us-64() - lp.last_key_report_timeがオーバーフローする時がある
+    int interval = lp.is_first_putc ? 500000 : 100000;//キーを長押しした時、最初の1回だけ入力の間隔を長くする
+    if (time_us_64() - lp.last_key_report_time > interval) {
+        lp.last_key_report_time = time_us_64();
+        if (lp.last_char != 0) {
+            key_pushc(lp.last_char);
+            lp.is_first_putc = false;
+        }
+    }
+    restore_interrupts(save);
+}
+
 bool timer(repeating_timer_t* rt) {
     frames++;
     psg_tick();
@@ -125,6 +139,7 @@ bool timer(repeating_timer_t* rt) {
     //中でsleep_ms()が呼ばれたときに止まるので、本来タイマーの中でtuh_task()を呼び出してはいけないが、なぜかPicoDVIを動かしていると止まらない
     //pico-sdk/lib/tinyusb/src/osal/osal_pico.h　のosal_task_delay()のsleepをwhileループに置き換えるとPicoDVIなしで一応解決する
     tuh_task();
+    putc_long_press_key();
     return true;
 }
 

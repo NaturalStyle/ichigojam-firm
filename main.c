@@ -61,19 +61,6 @@
 #include "usr.h"
 #include "init.h"
 
-//hid_app.cが複雑になってるので、もっと簡潔に処理できるなら直したい
-void putc_long_press_key() {
-    int save = save_and_disable_interrupts();//割り込みを止めないとなぜかtime-us-64() - lp.last_key_report_timeがオーバーフローする時がある
-    int interval = lp.is_first_putc ? 500000 : 100000;//キーを長押しした時、最初の1回だけ入力の間隔を長くする
-    if (time_us_64() - lp.last_key_report_time > interval) {
-        lp.last_key_report_time = time_us_64();
-        if (lp.last_char != 0) {
-            screen_putc(lp.last_char);
-            lp.is_first_putc = false;
-        }
-    }
-    restore_interrupts(save);
-}
 
 STATIC void exec(char* s) {
 	key_flg.bkinsert = key_flg.insert;
@@ -143,10 +130,7 @@ int main() {
         screen_showCursor(1);
         IJB_random(1);
         int ch = key_getKey();
-        if (ch < 0) {
-            putc_long_press_key();
-            continue;
-        } else if (ch == 0) {
+        if (ch <= 0) {
             continue;
         }
         if (_g.uartmode_txd & 4) { // 1.2b62 UART echo back
