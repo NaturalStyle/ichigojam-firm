@@ -220,6 +220,9 @@ static void process_kbd_report(hid_keyboard_report_t const* report) {
                 if (is_ctrl && ch == ' ') {
                     toggle_kana_mode();
                 } else if (ch == 0) {
+                    if (keycode == 0x48) {//Pause/BreakはF12と同じ動作にする
+                        keycode = 0x45;
+                    }
                     if (0x3a <= keycode && keycode <= 0x45) {
                         put_function_key(keycode);
                     } else if (keycode == 0x39) {
