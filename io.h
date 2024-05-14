@@ -92,7 +92,7 @@ int IJB_btn(int n) {
         int res = 0;
         for (uint8_t i = 0; i < 6; i++) {
             uint8_t keycode = prev_report.keycode[i];
-            uint8_t ascii = keycode2ascii[keycode][0];
+            uint8_t ascii = keycode < 128 ? keycode2ascii[keycode][0] : 0;
             switch (ascii) {
             case LEFT:
                 res |= 1 << 0;
@@ -120,7 +120,7 @@ int IJB_btn(int n) {
     } else {
         for (uint8_t i = 0; i < 6; i++) {
             uint8_t keycode = prev_report.keycode[i];
-            if (keycode) {
+            if (0 < keycode && keycode < 128) {
                 if (n == keycode2ascii[keycode][0] || n == keycode2ascii[keycode][1]) {
                     return true;
                 }
