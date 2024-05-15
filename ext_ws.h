@@ -38,8 +38,10 @@ void __not_in_flash_func(ws_out) (int port, int nled, int repeat) {
 }
 
 /*// __not_in_flash_funcを使えば、アセンブリで書く必要はなさそうだが、一応残しておく
---ここから
+//WS.LEDとしてはまだ不完全なので、必要になったら完成させる
+//--ここから
 #define NOP5 "\tnop\n""\tnop\n""\tnop\n""\tnop\n""\tnop\n" //asm用
+#define SLEEP_100NS NOP5 NOP5 NOP5 NOP5 NOP5
 void __not_in_flash_func(my_ws_out) (int ledarr[], int nled, int repeat) {
     // int ledarr[] = { 0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1 };
     gpio_put(LED, false);
@@ -48,9 +50,9 @@ void __not_in_flash_func(my_ws_out) (int ledarr[], int nled, int repeat) {
 
     asm volatile(
         ""      "movs r2, #208 "     "\n"       //| void* SIO_BASE = 0xd0
-        "\t"    "lsl  r2, r2, #24"   "\n"       //\                       << 24;
-        "\t"    "mov  r3, #4"        "\n"       //  int port = 1 << 2;
-        "\t"    "mov  r4, #0"        "\n"       //  int i = 0;
+        "\t"    "lsls r2, r2, #24"   "\n"       //\                       << 24;
+        "\t"    "movs r3, #4"        "\n"       //  int port = 1 << 2;
+        "\t"    "movs r4, #0"        "\n"       //  int i = 0;
         // "\t"    "bl   L.sleep"       "\n"       //      sleep();
         // "\t"    "bl   L.sleep"       "\n"       //      sleep();
         "L.loop:"                    "\n"       //
@@ -66,7 +68,7 @@ void __not_in_flash_func(my_ws_out) (int ledarr[], int nled, int repeat) {
         "\t"    "str  r3, [r2, #24]" "\n"       //    *(SIO_BASE+24) = port;
         "\t"    "bl   L.sleep"       "\n"       //    sleep();
         "\t"    "bl   L.sleep"       "\n"       //    sleep();
-        "\t"    "add  r4, #4"        "\n"       //    ++i;
+        "\t"    "adds r4, #4"        "\n"       //    ++i;
         "\t"    "b    L.loop"        "\n"       //  }
         "L.sleep:"                   "\n"
         SLEEP_100NS                             //void sleep(){
@@ -78,7 +80,7 @@ void __not_in_flash_func(my_ws_out) (int ledarr[], int nled, int repeat) {
     : "r" (ledarr), "r"(nled)
         : "r1", "r2", "r3", "r4"
         );
-    // restore_interrupts(save);
+    restore_interrupts(save);
 }
 
 void set_ledarr(int ledarr[], int nled) {
@@ -97,6 +99,6 @@ static inline void ws_out(int port, int nled, int repeat) {
     }
     my_ws_out(ledarr, 96, 1);
 }
---ここまで*/
+//--ここまで*/
 
 #endif
