@@ -22,6 +22,8 @@ add_executable(IchigoJam_pico
 	main.c
 )
 
+pico_set_linker_script(IchigoJam_pico ${CMAKE_CURRENT_LIST_DIR}/memmap_ichigojam_pico.ld)
+
 # Make sure TinyUSB can find tusb_config.h
 # main.cと同じ階層にあるtusb_config.hをinclude
 target_include_directories(IchigoJam_pico PUBLIC
