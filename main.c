@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define IJB_PICO_NO_PRINT
+#ifdef IJB_PICO_NO_PRINT
+#define printf(...)
+#endif
 
 //pico-sdk
 #include "pico/stdlib.h"

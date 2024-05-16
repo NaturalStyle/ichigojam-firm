@@ -25,12 +25,6 @@
 
  //pico-examples/usb/host/host_cdc_msc_hid/hid_app.cを拡張
 
-#define HID_APP_C_NO_PRINTF
-#ifdef HID_APP_C_NO_PRINTF
-#define printf //printf
-
-#endif
-
 #ifndef __HID_APP_C__
 #define __HID_APP_C__
 
@@ -315,12 +309,10 @@ static void process_mouse_report(hid_mouse_report_t const* report)
     uint8_t button_changed_mask = report->buttons ^ prev_report.buttons;
     if (button_changed_mask & report->buttons)
     {
-#ifndef HID_APP_C_NO_PRINTF
         printf(" %c%c%c ",
             report->buttons & MOUSE_BUTTON_LEFT ? 'L' : '-',
             report->buttons & MOUSE_BUTTON_MIDDLE ? 'M' : '-',
             report->buttons & MOUSE_BUTTON_RIGHT ? 'R' : '-');
-#endif
     }
 
     //------------- cursor movement -------------//
@@ -444,6 +436,4 @@ void put_function_key(uint8_t key) {
     }
 }
 
-#undef printf
-#undef TU_LOG1
 #endif
