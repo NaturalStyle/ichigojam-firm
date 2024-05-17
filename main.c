@@ -73,16 +73,13 @@ STATIC void exec(char* s) {
 	_g.screen_insertmode = 1;
 	_g.key_flg_esc = 0;
 	screen_showCursor(0);
-	int res = basic_execute(s);
-	//screen_showCursor(1); // 1.4b10
+    int res = basic_execute(s);
 	if (_g.cursory == -1)
 		_g.cursory = 0;
 	if (res == BASIC_RESULT_EXECUTE && !noresmode) {// stop, exec, edit, err
 		put_str("OK\n");
 	}
-	#ifndef IJB_USE_EXCEPTION // 例外使うときには使わないコード
-//	if (res != 2) { // 1.2b36 追加、edit時(==2)以外に限定
-	//if (res == BASIC_RESULT_ERR) { // 1.3b4 エラー停止の時だけ、キークリア
+#ifndef IJB_USE_EXCEPTION // 例外使うときには使わないコード
 	if (res == BASIC_RESULT_STOP_OR_ERR) { // 1.3b4 エラー停止の時だけ、キークリア
 		key_clearKey();
 	}
@@ -98,8 +95,6 @@ int main() {
 
 	char* linebuf = (char*)ram + OFFSET_RAM_LINEBUF;
 	if (*linebuf) {
-		//		put_str(ERR_MESSAGES[ERR_STACK_OVERFLOW - 1]);
-		//		put_chr('\n');
 		if (_g.cursory == -1) { // 1.4.1 前にもってくる
 			_g.cursory = 0;
 		}
@@ -107,21 +102,14 @@ int main() {
 			if (!_g.err) {
 				_g.err = ERR_COMPLEX_EXPRESSION;
 			}
-			basic_printError();
-			//			put_str(ERR_MESSAGES[_g.err - 1]);
-			//			put_chr('\n');
+            basic_printError();
 		}
-		// from exec
-//		screen_showCursor(1);
-	//	if (res != 2) { // 1.2b36 追加、edit時(==2)以外に限定
-		//if (res == BASIC_RESULT_ERR) { // 1.3b4 エラー停止の時だけ、キークリア
+        // from exec
 		key_clearKey(); // 1.3b4 エラー停止の時だけ、キークリア
 
 		key_flg.insert = key_flg.bkinsert;
     }
     while (1) {
-        // put_num(hid_desc.header.bLength); // bCountryCode);
-        //put_num(usb_host.dev_prop.dev_desc.idVendor);
         if (_g.sleepflg) {
             _g.sleepflg = 0;
             //自動起動時は2秒待ってから、ESCが押されていなかったらプログラムを実行する
@@ -134,9 +122,6 @@ int main() {
                 put_str("Break\n");
             } else {
                 *linebuf = 1;
-
-                // #define BOOT_WAIT2 25	// 1.4b10 -> b11 ここに移動
-                //             video_waitSync(BOOT_WAIT2);
                 exec("LRUN");
             }
         }
@@ -148,7 +133,6 @@ int main() {
         }
         if (_g.uartmode_txd & 4) { // 1.2b62 UART echo back
             uart_putc(ch); // 1.3b2
-            //			put_chr(key);
         }
         if (ch == ESC) {
             continue;
@@ -157,8 +141,6 @@ int main() {
         screen_putc(ch);
         if (ch == RETURN) {
             uint8* s = screen_gets();
-
-            //		put_str(s);
             if (*s == '\'') { // 1.1b14
             } else if (*s != 0) {
                 uint8 i;
@@ -167,7 +149,6 @@ int main() {
                     if (!s[i])
                         break;
                 }
-                //				_g.screen_insertmode = 1;
                 if (s[i]) {
                     //					put_str("Too long line\n");
                     put_str("Too long\n"); // 1.2b45

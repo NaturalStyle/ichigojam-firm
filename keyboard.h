@@ -74,11 +74,6 @@ STATIC void put_chr(char c) {
 }
 
 void key_pushc(char c) {
-    /*
-    if (key_nbuf < key_BUF_LEN) { // バッファ一杯ならいれない
-        key_buf[key_nbuf++] = c;
-    }
-    */
     if (*keybuf < KEY_BUF_LEN) {
         (*keybuf)++;
         keybuf[(uint8)*keybuf] = c;
@@ -106,7 +101,6 @@ int key_getKey() {
 }
 
 void key_clearKey() {
-    //	key_kbhit = 0; // ver1.2b5 clear しないように変更
     *keybuf = 0;
 }
 

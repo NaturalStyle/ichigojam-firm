@@ -38,14 +38,11 @@ STATIC void IJB_input(char** line) {
     int8 oy = _g.cursory;
     for (;;) {
         if (stopExecute()) {
-            //screen_putc('\n');
             break;
         }
         int key = key_getKey();
-        //IJB_random(1);
         if (key == '\n') {
             *line = (char*)(vram + ox + SCREEN_W * oy);
-            //screen_putc('\n');
             break;
         } else if (key >= 0 && key != 27 && key != 30 && key != 31 && !((key == '\b' || key == 28) && _g.cursorx == ox)) {
             _g.screen_insertmode = key_flg.insert;
