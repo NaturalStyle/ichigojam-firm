@@ -124,12 +124,21 @@ int main() {
         //put_num(usb_host.dev_prop.dev_desc.idVendor);
         if (_g.sleepflg) {
             _g.sleepflg = 0;
-            *linebuf = 1;
+            //自動起動時は2秒待ってから、ESCが押されていなかったらプログラムを実行する
+            //2秒待つのはロボットに差したときなどにいきなり動かないためと、USBキーボードの接続をするため
+            //ESCで実行しないのはARUNとSLEEPを組み合わせると一生操作できない状態になるので、その対策
+            sleep_ms(2000);
+            int ch = key_getKey();
+            if (ch == ESC) {
+                psg_beep(10, 3);
+                put_str("Break\n");
+            } else {
+                *linebuf = 1;
 
-            // #define BOOT_WAIT2 25	// 1.4b10 -> b11 ここに移動
-            //             video_waitSync(BOOT_WAIT2);
-
-            exec("LRUN");
+                // #define BOOT_WAIT2 25	// 1.4b10 -> b11 ここに移動
+                //             video_waitSync(BOOT_WAIT2);
+                exec("LRUN");
+            }
         }
         screen_showCursor(1);
         IJB_random(1);
