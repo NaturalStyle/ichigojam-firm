@@ -11,7 +11,7 @@
 #define UART_IRQ UART0_IRQ
 #define UART_DEFAULT_BPS 115200
 
-static char* keybuf = (char*)(ram + (OFFSET_RAM_KEYBUF + 1));
+volatile static char* keybuf = (char*)(ram + (OFFSET_RAM_KEYBUF + 1));
 struct keyflg_def key_flg;
 extern uint8_t keycode2ascii[128][4];
 static int uart_baudrate = UART_DEFAULT_BPS;
