@@ -14,6 +14,8 @@
 #define MARGIN_WIDTH ((FRAME_MAX_WIDTH - CHAR_MAX_COLS * FONT_SIZE) / 2)
 #define MARGIN_HEIGHT ((FRAME_MAX_HEIGHT - CHAR_MAX_ROWS * FONT_SIZE) / 2)
 
+#define UART_TX_PIN 0
+#define UART_RX_PIN 1
 #define LED_PIN 25
 
 //pico
@@ -187,6 +189,8 @@ void pico_init() {
     irq_set_exclusive_handler(UART_IRQ, on_uart_rx);
     irq_set_enabled(UART_IRQ, true);
     uart_set_irq_enables(UART_ID, true, false);
+    gpio_pull_up(UART_TX_PIN);
+    gpio_pull_up(UART_RX_PIN);
 
     //ラズパイが動いていることを確認するためにLEDを常時点灯させる
     gpio_init(LED_PIN);
