@@ -128,6 +128,10 @@ INLINE void IJB_reset() {
 }
 
 static int IJB_wait(int n, int active) {
+    if (n < 0 && !video_active()) {//DVIが止まっているときは負のwaitは使えないので早期リターン
+        return 0;
+    }
+
     if (active) {
         if (n < 0) { // ver 1.2b10
             _g.linecnt = 0;
