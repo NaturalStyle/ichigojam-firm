@@ -71,12 +71,8 @@ void io_init() {
     adc_init();
     for (int i = 0; i < 4; i++) {
         uint8 pin = in_pins[i];
-        if (is_adc_pin(pin)) {
-            adc_gpio_init(pin);
-        } else {
-            gpio_init(pin);
-            gpio_pull_up(pin);
-        }
+        gpio_init(pin);
+        gpio_pull_up(pin);
     }
     for (int i = 1; i <= 6; i++) {
         IJB_out(i, 0);
@@ -154,8 +150,6 @@ void IJB_out(int port, int st) {
         if (st >= 0) {//OUT
             gpio_set_dir(pin, GPIO_OUT);
             gpio_put(pin, st);
-        } else if (is_adc_pin(pin)) {//IN(ADCが使えるピン)
-            adc_gpio_init(pin);
         } else if (st == -1) {//IN(プルダウン)
             gpio_pull_down(pin);
         } else if (st == -2) {//IN(プルアップ)
@@ -173,7 +167,16 @@ INLINE int IJB_ana(int n) {
         if (n == 0) {
             n = 9;
         }
-        return get_adc_volt(in_pins[n - 1]);
+        int pin = in_pins[n - 1];
+        if (pin == BTN) {
+            return get_adc_volt(pin);
+        } else {
+            bool is_pull_up = gpio_is_pulled_up(pin);
+            adc_gpio_init(pin);
+            int volt = get_adc_volt(pin);
+            is_pull_up ? gpio_pull_up(pin) : gpio_pull_down(pin);
+            return volt;
+        }
     } else {
         return 0;
     }
