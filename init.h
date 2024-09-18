@@ -1,3 +1,6 @@
+#ifndef __INIT_H__
+#define __INIT_H__
+
 //pico
 // TMDS bit clock 252 MHz
 // DVDD 1.2V (1.1V seems ok too)
@@ -260,3 +263,5 @@ void ichigojam_init() {
     _g.sleepflg = sleepflg;
 
 }
+
+#endif
