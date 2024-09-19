@@ -130,7 +130,7 @@ int IJB_in() {
     int res = 0;
     for (int i = 0; i < IO_PIN_NUM; i++) {
         int pin = in_pins[i];
-        bool bit = is_adc_pin(pin) ? is_adc_high(pin) : gpio_get(pin);
+        bool bit = pin == BTN ? is_adc_high(pin) : gpio_get(pin);
         res |= bit << i;
     }
     return res;
