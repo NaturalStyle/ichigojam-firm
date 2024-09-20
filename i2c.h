@@ -1,5 +1,6 @@
 #ifndef __I2C_H__
 #define __I2C_H__
+#include "all_includes.h"
 
 #define I2C_DEFAULT_BPS 400000
 #define TIMEOUT_US 1000000 //TODO タイムアウト入れるべきか、入れるなら何秒にすべきか検討する

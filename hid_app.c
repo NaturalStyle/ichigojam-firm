@@ -27,6 +27,7 @@
 
 #ifndef __HID_APP_C__
 #define __HID_APP_C__
+#include "all_includes.h"
 
 #include "bsp/board.h"
 #include "tusb.h"

@@ -2,6 +2,8 @@
 // license CC BY-NC-SA 4.0 http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
+#include "all_includes.h"
+
 #define ICHIGOJAM
 
 //#define IJB_BETA // beta or not

@@ -1,5 +1,6 @@
 #ifndef __IO_H__
 #define __IO_H__
+#include "all_includes.h"
 
 #define LED 2
 #define BTN 28

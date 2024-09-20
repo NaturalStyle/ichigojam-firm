@@ -1,5 +1,6 @@
 #ifndef __DISPLAY_H__
 #define __DISPLAY_H__
+#include "all_includes.h"
 
 #define CHAR_MAX_COLS 32
 #define CHAR_MAX_ROWS 24

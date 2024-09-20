@@ -1,5 +1,6 @@
 #ifndef __KEYBOARD_H__
 #define __KEYBOARD_H__
+#include "all_includes.h"
 
 #define KEY_BUF_LEN (SIZE_RAM_KEYBUF - 2)
 #define MODE_US 0

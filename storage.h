@@ -4,6 +4,7 @@
 //フラッシュメモリの容量=2M=0x200000, 1ブロックの容量=0x10000, FLASH_SECTOR_SIZE=0x1000(単位はバイト)
 #ifndef __STORAGE_H__
 #define __STORAGE_H__
+#include "all_includes.h"
 
 #define FLASH_IJ_OFFSET (0x200000 - FLASH_SECTOR_SIZE * 2)//SAVE0,LOAD0で操作するセクタの先頭(一番最後のセクタはKBDの設定値などを保存するのに使うので、その1つ前のセクタ)
 #define EEPROM_OFFSET 100

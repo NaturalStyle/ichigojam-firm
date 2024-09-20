@@ -1,5 +1,6 @@
 #ifndef __SOUND_H__
 #define __SOUND_H__
+#include "all_includes.h"
 
 #define SOUND_PIN 20
 

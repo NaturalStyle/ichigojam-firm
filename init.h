@@ -1,5 +1,6 @@
 #ifndef __INIT_H__
 #define __INIT_H__
+#include "all_includes.h"
 
 //pico
 // TMDS bit clock 252 MHz

@@ -42,6 +42,7 @@
 
 #ifndef __MYHID_H__
 #define __MYHID_H__
+#include "all_includes.h"
 
 #define RETURN '\n'
 #define SFTSP 14 //shift + space

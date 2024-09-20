@@ -2,6 +2,7 @@
 
 #ifndef __EXT_WS_H__
 #define __EXT_WS_H__
+#include "all_includes.h"
 
 #define NOP5 __asm("nop");__asm("nop");__asm("nop");__asm("nop");__asm("nop");
 #define SLEEP_100NS NOP5 NOP5 NOP5 NOP5 NOP5 //クロックは252MHzなので、1クロック約4ns

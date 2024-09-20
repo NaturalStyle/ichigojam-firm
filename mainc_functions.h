@@ -1,4 +1,5 @@
 //IchigoJamのmain.cの中にあった関数群
+#include "all_includes.h"
 
 INLINE int IJB_peek(int ad) {
     if (ad < 0) {

@@ -1,5 +1,6 @@
 #ifndef __SYSTEM_H__
 #define __SYSTEM_H__
+#include "all_includes.h"
 
 static uint scb_orig, clock0_orig, clock1_orig;
 static bool awake;
