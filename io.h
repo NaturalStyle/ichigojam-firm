@@ -80,7 +80,8 @@ void io_init() {
     }
     gpio_init(LED);
     gpio_set_dir(LED, GPIO_OUT);
-    adc_gpio_init(BTN);
+    gpio_init(BTN);
+    gpio_pull_up(BTN);
 }
 
 //keycodeが0でないキーは全て反応する
@@ -131,7 +132,7 @@ int IJB_in() {
     int res = 0;
     for (int i = 0; i < IO_PIN_NUM; i++) {
         int pin = in_pins[i];
-        bool bit = pin == BTN ? is_adc_high(pin) : gpio_get(pin);
+        bool bit = gpio_get(pin);
         res |= bit << i;
     }
     return res;
@@ -169,15 +170,11 @@ INLINE int IJB_ana(int n) {
             n = 9;
         }
         int pin = in_pins[n - 1];
-        if (pin == BTN) {
-            return get_adc_volt(pin);
-        } else {
-            bool is_pull_up = gpio_is_pulled_up(pin);
-            adc_gpio_init(pin);
-            int volt = get_adc_volt(pin);
-            is_pull_up ? gpio_pull_up(pin) : gpio_pull_down(pin);
-            return volt;
-        }
+        bool is_pull_up = gpio_is_pulled_up(pin);
+        adc_gpio_init(pin);
+        int volt = get_adc_volt(pin);
+        is_pull_up ? gpio_pull_up(pin) : gpio_pull_down(pin);
+        return volt;
     } else {
         return 0;
     }
