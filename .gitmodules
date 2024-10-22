@@ -9,7 +9,7 @@
 	url = https://github.com/raspberrypi/pico-playground.git
 [submodule "pico-sdk"]
 	path = pico-sdk
-	url = https://github.com/raspberrypi/pico-sdk.git
+	url = https://github.com/NaturalStyle/pico-sdk.git
 [submodule "PicoDVI"]
 	path = PicoDVI
 	url = https://github.com/mlorenzati/PicoDVI.git
