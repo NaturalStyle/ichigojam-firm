@@ -152,6 +152,7 @@ static int IJB_wait(int n, int active) {
     } else if (n > 0) {
         //ディープスリープ中はキーボード入力を無効にする
         is_deep_sleeping = true;
+        lp.last_char = 0;
         enterDeepSleep(n / 60);
         //1秒未満は普通のsleepで誤魔化す
         sleep_us((n % 60) / 60.0 * 1000000);
