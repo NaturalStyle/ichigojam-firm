@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.13)
 include(pico_sdk_import.cmake)
 include(pico_extras_import.cmake)
 
-project(IchigoJam_pico)
+project(IchigoJam_P)
 
 # initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
@@ -18,23 +18,23 @@ include_directories(
 add_subdirectory(PicoDVI/software/libdvi)
 add_subdirectory(PicoDVI/software/libsprite)
 
-add_executable(IchigoJam_pico
+add_executable(IchigoJam_P
 	main.c
 )
 
-pico_set_linker_script(IchigoJam_pico ${CMAKE_CURRENT_LIST_DIR}/memmap_ichigojam_pico.ld)
+pico_set_linker_script(IchigoJam_P ${CMAKE_CURRENT_LIST_DIR}/memmap_ichigojam_p.ld)
 
 # Make sure TinyUSB can find tusb_config.h
 # main.cと同じ階層にあるtusb_config.hをinclude
-target_include_directories(IchigoJam_pico PUBLIC
+target_include_directories(IchigoJam_P PUBLIC
         ${CMAKE_CURRENT_LIST_DIR})
 
 # PicoDVI/software/apps/mandelbrot/CMakeLists.txt から引用
-target_compile_definitions(IchigoJam_pico PRIVATE
+target_compile_definitions(IchigoJam_P PRIVATE
 	DVI_DEFAULT_SERIAL_CONFIG=${DVI_DEFAULT_SERIAL_CONFIG}
 )
 
-target_link_libraries(IchigoJam_pico PUBLIC
+target_link_libraries(IchigoJam_P PUBLIC
 	pico_stdlib
 	pico_multicore
 	pico_util
@@ -50,8 +50,8 @@ target_link_libraries(IchigoJam_pico PUBLIC
 	hardware_sleep
 )
 
-# pico_enable_stdio_usb(IchigoJam_pico 0)
-pico_enable_stdio_uart(IchigoJam_pico 1)
+# pico_enable_stdio_usb(IchigoJam_P 0)
+pico_enable_stdio_uart(IchigoJam_P 1)
 
 # create map/bin/hex file etc.
-pico_add_extra_outputs(IchigoJam_pico)
+pico_add_extra_outputs(IchigoJam_P)
