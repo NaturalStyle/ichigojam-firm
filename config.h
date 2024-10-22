@@ -14,10 +14,12 @@
 #define PLATFORM_RP2040 8               //### ここに書くべきか、それが問題だ
 #define VER_PLATFORM PLATFORM_RP2040
 
+#define IJB_VER_STR 1.6.0
+
 #ifdef IJB_BETA
 #define IJB_TITLE "IchigoJam BASIC 1.5b rv jig.jp\n"
 #else
-#define IJB_TITLE "IchigoJam BASIC 0.5.0 RP2040\n"//TODO バージョンを変更する
+#define IJB_TITLE "IchigoJam BASIC " STRING2(IJB_VER_STR) " by jig.jp forked by na-s.jp\n"
 #endif
 
 #define ENABLE_I2C_BPS

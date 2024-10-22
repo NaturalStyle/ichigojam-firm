@@ -1,6 +1,6 @@
 #define IJB_PICO_NO_PRINT
-#define IJB_BUILD 0 //TODO 要修正
-#define IJB_VER 255 //TODO 要修正
+#define IJB_BUILD 0
+#define IJB_VER 160
 #include "all_includes.h"
 
 STATIC void exec(char* s) {
