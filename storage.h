@@ -56,6 +56,11 @@ static int IJB_load(int n, uint8* list, int sizelimit, int init) {
     }
     if (0 <= n && n < N_FLASH_STORAGE) {
         const uint8_t* flash = get_flash(calc_flash_offset(n));
+        //TODO IchigoJam以外で使ったことのあるpicoでは正しく判定できないので、別の方法を考える
+        if (*(int16*)flash == -1) {//未使用領域の初期値
+            *(uint16*)list = 0;
+            return -1;
+        }
         memcpy(list, flash, sizelimit);
         return sizelimit;
     } else if (EEPROM_OFFSET <= n && n < EEPROM_OFFSET + EEPROM_SIZE) {
