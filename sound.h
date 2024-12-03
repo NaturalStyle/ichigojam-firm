@@ -19,8 +19,7 @@ void set_tone() {
     static uint16 prev_tone = 0;
     if (prev_tone != _g.psgtone) {
         if (_g.psgtone) {//オン
-            int freq = 60 * 261 / _g.psgtone;   //IchigoJamのソースの式
-            // int freq = 0x7fff / ((_g.psgtone + 1) * 2);  //こっちの式の方が実際の周波数に近い？
+            int freq = 60 * 261 / 2 / _g.psgtone;   //IchigoJamのソースの式 / 2
             int wrap = PICO_CLOCK_FREQ / (freq * CLKDIV) - 1;
             if (wrap < 0) {
                 wrap = 0;
