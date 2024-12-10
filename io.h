@@ -63,7 +63,7 @@ bool is_adc_high(uint pin) {
 }
 
 /*プルの指定
-IN プルアップ(デフォルト)　プルダウンにも変更可能
+IN プルアップ(デフォルト)　フロートにも変更可能
 OUT 指定しない
 ANA 指定しない
 */
@@ -152,8 +152,8 @@ void IJB_out(int port, int st) {
         if (st >= 0) {//OUT
             gpio_set_dir(pin, GPIO_OUT);
             gpio_put(pin, st);
-        } else if (st == -1) {//IN(プルダウン)
-            gpio_pull_down(pin);
+        } else if (st == -1) {//IN(フロート)
+            gpio_disable_pulls(pin);
         } else if (st == -2) {//IN(プルアップ)
             gpio_pull_up(pin);
         }
