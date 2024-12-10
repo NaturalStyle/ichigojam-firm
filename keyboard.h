@@ -19,7 +19,8 @@ static int uart_baudrate = UART_DEFAULT_BPS;
 static uint8_t tflash[FLASH_SECTOR_SIZE];//フラッシュの中身の一部を書き換えてから書き戻すための一時変数、トップレベルで宣言しておかないと画面の描画が止まる？
 
 static inline uint key_getKeyboardID() {
-    return get_flash(get_config_offset())[0];
+    uint mode = get_flash(get_config_offset())[0];
+    return mode == MODE_JA;
 }
 
 void set_keymap(uint mode) {
