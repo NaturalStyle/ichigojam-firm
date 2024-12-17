@@ -2,6 +2,8 @@
 #define __SYSTEM_H__
 #include "all_includes.h"
 
+#define PICO_LED_PIN 25
+
 static uint scb_orig, clock0_orig, clock1_orig;
 static bool awake;
 bool is_deep_sleeping = false;
@@ -101,6 +103,7 @@ static void IJB_sleep() {
     while (IJB_btn(0)) {
         //ボタンを押している間はスリープに入らない
     }
+    gpio_put(PICO_LED_PIN, 0);
     gpio_init(BTN);//ADCのままだと正しく反応しない
     gpio_pull_up(BTN);
     video_off(0);
@@ -153,9 +156,11 @@ static int IJB_wait(int n, int active) {
         //ディープスリープ中はキーボード入力を無効にする
         is_deep_sleeping = true;
         lp.last_char = 0;
+        gpio_put(PICO_LED_PIN, 0);
         enterDeepSleep(n / 60);
         //1秒未満は普通のsleepで誤魔化す
         sleep_us((n % 60) / 60.0 * 1000000);
+        gpio_put(PICO_LED_PIN, 1);
         is_deep_sleeping = false;
     }
     return 0;

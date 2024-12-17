@@ -20,7 +20,6 @@
 
 #define UART_TX_PIN 0
 #define UART_RX_PIN 1
-#define LED_PIN 25
 
 //pico
 static uint16_t framebuf[FRAME_MAX_WIDTH * FRAME_MAX_HEIGHT];
@@ -196,10 +195,10 @@ void pico_init() {
     gpio_pull_up(UART_TX_PIN);
     gpio_pull_up(UART_RX_PIN);
 
-    //ラズパイが動いていることを確認するためにLEDを常時点灯させる
-    gpio_init(LED_PIN);
-    gpio_set_dir(LED_PIN, GPIO_OUT);
-    gpio_put(LED_PIN, 1);
+    //ラズパイが動いていることを確認するために、省電力モード以外のときはLEDを常時点灯させる
+    gpio_init(PICO_LED_PIN);
+    gpio_set_dir(PICO_LED_PIN, GPIO_OUT);
+    gpio_put(PICO_LED_PIN, 1);
 
     // init host stack on configured roothub port
     tuh_init(BOARD_TUH_RHPORT);
