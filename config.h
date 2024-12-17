@@ -14,7 +14,7 @@
 #define PLATFORM_RP2040 8               //### ここに書くべきか、それが問題だ
 #define VER_PLATFORM PLATFORM_RP2040
 
-#define IJB_VER_STR 1.6.0
+#define IJB_VER_STR 1.6.1
 
 #ifdef IJB_BETA
 #define IJB_TITLE "IchigoJam BASIC 1.5b rv jig.jp\n"
