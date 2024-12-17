@@ -8,6 +8,8 @@ static uint scb_orig, clock0_orig, clock1_orig;
 static bool awake;
 bool is_deep_sleeping = false;
 
+//TODO DVIを繋いだ状態でSLEEPやWAITのディープスリープの最中にIchigoJamの電源を落としても、picoの電源が落ちないバグを修正する
+
 int getSleepFlag() {
     return IJB_btn(0);
 }
